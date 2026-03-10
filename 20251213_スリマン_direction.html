@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ディレクションレポート: スリマン</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    background: #fafbfc;
+    line-height: 1.7;
+}
+h1 {
+    font-size: 1.6em;
+    border-bottom: 3px solid #1a73e8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 1.3em;
+    color: #1a73e8;
+    border-left: 4px solid #1a73e8;
+    padding-left: 12px;
+    margin-top: 30px;
+}
+h3 {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+}
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+}
+.meta-item {
+    font-size: 0.9em;
+}
+.meta-label {
+    color: #888;
+    font-size: 0.8em;
+}
+.meta-value {
+    font-weight: 600;
+}
+.section {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+}
+.tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+.tier-a { background: #ffd700; color: #333; }
+.tier-b { background: #e8f0fe; color: #1a73e8; }
+.tier-c { background: #e8f5e9; color: #2e7d32; }
+.emphasis-on {
+    color: #d32f2f;
+    font-weight: 700;
+}
+.emphasis-off {
+    color: #888;
+}
+.timeline-entry {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.timeline-ts {
+    font-family: 'SF Mono', 'Consolas', monospace;
+    color: #1a73e8;
+    font-weight: 600;
+    min-width: 50px;
+    white-space: nowrap;
+}
+.timeline-type {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+}
+.type-telop { background: #fce4ec; color: #c62828; }
+.type-camera { background: #e3f2fd; color: #1565c0; }
+.type-color { background: #fff3e0; color: #e65100; }
+.type-composite { background: #f3e5f5; color: #7b1fa2; }
+.timeline-instruction {
+    flex: 1;
+}
+.priority-high { border-left: 3px solid #d32f2f; padding-left: 8px; }
+.priority-medium { border-left: 3px solid #ff9800; padding-left: 8px; }
+.priority-low { border-left: 3px solid #4caf50; padding-left: 8px; }
+.noun-entry {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+}
+.noun-show { background: #e8f5e9; }
+.noun-hide { background: #fce4ec; }
+.target-scene {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+.target-tier1 { border-color: #1a73e8; background: #e8f0fe; }
+.target-tier2 { border-color: #2e7d32; background: #e8f5e9; }
+.target-both { border-color: #ff9800; background: #fff3e0; }
+.balance-meter {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+.balance-tier1 { background: #1a73e8; }
+.balance-tier2 { background: #2e7d32; }
+.balance-both { background: #ff9800; }
+.strength-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+}
+.highlight-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+}
+.highlight-table th, .highlight-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+.highlight-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+}
+details {
+    margin: 16px 0;
+}
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1a73e8;
+    padding: 8px;
+}
+summary:hover { text-decoration: underline; }
+.transcript {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    max-height: 600px;
+    overflow-y: auto;
+}
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 0.8em;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+a { color: #1a73e8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>ディレクションレポート: スリマン</h1>
+<div class="meta-grid">
+<div class="meta-item"><div class="meta-label">年齢</div><div class="meta-value">30代前半（1992年生まれ）</div></div>
+<div class="meta-item"><div class="meta-label">本業</div><div class="meta-value">外資IT企業でコンサルティング業務。元ビッグフォー勤務、元内資系大手製薬会社MR。</div></div>
+<div class="meta-item"><div class="meta-label">年収</div><div class="meta-value">約1900万円（2000万円弱、2000万が目標で見えてきている段階）</div></div>
+<div class="meta-item"><div class="meta-label">動画時間</div><div class="meta-value">1時間0分</div></div>
+<div class="meta-item"><div class="meta-label">種別</div><div class="meta-value">メンバー撮影素材</div></div>
+<div class="meta-item"><div class="meta-label">ゲスト層</div><div class="meta-value"><span class="tier-badge tier-a">層a（圧倒的に強い）</span></div></div>
+<div class="meta-item"><div class="meta-label">年収演出</div><div class="meta-value"><span class="emphasis-on">強調ON</span></div></div>
+</div>
+</header>
+<section id="guest-classification" class="section">
+<h2>ゲスト層分類 (A-1)</h2>
+<p><span class="tier-badge tier-a">層a（圧倒的に強い）</span>
+（信頼度: high）</p>
+<p><strong>判定理由:</strong> 年収1900万円（1000万以上）</p>
+<p><strong>見せ方テンプレート:</strong> 強さ・ハイキャリアさを前面に押し出す。その人のキャリアの中で最も強い部分にフォーカスした演出。</p>
+</section>
+<section id="income-direction" class="section">
+<h2>年収演出判断 (A-2)</h2>
+<p><strong>判定:</strong> <span class="emphasis-on">
+強調ON</span></p>
+<p><strong>理由:</strong> 年収1900万円（700万以上で無条件強調）</p>
+<p><strong>テロップ提案:</strong> テロップ: 「年収1900万円」を強調表示</p>
+</section>
+<section id="proper-nouns" class="section">
+<h2>固有名詞規制 (A-4)</h2>
+<p>検出された固有名詞はありません。</p>
+</section>
+<section id="direction-timeline" class="section">
+<h2>演出ディレクション (NEW-1)</h2>
+
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[02:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[05:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「もう本当に赤坂で毎日泣いてました。トイレで。」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[05:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[05:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[08:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[10:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「2000万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（2000万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[10:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[14:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「結局パワーカップル、子育てして思ったのは、持続性があんまない。どっかで歪み生まれますよね。」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[14:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[14:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[17:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[22:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「月30万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（月30万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[22:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[28:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[32:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「僕がいつも言うのは、労働市場っていうゲームがあって、資本主義っていうまた別のゲームがある。」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[32:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[32:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[36:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[38:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[42:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[45:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「ゴールはない。楽にならない。ならないってことを理解しておくのが結構重要。」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[45:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[45:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[50:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: 寄り（アップ）で視聴者への直接メッセージ感</div>
+<div style="font-size:0.8em;color:#888;">視聴者への直接メッセージ</div>
+</div>
+</div>
+
+<details>
+<summary>LLMによる追加演出提案</summary>
+<div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
+以下、スリマンさんの動画編集演出ディレクション提案です：
+
+**[00:00] テロップ演出**: 「外資IT×コンサル」部分を金色フォントで強調し、画面右上に「年収1900万」バッジを常時表示
+
+**[05:00] 画角演出**: 「赤坂で毎日泣いてました」発言時にズームイン→「トイレで」でさらにクローズアップ。背景を暗転させてスポットライト効果で感情的な演出
+
+**[08:00] テロップ演出**: 「倍以上」の部分を赤字で拡大表示し、画面下部に「同期との年収格差」というサブタイトルをスライドイン
+
+**[10:00] 色変え演出**: 「2000万でも足りない」発言時に画面全体を金色のオーバーレイで包み、高年収層特有の悩みを視覚的に表現
+
+**[32:00] テロップ演出**: 「労働市場ゲーム vs 資本主義ゲーム」を画面分割で対比表示し、インタビュアーの核心的な発言として強調演出
+</div>
+</details>
+</section>
+<section id="target-checklist" class="section">
+<h2>ターゲット別チェックリスト (A-5)</h2>
+<div class="balance-meter">
+<div class="balance-tier1" style="width:67%"></div>
+<div class="balance-tier2" style="width:33%"></div>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:0.8em;color:#666;">
+<span>1層 6件</span>
+<span>両層 8件</span>
+<span>2層 1件</span>
+</div>
+<p><strong>バランス:</strong> 良好 — 1層・2層のバランスが取れています。</p>
+
+<div class="target-scene target-tier1">
+<strong>[00:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">外資のITでコンサルやってます。ビッグフォーの時とやってることは変わりません。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[02:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">子供が生まれて転勤もなあと思って、東京で働ける仕事ないかなって探してたら、コンサルティング。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[05:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">もう本当に赤坂で毎日泣いてました。トイレで。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[08:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">おそらく倍以上ありますね、話聞いてると。（同期との年収差）</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[10:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">2000万でじゃあ足りるのか足りないのかみたいな。足りないかなぁ。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[14:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">結局パワーカップル、子育てして思ったのは、持続性があんまない。どっかで歪み生まれますよね。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[17:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">住宅ローン控除が全然もらえなかった。妻分がもらえなくなる。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[22:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">5月末ぐらいにちゃんと出品をし始めて…11月30万乗ったって感じですね。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[28:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">キーワードとしては外注化ですね。僕、今まで自分ができればうまくいくと思ったんですよ。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[32:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">僕がいつも言うのは、労働市場っていうゲームがあって、資本主義っていうまた別のゲームがある。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[36:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">やり方とか教材とか、そういうマニュアルは本質的ではない。コミュニティで出てくる生情報は属さないと得られない。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[38:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">入る前はステップや体系的ノウハウに価値を感じてた。入ると価値の転換が起こる。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[42:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">TEKOに入った一番のあれって、個人事業主になるとか、法人も作りましたし、お金の稼ぎ方をちゃんと体感しながら経験できた。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[45:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">ゴールはない。楽にならない。ならないってことを理解しておくのが結構重要。</div>
+</div>
+<div class="target-scene target-tier2">
+<strong>[50:00]</strong> 2層向け — 共感・安心感
+<div style="font-size:0.85em;">本当にサラリーマンの中で、延長線上で考えている選択肢じゃないっていうのがメッセージとして伝えたい。</div>
+</div>
+</section>
+<section id="highlights" class="section">
+<h2>ハイライトシーン</h2>
+<table class="highlight-table">
+<tr><th>時間</th><th>話者</th><th>発言</th><th>分類</th></tr>
+<tr>
+<td>00:00</td>
+<td>スリマン</td>
+<td>外資のITでコンサルやってます。ビッグフォーの時とやってることは変わりません。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>02:00</td>
+<td>スリマン</td>
+<td>子供が生まれて転勤もなあと思って、東京で働ける仕事ないかなって探してたら、コンサルティング。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>05:00</td>
+<td>スリマン</td>
+<td>もう本当に赤坂で毎日泣いてました。トイレで。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>08:00</td>
+<td>スリマン</td>
+<td>おそらく倍以上ありますね、話聞いてると。（同期との年収差）</td>
+<td>実績数字</td>
+</tr><tr>
+<td>10:00</td>
+<td>スリマン</td>
+<td>2000万でじゃあ足りるのか足りないのかみたいな。足りないかなぁ。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>14:00</td>
+<td>スリマン</td>
+<td>結局パワーカップル、子育てして思ったのは、持続性があんまない。どっかで歪み生まれますよね。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>17:00</td>
+<td>スリマン</td>
+<td>住宅ローン控除が全然もらえなかった。妻分がもらえなくなる。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>22:00</td>
+<td>スリマン</td>
+<td>5月末ぐらいにちゃんと出品をし始めて…11月30万乗ったって感じですね。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>28:00</td>
+<td>スリマン</td>
+<td>キーワードとしては外注化ですね。僕、今まで自分ができればうまくいくと思ったんですよ。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>32:00</td>
+<td>インタビュアー</td>
+<td>僕がいつも言うのは、労働市場っていうゲームがあって、資本主義っていうまた別のゲームがある。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>36:00</td>
+<td>スリマン</td>
+<td>やり方とか教材とか、そういうマニュアルは本質的ではない。コミュニティで出てくる生情報は属さないと得られない。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>38:00</td>
+<td>インタビュアー</td>
+<td>入る前はステップや体系的ノウハウに価値を感じてた。入ると価値の転換が起こる。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>42:00</td>
+<td>スリマン</td>
+<td>TEKOに入った一番のあれって、個人事業主になるとか、法人も作りましたし、お金の稼ぎ方をちゃんと体感しながら経験できた。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>45:00</td>
+<td>インタビュアー</td>
+<td>ゴールはない。楽にならない。ならないってことを理解しておくのが結構重要。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>50:00</td>
+<td>スリマン</td>
+<td>本当にサラリーマンの中で、延長線上で考えている選択肢じゃないっていうのがメッセージとして伝えたい。</td>
+<td>メッセージ</td>
+</tr>
+</table>
+</section>
+<details>
+<summary>整形済みトランスクリプト（全文）</summary>
+<div class="transcript"># 対談動画文字起こし：インタビュアー × インタビュアー（インタビュアー）</div>
+</details>
+<footer>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-10 17:08</p>
+</footer>
+</div>
+</body>
+</html>

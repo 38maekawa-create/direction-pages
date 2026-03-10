@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ディレクションレポート: 真生さん</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    background: #fafbfc;
+    line-height: 1.7;
+}
+h1 {
+    font-size: 1.6em;
+    border-bottom: 3px solid #1a73e8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 1.3em;
+    color: #1a73e8;
+    border-left: 4px solid #1a73e8;
+    padding-left: 12px;
+    margin-top: 30px;
+}
+h3 {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+}
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+}
+.meta-item {
+    font-size: 0.9em;
+}
+.meta-label {
+    color: #888;
+    font-size: 0.8em;
+}
+.meta-value {
+    font-weight: 600;
+}
+.section {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+}
+.tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+.tier-a { background: #ffd700; color: #333; }
+.tier-b { background: #e8f0fe; color: #1a73e8; }
+.tier-c { background: #e8f5e9; color: #2e7d32; }
+.emphasis-on {
+    color: #d32f2f;
+    font-weight: 700;
+}
+.emphasis-off {
+    color: #888;
+}
+.timeline-entry {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.timeline-ts {
+    font-family: 'SF Mono', 'Consolas', monospace;
+    color: #1a73e8;
+    font-weight: 600;
+    min-width: 50px;
+    white-space: nowrap;
+}
+.timeline-type {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+}
+.type-telop { background: #fce4ec; color: #c62828; }
+.type-camera { background: #e3f2fd; color: #1565c0; }
+.type-color { background: #fff3e0; color: #e65100; }
+.type-composite { background: #f3e5f5; color: #7b1fa2; }
+.timeline-instruction {
+    flex: 1;
+}
+.priority-high { border-left: 3px solid #d32f2f; padding-left: 8px; }
+.priority-medium { border-left: 3px solid #ff9800; padding-left: 8px; }
+.priority-low { border-left: 3px solid #4caf50; padding-left: 8px; }
+.noun-entry {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+}
+.noun-show { background: #e8f5e9; }
+.noun-hide { background: #fce4ec; }
+.target-scene {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+.target-tier1 { border-color: #1a73e8; background: #e8f0fe; }
+.target-tier2 { border-color: #2e7d32; background: #e8f5e9; }
+.target-both { border-color: #ff9800; background: #fff3e0; }
+.balance-meter {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+.balance-tier1 { background: #1a73e8; }
+.balance-tier2 { background: #2e7d32; }
+.balance-both { background: #ff9800; }
+.strength-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+}
+.highlight-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+}
+.highlight-table th, .highlight-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+.highlight-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+}
+details {
+    margin: 16px 0;
+}
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1a73e8;
+    padding: 8px;
+}
+summary:hover { text-decoration: underline; }
+.transcript {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    max-height: 600px;
+    overflow-y: auto;
+}
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 0.8em;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+a { color: #1a73e8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>ディレクションレポート: 真生さん</h1>
+<div class="meta-grid">
+<div class="meta-item"><div class="meta-label">動画時間</div><div class="meta-value">30分39秒</div></div>
+<div class="meta-item"><div class="meta-label">種別</div><div class="meta-value">メンバー撮影素材</div></div>
+<div class="meta-item"><div class="meta-label">ゲスト層</div><div class="meta-value"><span class="tier-badge tier-b">層b</span></div></div>
+<div class="meta-item"><div class="meta-label">年収演出</div><div class="meta-value"><span class="emphasis-off">強調OFF</span></div></div>
+</div>
+</header>
+<section id="guest-classification" class="section">
+<h2>ゲスト層分類 (A-1)</h2>
+<p><span class="tier-badge tier-b">層b</span>
+（信頼度: low）</p>
+<p><strong>判定理由:</strong> プロファイル情報が不足のためデフォルト分類</p>
+<p><strong>見せ方テンプレート:</strong> 年収以外の文脈で強さを言語化する。在籍企業のブランド力、キャリアパスの希少性、勤務形態の自由度、転職先の年収見込み等を活用。</p>
+</section>
+<section id="income-direction" class="section">
+<h2>年収演出判断 (A-2)</h2>
+<p><strong>判定:</strong> <span class="emphasis-off">
+強調OFF</span></p>
+<p><strong>理由:</strong> プロファイル情報不足</p>
+</section>
+<section id="proper-nouns" class="section">
+<h2>固有名詞規制 (A-4)</h2>
+<p>検出された固有名詞はありません。</p>
+</section>
+<section id="direction-timeline" class="section">
+<h2>演出ディレクション (NEW-1)</h2>
+
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[03:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[15:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「妻にも相談したら『それぐらい回収するぐらい頑張ってよ』みたいな」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[15:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[15:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層bの強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層bの強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[16:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「したら『そんなちまちましたことやらないで一棟買おうよ』って」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[16:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[16:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層bの強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層bの強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[23:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「40万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（40万, 15万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[23:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[30:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「やっぱり経営者って一番求められるのって決断力、即決即断能力だと思うんですよ」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[30:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[30:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層bの強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層bの強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[36:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[42:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[46:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: 寄り（アップ）で視聴者への直接メッセージ感</div>
+<div style="font-size:0.8em;color:#888;">視聴者への直接メッセージ</div>
+</div>
+</div>
+
+<details>
+<summary>LLMによる追加演出提案</summary>
+<div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
+**追加演出ディレクション提案**
+
+**[03:00] テロップ**: 画面下部に「家業（会社経営）× 副業投資家」のテロップを表示。「特殊」発言と合わせて差別化ポイントを強調
+
+**[15:00] 画角/テロップ**: 「椅子を買ってもらいました」の発言直後にズームアップ＋画面上部に小さく「投資への第一歩」テロップ。奥様の理解ある発言部分は暖色系の背景エフェクトで温かみを演出
+
+**[16:00] テロップ/色変え**: 「一棟買おうよ」発言時に画面全体を一瞬ゴールド系に光らせ、画面中央に大きく「一棟買い提案！」のインパクトテロップ。椅子→一棟のスケールアップを視覚的に表現
+
+**[30:00] テロップ**: 「即決即断能力」発言時に画面右側に縦書きで「経営者マインド」テロップ。家業経営という背景と合わせて説得力を強調
+
+**[42:00] 画角/テロップ**: 「寝てんのかこの人たち」発言でクローズアップ＋画面下部に「TEKO生のサポート力」テロップ。コミュニティの結束力をユーモアと共に表現
+</div>
+</details>
+</section>
+<section id="target-checklist" class="section">
+<h2>ターゲット別チェックリスト (A-5)</h2>
+<div class="balance-meter">
+<div class="balance-tier1" style="width:56%"></div>
+<div class="balance-tier2" style="width:44%"></div>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:0.8em;color:#666;">
+<span>1層 2件</span>
+<span>両層 5件</span>
+<span>2層 1件</span>
+</div>
+<p><strong>バランス:</strong> 良好 — 1層・2層のバランスが取れています。</p>
+
+<div class="target-scene target-tier1">
+<strong>[03:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">一期生のまきと申します。年齢はもう34歳です。職種は、ちょっと多分特殊と言いますか、父が経営してる会社に今いてですね</div>
+</div>
+<div class="target-scene target-both">
+<strong>[15:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">妻にも相談したら『それぐらい回収するぐらい頑張ってよ』みたいな。もうやるからには絶対回収するって、それを約束してくれるなら私は応援するよって言って。椅子を買って...</div>
+</div>
+<div class="target-scene target-both">
+<strong>[16:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">したら『そんなちまちましたことやらないで一棟買おうよ』って</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[23:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">海外輸出の方は、ちょっと正直ブレイクスルーはまだできてなくて、マックス行った時で40万。平均すると多分15万ぐらい</div>
+</div>
+<div class="target-scene target-both">
+<strong>[30:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">やっぱり経営者って一番求められるのって決断力、即決即断能力だと思うんですよ</div>
+</div>
+<div class="target-scene target-both">
+<strong>[36:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">自分一人じゃなくて、周りの人の情報とかをインプットしながらやっていける。一人じゃないんだなみたいなのがちょっとマインドとして変わった</div>
+</div>
+<div class="target-scene target-both">
+<strong>[42:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">困ってた時にチャットがあって聞いたら、もう基本即レスじゃないですか。寝てんのかこの人たちと思うぐらい</div>
+</div>
+<div class="target-scene target-tier2">
+<strong>[46:00]</strong> 2層向け — 共感・安心感
+<div style="font-size:0.85em;">これ始めるなら早い方がいいと思います。確実に。なんであんな暇だった時に何もしてなかったんだろうって</div>
+</div>
+</section>
+<section id="highlights" class="section">
+<h2>ハイライトシーン</h2>
+<table class="highlight-table">
+<tr><th>時間</th><th>話者</th><th>発言</th><th>分類</th></tr>
+<tr>
+<td>03:00</td>
+<td>真生</td>
+<td>一期生のまきと申します。年齢はもう34歳です。職種は、ちょっと多分特殊と言いますか、父が経営してる会社に今いてですね</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>15:00</td>
+<td>真生</td>
+<td>妻にも相談したら『それぐらい回収するぐらい頑張ってよ』みたいな。もうやるからには絶対回収するって、それを約束してくれるなら私は応援するよって言って。椅子を買ってもらいました</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>16:00</td>
+<td>真生</td>
+<td>したら『そんなちまちましたことやらないで一棟買おうよ』って</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>23:00</td>
+<td>真生</td>
+<td>海外輸出の方は、ちょっと正直ブレイクスルーはまだできてなくて、マックス行った時で40万。平均すると多分15万ぐらい</td>
+<td>実績数字</td>
+</tr><tr>
+<td>30:00</td>
+<td>真生</td>
+<td>やっぱり経営者って一番求められるのって決断力、即決即断能力だと思うんですよ</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>36:00</td>
+<td>真生</td>
+<td>自分一人じゃなくて、周りの人の情報とかをインプットしながらやっていける。一人じゃないんだなみたいなのがちょっとマインドとして変わった</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>42:00</td>
+<td>真生</td>
+<td>困ってた時にチャットがあって聞いたら、もう基本即レスじゃないですか。寝てんのかこの人たちと思うぐらい</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>46:00</td>
+<td>真生</td>
+<td>これ始めるなら早い方がいいと思います。確実に。なんであんな暇だった時に何もしてなかったんだろうって</td>
+<td>メッセージ</td>
+</tr>
+</table>
+</section>
+<details>
+<summary>整形済みトランスクリプト（全文）</summary>
+<div class="transcript"># TEKO一期生・まきさんインタビュー
+
+### オープニング・導入 [00:00-03:00]
+
+**インタビュアー:** お疲れなのか？
+
+**真生:** いや、疲れてないですけどね。なんなら元気ですけど。
+
+**インタビュアー:** なんか直しあります？指示として何か？
+
+**真生:** いや、この間お伝えしたように、結構入るまでのこの軌跡っていうところを結構皆話したいです。
+
+**インタビュアー:** なるほど。
+
+**真生:** やっぱりさっきちょっとお伝えしたんですけど、新規とか認知の人にも見られてるんで、結構知りたいところってそのキャリアというか、どういう…なんでそこに至ったのかっていうプロセスだと思うので。
+
+**インタビュアー:** なるほど。
+
+**真生:** そこに結構フォーカスしたコンテンツにできたらなと。月何百万とか不動産買いました、これ大事なんですけどそれによってくるっていうか。
+
+**インタビュアー:** なるほど。ありがとうございます。キャリアの葛藤みたいなところですね。
+
+**真生:** めっちゃ特殊だと思います。自分の家業なんで。
+
+**インタビュアー:** 他にもいますよ。なんか家業で二代目でみたいな。
+
+**真生:** あ、でもいますよ。例えば小池さんとかもそうですか？
+
+**インタビュアー:** ああ、そうなんですね。
+
+### 自己紹介 [03:00-08:00]
+
+**インタビュアー:** じゃあ、見ている人にもちょっと分かりやすいように、まきさんの簡単な自己紹介していただきたいんですけど。ニックネーム、年齢、大体の年齢と、今どういった職種でお勤めなのかっていうところをちょっと教えていただきたいです。
+
+**真生:** 一期生のまきと申します。年齢はもう34歳です。職種は、ちょっと多分特殊と言いますか、父が経営してる会社に今いてですね。業界で言うと化粧品の業界です。
+
+私自身、薬剤師の資格も持ってて、その会社で一部私の資格を使ってます。父から、会社のこと考えるんだったら薬剤師の資格を取ってって言われて、会社を継ぐつもりだったので薬学部に入って資格を取りました。
+
+それと同時に新しい事業として、調剤薬局もちょっと開業したいなっていう思いがあるので、今ちょっとその勉強も兼ねて週の半分は調剤薬局で薬剤師として働いてます。
+
+**インタビュアー:** じゃあ半分はお父さんの仕事手伝いながら、半分は薬局で。それは完全に別の会社の雇われでパートとして入ってるような感じなんですね。
+
+**真生:** はい。
+
+**インタビュアー:** それゆくゆく本当に事業開業されるんですか？
+
+**真生:** そうですね。そのつもりで今やってますね。一応二代目で勉強中です。
+
+**インタビュアー:** 二代目なんですね。
+
+**真生:** はい。父が一代目で、今35年目です。
+
+**インタビュアー:** 結構長いですね。すごい。そんな生き残れないですよ、普通。
+
+**真生:** もう本当にいい時も悪い時もあったんですけど、なんとか35年今続けてるって感じですね。
+
+### 家業の危機と新規事業への挑戦 [08:00-15:00]
+
+**インタビュアー:** なんで新規事業で薬局を立ち上げたいと思ってるんですか？
+
+**真生:** 業界的に結構今、過当競争と言いますか、かなり美容品は厳しい業界でして。あくまで私の肌感覚なので正しいのかどうかっていうのはちょっと別なんですけど、昔はやっぱりいい商品を作ったらお店の棚に並んだんですよ。
+
+この商品はこういう成分が入ってて、こういうお肌の悩みの方に使えるよって、それをうまく訴求できればバイヤーさんも「いい商品だね」って言って棚に並べてくれたんですけど、今行って言われるのって「どのインフルエンサー使うの？」とか。
+
+**インタビュアー:** マーケティング施策みたいな。
+
+**真生:** そう、本当にそっちになってて。うちみたいな中小だとそこにかける予算がなくて。プラスコロナがあって、皆さんがお店に行かなくなったっていうのがあって、コロナここ3、4年はかなりうちも厳しかったんですよ。
+
+&gt; **真生:** その波にうまく乗れなかったっていうのは一つ大きな要因で、私も今父の会社に入って8年目になるんですけど、それをこう間近で見てて、この化粧品・美容関係本当だとちょっと厳しいのかなっていうのが一つあって。
+
+私、資格を持ってて、身内にも資格を持ってる者もいるので、薬剤師の資格を持ってるので、ちょっと新事業として一つの柱として、こっちがどうにかなっても会社として続けられるようにっていうところで、今考えてますね。
+
+**インタビュアー:** メーカーでもあるんですね。
+
+**真生:** そうですね。うちはファブレスの企画メーカーですね。
+
+**インタビュアー:** 確かに化粧品とか美容品って多いですよね。
+
+**真生:** もうどこでも作れちゃうっていうのが業界の特徴でありますね。
+
+**インタビュアー:** 確かにそれを聞くと、差別化していくのとか集客していくのっていうのがキモになってきますから。
+
+**真生:** そうなんですよ。
+
+### 収入と家族の支え [15:00-22:00]
+
+**インタビュアー:** 実際どうなんですか？お父さんの会社からもお金いただいてて、薬剤師としてお金いただいてますけど、トータルでどのぐらい年収ですか？
+
+**真生:** 500万ぐらいですね。
+
+**インタビュアー:** 十分じゃないですか？結構お父さんからもちゃんともらえてるんですか？
+
+**真生:** それなりにはもらえてますね。
+
+**インタビュアー:** それでまたなぜ僕らのところ来て海外だったり不動産でも実績出されてると思うんですけど、そこをまた新しくチャレンジしてる背景っていうのはどっから来たんだろうなって思うんですけど。
+
+**真生:** やっぱり一つは、繰り返しになりますけど、やっぱり家業の方がうまくいってなかったので、どうにかしたいって気持ちがあって。妻にも相談したら「それぐらい回収するぐらい頑張ってよ」みたいな。
+
+**インタビュアー:** いい奥さんですね。
+
+&gt; **真生:** もうやるからには絶対回収するって、それを約束してくれるなら私は応援するよって言って。椅子を買ってもらいました。長時間でも疲れないような椅子を買ってもらって。
+
+**インタビュアー:** 聞いたことないです。
+
+**真生:** 本当に頭上がらないんですけど。
+
+**インタビュアー:** 過業も救わないといけないみたいな責任感から来るものですよね。
+
+**真生:** まあ、そうですね。それはありますね、確かに。
+
+**インタビュアー:** でもその奥さんもすごいですね。時期経営者を支える奥様として、すごいこう器が出来上がってます。
+
+**真生:** 頼もしいですね。不動産もやっぱり結構な自己資金払うんですけど、もうそこも「大丈夫だよ」って言って。なんなら自分、最初区分でやろうと思ってたんですよ。
+
+**インタビュアー:** そうですよね。
+
+**真生:** したら「そんなちまちましたことやらないで一棟買おうよ」って。
+
+**インタビュアー:** それは何なんですかね。奥様は元々そういう気質の方なんですか？
+
+**真生:** やっぱりこうドンとしてますからね。私より全然ドンとしてる。どっちかというと自分の方が小心者ですね。
+
+### TEKO入会と実績 [22:00-30:00]
+
+**インタビュアー:** ちょうどそれぐらいの時にプロパーさんのX（Twitter）での投稿を見て、海外輸出のコミュニティを始めますっていうのを見て。やっぱり将来のもう一つ、言うてこの二つは不安定だったので、もう一つちょっと安心できる柱が欲しいなっていう気持ちで入会しました。
+
+**インタビュアー:** 実際やられてみて、もう僕ら一年半ぐらいですかね。
+
+**真生:** そうですね。一期生なのでそれぐらいになると思います。
+
+**インタビュアー:** 海外輸出と不動産の方の実績、簡単に教えていただきたいな。
+
+**真生:** 海外輸出の方は、ちょっと正直ブレイクスルーはまだできてなくて、マックス行った時で40万。それもeBayと、あとトレカを国内で捌いた合算です。平均すると多分15万ぐらいだと思います。
+
+**インタビュアー:** いやいや、もう他の方に比べるとっていうことですよね。
+
+**真生:** 本当に自分は単純に稼働が多分足りてないのかなっていう自己分析ですね。
+
+**インタビュアー:** これ見てる人とか視聴者さんって、これから何かしたい人とかの方が結構多いんですよ。月15万プラス、もしくはブレイクスルーできてないけど40万って、とんでもないことなんですけどね。
+
+**真生:** そうですね。皆さん化け物なんで。
+
+**インタビュアー:** 不動産の方はどうですか？
+
+**真生:** 今年の5月に引き渡しだったので、今月10万ちょっとがキャッシュフローとして手元に残っているような感じで。先々月ちょっと空室が出たんですけど、一ヶ月半ぐらいで埋まったのかな。なんとか埋まったので、また来月からは満室でいけるような形になってるので、また10万ぐらい入ってくるような感じですね。
+
+**インタビュアー:** じゃあ、自分で頑張るぞって決めてやってきて一年半ぐらいかけて、大体25万ぐらいの安定的なものが入ると。
+
+**真生:** まあ、そんな感じですかね。
+
+**インタビュアー:** 一年半でそこまで行けば、しかもだって家業あって、薬剤師やってるわけですよね。もっと自己評価高くてもいいんじゃないですか。
+
+**真生:** 本当ですか？いや、でも周りの人が本当すごすぎて。昨日もオフ会だったじゃないですか、福岡の。話聞いてるとまだまだだなと。
+
+### 経営者マインドとサラリーマンマインドの違い [30:00-35:00]
+
+**インタビュアー:** ある意味、一番リアルにこう経営者・事業者マインドの人と、薬剤師…薬剤師を否定するわけじゃないですけど、サラリーマンマインド的な人たちの狭間にいるわけですよね。この違いって何なんですか？
+
+&gt; **真生:** やっぱり経営者って一番求められるのって決断力、即決即断能力だと思うんですよ。薬剤師で言うと、言われた薬集めて出しときゃいいって言い方悪いですけど、そうなっちゃうから。自分で判断して動っていうのがほとんどない。言われたことをやるだけで。そこがやっぱり大きな、自分でこう決断をして何かを決めるのか、与えられたものをミスなくこなすのか。やっぱそこは全然違う職種だなと思います。
+
+**インタビュアー:** 実際にどうですか？その自分でも事業手伝ってますけど、本当に0から1でテコで海外立ち上げたり、不動産立ち上げたり。やっぱそれはどちらかというとやっぱ経営者に近い形になるんですか？
+
+**真生:** そうですね。経営者感覚だと思いますよ。特に不動産の方は、管理会社から電話かかってきた時、もう「どうしますか？」ってその場で聞かれて結構即決を求められる。これは他の誰にも聞けない、自分が判断して自分がやるしかないですから。そこはやっぱ経営者に近いのかなと思ってますね。
+
+### 困難を乗り越えた体験 [35:00-40:00]
+
+**インタビュアー:** 実際にこう海外輸出と不動産やって一年半やって、仲間の刺激とか奥様からの背中押しもあって、なんかこう自分の中で考え方とか変わった部分ってありますか？思考の癖とか。
+
+**真生:** そうですね。なんか多分最初、その自分がなんとかしなきゃみたいな、自分一人だけでこう抱え込んでたような感じ。それこそ父の会社やばいし、子供二人いるし、どうなる？僕、自分がなんとかしなきゃ、自分がなんとかしなきゃって思ってたんですけど。
+
+&gt; **真生:** やっぱりテコの皆さんの、色々皆さん共有してくださるじゃないですか。それこそ融資の引き方だったりとか、トレカのコツでも皆さん「こういうのだったら鑑定取れましたよ」って共有もらえるし。自分一人じゃなくて、周りの人の情報とかをインプットしながらやっていける。多分個人事業だけど、コミュニティに入ってることによって、一人じゃないんだなみたいなのがちょっとマインドとして変わったっていうところありますかね。一人だったら本当に無理だったと思います。
+
+**インタビュアー:** それきついですよね。
+
+**真生:** 本当にきつかったです。だから普通だったらもうそこで折れてましたけど、やっぱそこで覇王さんをはじめ色んな方にも助けられましたし、皆さんが「買いました」とか。
+
+インタビュアーのコミュニティもなんか色々、こういう銀行だったらこういう特徴があるから、こういう物件っていう情報もどんどん飛び交うようなコミュニティなので。じゃ、ここだったら自分行けるかもとか、そういう気持ちにもなれましたし。妻から背中押されたってのもありましたし。一人じゃないんだなっていうのはやっぱり思ったかな。
+
+### TEKOのバリューと印象 [40:00-45:00]
+
+**インタビュアー:** なんかテコのバリューっていうのはそういうとこに感じますか？
+
+**真生:** いや、本当に。多分そこが一番大きいんじゃないのかなって自分思ってますけどね。困った時に助けてくれる方々がいる。
+
+**インタビュアー:** 相当多分、他のコミュニティ知らないんですけど、昨日もやっぱ他のコミュニティに入ってた方もいらっしゃったじゃないですか。オフ会で。やっぱ全然違うっていうのは言ってたので。
+
+**真生:** 見る目あったのかなと思って、そこに関しては。
+
+**インタビュアー:** それ以外になんか機能面的なところであれば教えてください。
+
+**真生:** やっぱり困ってた時にチャットがあって聞いたら、もう基本即レスじゃないですか。ちょっといつもビビってるんですけど、寝てんのかこの人たちと思うぐらい。
+
+即レスで、しかも講師陣の方以外が答えることもあるじゃないですか。結構最近それ増えてきたと思うんですけど。そうやってやっぱコミュニティとして強くなってるっていうのは、一期生からもう見せつけられてるというか見ているので。
+
+やっぱその機能面で言うとやっぱりそこの困った時に助けてくれるチャットの面と、あとやっぱ合同コンサル。モチベーション落ちてる時とかにやっぱ見ると、かなりそこのメンタル面に助けてもらえます。
+
+### 視聴者へのメッセージ [45:00-49:00]
+
+**インタビュアー:** この視聴者さんって、やっぱキャリアのこう形成の仕方に悩んでたりとか、新しい収入源欲しいと思ってたりとか。そういった人たちに向けて、この一年半やってきて、俺だったらこれは言えるなってことがあれば、なんか伝えていただければなと。
+
+&gt; **真生:** これ始めるなら早い方がいいと思います。確実に。それは確実に言えます。自分が今思ってるのが、なんであんな暇だった時に何もしてなかったんだろうって。学生時代とか正直、時間あったんですよ。だらだらYouTube見たりとかゲームしたりとかしてたので。なんか本当迷ってるんだったら、もう早めに始めた方がいいなっていうのは言えます。
+
+**インタビュアー:** 挑戦したら？
+
+&gt; **真生:** あと、自分はそんなに実績を出してる方じゃないんですけど、やっぱり継続していく大事さ。いくら忙しくても一品だけは出品しようとは思っているので。もう子供が全然寝てくれないとかで、もう正直時間取れない時もあるんですけど、一品だけはなんとかみたいな。多分微々たるものですけど、それでもやっぱ継続って大事。その習慣って意味でも大事だと思いますし。そこは大事かなと思ってますね。
+
+**インタビュアー:** 早く挑戦しろっていうこと。挑戦したら継続しろと。
+
+**真生:** そんな感じですかね。
+
+**インタビュアー:** ありがとうございます。本質的な話なんでね。僕も言いたいのはぶっちゃけ毎回そういうことなんで、それを手を返し品を替え言ってるだけなんで。実践者だから説得力僕あると思うんですけどね。
+
+**真生:** そうですか。
+
+**インタビュアー:** 今日はありがとうございました。
+
+**真生:** いやいや、こちらこそすいません。
+
+**インタビュアー:** ありがとうございました。
+
+**真生:** ありがとうございました。</div>
+</details>
+<footer>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-10 17:07</p>
+</footer>
+</div>
+</body>
+</html>

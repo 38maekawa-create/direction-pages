@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ディレクションレポート: さるビール</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    background: #fafbfc;
+    line-height: 1.7;
+}
+h1 {
+    font-size: 1.6em;
+    border-bottom: 3px solid #1a73e8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 1.3em;
+    color: #1a73e8;
+    border-left: 4px solid #1a73e8;
+    padding-left: 12px;
+    margin-top: 30px;
+}
+h3 {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+}
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+}
+.meta-item {
+    font-size: 0.9em;
+}
+.meta-label {
+    color: #888;
+    font-size: 0.8em;
+}
+.meta-value {
+    font-weight: 600;
+}
+.section {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+}
+.tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+.tier-a { background: #ffd700; color: #333; }
+.tier-b { background: #e8f0fe; color: #1a73e8; }
+.tier-c { background: #e8f5e9; color: #2e7d32; }
+.emphasis-on {
+    color: #d32f2f;
+    font-weight: 700;
+}
+.emphasis-off {
+    color: #888;
+}
+.timeline-entry {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.timeline-ts {
+    font-family: 'SF Mono', 'Consolas', monospace;
+    color: #1a73e8;
+    font-weight: 600;
+    min-width: 50px;
+    white-space: nowrap;
+}
+.timeline-type {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+}
+.type-telop { background: #fce4ec; color: #c62828; }
+.type-camera { background: #e3f2fd; color: #1565c0; }
+.type-color { background: #fff3e0; color: #e65100; }
+.type-composite { background: #f3e5f5; color: #7b1fa2; }
+.timeline-instruction {
+    flex: 1;
+}
+.priority-high { border-left: 3px solid #d32f2f; padding-left: 8px; }
+.priority-medium { border-left: 3px solid #ff9800; padding-left: 8px; }
+.priority-low { border-left: 3px solid #4caf50; padding-left: 8px; }
+.noun-entry {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+}
+.noun-show { background: #e8f5e9; }
+.noun-hide { background: #fce4ec; }
+.target-scene {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+.target-tier1 { border-color: #1a73e8; background: #e8f0fe; }
+.target-tier2 { border-color: #2e7d32; background: #e8f5e9; }
+.target-both { border-color: #ff9800; background: #fff3e0; }
+.balance-meter {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+.balance-tier1 { background: #1a73e8; }
+.balance-tier2 { background: #2e7d32; }
+.balance-both { background: #ff9800; }
+.strength-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+}
+.highlight-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+}
+.highlight-table th, .highlight-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+.highlight-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+}
+details {
+    margin: 16px 0;
+}
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1a73e8;
+    padding: 8px;
+}
+summary:hover { text-decoration: underline; }
+.transcript {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    max-height: 600px;
+    overflow-y: auto;
+}
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 0.8em;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+a { color: #1a73e8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>ディレクションレポート: さるビール</h1>
+<div class="meta-grid">
+<div class="meta-item"><div class="meta-label">年齢</div><div class="meta-value">30代前半</div></div>
+<div class="meta-item"><div class="meta-label">本業</div><div class="meta-value">大手飲料メーカー勤務（営業企画）。市場リサーチ、営業向け提案資料作成、営業同行などを担当。元々は営業職で、自ら手を挙げて企画職へ異動。</div></div>
+<div class="meta-item"><div class="meta-label">年収</div><div class="meta-value">約700万円。上司（40歳）で約1000万円、さらに上で1500万円程度が頭打ち。あと10年で300万円程度しか上がらない見込み。</div></div>
+<div class="meta-item"><div class="meta-label">動画時間</div><div class="meta-value">32分1秒</div></div>
+<div class="meta-item"><div class="meta-label">種別</div><div class="meta-value">メンバー撮影素材</div></div>
+<div class="meta-item"><div class="meta-label">ゲスト層</div><div class="meta-value"><span class="tier-badge tier-b">層b（相対的強さの言語化が必要）</span></div></div>
+<div class="meta-item"><div class="meta-label">年収演出</div><div class="meta-value"><span class="emphasis-on">強調ON</span></div></div>
+</div>
+</header>
+<section id="guest-classification" class="section">
+<h2>ゲスト層分類 (A-1)</h2>
+<p><span class="tier-badge tier-b">層b（相対的強さの言語化が必要）</span>
+（信頼度: medium）</p>
+<p><strong>判定理由:</strong> 年収700万円（1000万未満、相対的強さの言語化が必要）</p>
+<p><strong>見せ方テンプレート:</strong> 年収以外の文脈で強さを言語化する。在籍企業のブランド力、キャリアパスの希少性、勤務形態の自由度、転職先の年収見込み等を活用。</p>
+</section>
+<section id="income-direction" class="section">
+<h2>年収演出判断 (A-2)</h2>
+<p><strong>判定:</strong> <span class="emphasis-on">
+強調ON</span></p>
+<p><strong>理由:</strong> 年収700万円（700万以上で無条件強調）</p>
+<p><strong>テロップ提案:</strong> テロップ: 「年収700万円」を強調表示</p>
+</section>
+<section id="proper-nouns" class="section">
+<h2>固有名詞規制 (A-4)</h2>
+
+<div class="noun-entry noun-hide">
+<strong>キリンビール</strong> — 🔇 伏せる
+<div style="font-size:0.85em;color:#666;">理由: 要約から推定された情報のため安全側に伏せる</div><div style="font-size:0.85em;color:#c62828;">テロップ提案: 誰もが知る飲料業界の超大手企業 / 飲料トップクラスのビールメーカー</div></div>
+</section>
+<section id="direction-timeline" class="section">
+<h2>演出ディレクション (NEW-1)</h2>
+
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[03:30]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[06:30]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[09:30]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「上司の皆さんの収入も分かってくるじゃないですか」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[09:30]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[09:30]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層b（相対的強さの言語化が必要）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層b（相対的強さの言語化が必要）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[11:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「700万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（700万, 1000万, 年収300）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[11:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[13:30]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「自分が思い描いている、家族に与えられる経験とか自分がやりたいことが、今の収入だけで全てできるか...」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[13:30]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[13:30]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層b（相対的強さの言語化が必要）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層b（相対的強さの言語化が必要）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[14:30]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[16:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[21:30]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「20万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（20万, 10万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[21:30]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[23:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「50万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（50万, 100万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[23:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[26:30]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[28:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「未来に対して自分で選択肢を得られるように考えて行動ができるようになった」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[28:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[28:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層b（相対的強さの言語化が必要）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層b（相対的強さの言語化が必要）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[29:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「多くの人がストレスを感じるのは選択肢を狭められたり強要されたりすること」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[29:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[29:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層b（相対的強さの言語化が必要）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層b（相対的強さの言語化が必要）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[30:30]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[33:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[35:30]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[36:30]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[38:30]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[41:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: 寄り（アップ）で視聴者への直接メッセージ感</div>
+<div style="font-size:0.8em;color:#888;">視聴者への直接メッセージ</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[42:30]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「人間ってそんな根本変わらないとかよく言うじゃないですか、特に30代40代だったら」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[42:30]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[42:30]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層b（相対的強さの言語化が必要）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層b（相対的強さの言語化が必要）の強さ演出</div>
+</div>
+</div>
+
+<details>
+<summary>LLMによる追加演出提案</summary>
+<div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
+以下、追加の演出ディレクション提案です：
+
+[03:30] テロップ: 「皆さん多分飲んだことあるだろうなっていうメーカー」の部分で、「誰もが知る大手食品メーカー勤務！」の強調テロップを追加。背景色は信頼感を表すブルー系で表示。
+
+[11:00] 画角/テロップ: 年収700万円の部分でズームイン＋「年収700万円」を大きく強調表示。さらに「上司40歳で1000万円」の部分に「大手企業の給与水準」補足テロップを小さく併記。
+
+[21:30] テロップ/色変え: 「月利益20万円」を金色のテロップで強調表示。「本業700万＋副業240万＝年収940万円！」の計算結果も併記し、層bとしての相対的強さを数値で明確化。
+
+[29:00] 画角/テロップ: 「選択肢を自分で作りに行く」発言時にクローズアップ＋「人生の主導権を握る考え方」のキャッチーなテロップを挿入。背景をゴールド系に変更して重要度を演出。
+
+[33:00] テロップ: 「自分の権利を会社に握らせるな」の引用部分を「&quot;」付きで強調表示し、「大手企業エリートも共感する価値観」の補足テロップで、視聴者への説得力を高める演出を追加。
+</div>
+</details>
+</section>
+<section id="target-checklist" class="section">
+<h2>ターゲット別チェックリスト (A-5)</h2>
+<div class="balance-meter">
+<div class="balance-tier1" style="width:61%"></div>
+<div class="balance-tier2" style="width:39%"></div>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:0.8em;color:#666;">
+<span>1層 6件</span>
+<span>両層 11件</span>
+<span>2層 2件</span>
+</div>
+<p><strong>バランス:</strong> 良好 — 1層・2層のバランスが取れています。</p>
+
+<div class="target-scene target-tier1">
+<strong>[03:30]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">30代前半で、食品メーカーで営業企画をやっています。飲み物とか、皆さん多分飲んだことあるだろうなっていうメーカーです。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[06:30]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">働き方を自分で考えた中で、営業企画の方が家族との時間を捻出しやすいとか、予定が立てやすいとか、そういった面もあり手を挙げました。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[09:30]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">上司の皆さんの収入も分かってくるじゃないですか。そのポジションでこれぐらいもらえるのかとなった時に、拘束時間が平日も休日も問わず結構増える。これが人生として理想...</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[11:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">今大体700万ぐらいの年収で、上司は40歳ぐらいで1000万円ぐらい。あと10年頑張っても年収300万ぐらいしか上がらないかもしれない。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[13:30]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">自分が思い描いている、家族に与えられる経験とか自分がやりたいことが、今の収入だけで全てできるかと言われると、できない。我慢は必要になってくる。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[14:30]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">奥さんが専業主婦で、できればそのまま専業主婦でいさせてあげたい。本人も家庭を支えたいというところが強い。会社が転勤族で定職につきづらいので、副業でカバーできたら...</div>
+</div>
+<div class="target-scene target-both">
+<strong>[16:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">Twitterでプロパーさんの投稿を見て、副業、会社員やりながら副業するって選択肢があるんだなって気づかせていただいた。自分で事業をやる選択肢もあるんだなって初...</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[21:30]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">直近では月の利益で20万円ぐらいが続いてました。関税の影響で先月は10万ちょっとに落ちましたが、当初の目標はクリアしています。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[23:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">他の皆さんで50万から100万の間を安定的に稼がれてる方もいるので、そこは目指す姿としてある。今の目標とのギャップですね。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[26:30]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">不動産に関しての知識を得て、不動産の勉強をしたからマイホームを買えました。時間の使い方と人生のライフプランの考え方も変わりました。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[28:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">未来に対して自分で選択肢を得られるように考えて行動ができるようになった。これが人生の未来を見据えたすごくいい変化です。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[29:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">多くの人がストレスを感じるのは選択肢を狭められたり強要されたりすること。自分で選択肢を作りに行く、選ぼうとする、全部主体的であることが幸福度を高めています。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[30:30]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">海外輸出の実績が上下するだけじゃなく、将来に対して選択肢を自分で考えて作りに行くこと自体が、そもそも幸福度が高い。それを学べた。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[33:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">プロパーさんの発信で『自分の権利を会社に握らせるな』『自分の人生だから会社に依存するだけじゃなく自分でコントロールすべき』というところに共感しました。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[35:30]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">講師の皆さんのクオリティが高い。知識だけじゃなくモチベーション面でも、尻を叩いてくれたり上から引っ張ってくれたり、いろんな角度からフォローしてくれる。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[36:30]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">TEKOのメンバーは本当に素敵な人が多い。頭もいいし優しく協力し合い、ユーモアもある。単純に友達になりたいなと思える人たちと切磋琢磨できる環境がすごく魅力。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[38:30]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">プロパーさんは単なる物販じゃないって言ってますけど、本当にそうで。物販はもちろん本気で取り組みつつ、将来をかなり見据えていろんな知識を共有してくださっている。事...</div>
+</div>
+<div class="target-scene target-tier2">
+<strong>[41:00]</strong> 2層向け — 共感・安心感
+<div style="font-size:0.85em;">興味がある方は参加してみたらいいと思います。リスクは初期費用だけで、それを許容できるならとりあえずやってみたらいい。1年後、価値観や状況もかなりいい方向に変わっ...</div>
+</div>
+<div class="target-scene target-tier2">
+<strong>[42:30]</strong> 2層向け — 共感・安心感
+<div style="font-size:0.85em;">人間ってそんな根本変わらないとかよく言うじゃないですか、特に30代40代だったら。意外と変わるんですよ。ドラスティックな環境変化をしなくなるってだけ。</div>
+</div>
+</section>
+<section id="highlights" class="section">
+<h2>ハイライトシーン</h2>
+<table class="highlight-table">
+<tr><th>時間</th><th>話者</th><th>発言</th><th>分類</th></tr>
+<tr>
+<td>03:30</td>
+<td>さるビール</td>
+<td>30代前半で、食品メーカーで営業企画をやっています。飲み物とか、皆さん多分飲んだことあるだろうなっていうメーカーです。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>06:30</td>
+<td>さるビール</td>
+<td>働き方を自分で考えた中で、営業企画の方が家族との時間を捻出しやすいとか、予定が立てやすいとか、そういった面もあり手を挙げました。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>09:30</td>
+<td>さるビール</td>
+<td>上司の皆さんの収入も分かってくるじゃないですか。そのポジションでこれぐらいもらえるのかとなった時に、拘束時間が平日も休日も問わず結構増える。これが人生として理想の形なのかなって疑問には思ってる。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>11:00</td>
+<td>さるビール</td>
+<td>今大体700万ぐらいの年収で、上司は40歳ぐらいで1000万円ぐらい。あと10年頑張っても年収300万ぐらいしか上がらないかもしれない。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>13:30</td>
+<td>さるビール</td>
+<td>自分が思い描いている、家族に与えられる経験とか自分がやりたいことが、今の収入だけで全てできるかと言われると、できない。我慢は必要になってくる。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>14:30</td>
+<td>さるビール</td>
+<td>奥さんが専業主婦で、できればそのまま専業主婦でいさせてあげたい。本人も家庭を支えたいというところが強い。会社が転勤族で定職につきづらいので、副業でカバーできたらいいなと。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>16:00</td>
+<td>さるビール</td>
+<td>Twitterでプロパーさんの投稿を見て、副業、会社員やりながら副業するって選択肢があるんだなって気づかせていただいた。自分で事業をやる選択肢もあるんだなって初めて知った。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>21:30</td>
+<td>さるビール</td>
+<td>直近では月の利益で20万円ぐらいが続いてました。関税の影響で先月は10万ちょっとに落ちましたが、当初の目標はクリアしています。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>23:00</td>
+<td>さるビール</td>
+<td>他の皆さんで50万から100万の間を安定的に稼がれてる方もいるので、そこは目指す姿としてある。今の目標とのギャップですね。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>26:30</td>
+<td>さるビール</td>
+<td>不動産に関しての知識を得て、不動産の勉強をしたからマイホームを買えました。時間の使い方と人生のライフプランの考え方も変わりました。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>28:00</td>
+<td>さるビール</td>
+<td>未来に対して自分で選択肢を得られるように考えて行動ができるようになった。これが人生の未来を見据えたすごくいい変化です。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>29:00</td>
+<td>さるビール</td>
+<td>多くの人がストレスを感じるのは選択肢を狭められたり強要されたりすること。自分で選択肢を作りに行く、選ぼうとする、全部主体的であることが幸福度を高めています。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>30:30</td>
+<td>さるビール</td>
+<td>海外輸出の実績が上下するだけじゃなく、将来に対して選択肢を自分で考えて作りに行くこと自体が、そもそも幸福度が高い。それを学べた。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>33:00</td>
+<td>さるビール</td>
+<td>プロパーさんの発信で『自分の権利を会社に握らせるな』『自分の人生だから会社に依存するだけじゃなく自分でコントロールすべき』というところに共感しました。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>35:30</td>
+<td>さるビール</td>
+<td>講師の皆さんのクオリティが高い。知識だけじゃなくモチベーション面でも、尻を叩いてくれたり上から引っ張ってくれたり、いろんな角度からフォローしてくれる。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>36:30</td>
+<td>さるビール</td>
+<td>TEKOのメンバーは本当に素敵な人が多い。頭もいいし優しく協力し合い、ユーモアもある。単純に友達になりたいなと思える人たちと切磋琢磨できる環境がすごく魅力。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>38:30</td>
+<td>さるビール</td>
+<td>プロパーさんは単なる物販じゃないって言ってますけど、本当にそうで。物販はもちろん本気で取り組みつつ、将来をかなり見据えていろんな知識を共有してくださっている。事業者としてすごい方だなと思います。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>41:00</td>
+<td>さるビール</td>
+<td>興味がある方は参加してみたらいいと思います。リスクは初期費用だけで、それを許容できるならとりあえずやってみたらいい。1年後、価値観や状況もかなりいい方向に変わったと思ってます。</td>
+<td>メッセージ</td>
+</tr><tr>
+<td>42:30</td>
+<td>さるビール</td>
+<td>人間ってそんな根本変わらないとかよく言うじゃないですか、特に30代40代だったら。意外と変わるんですよ。ドラスティックな環境変化をしなくなるってだけ。</td>
+<td>パンチライン</td>
+</tr>
+</table>
+</section>
+<details>
+<summary>整形済みトランスクリプト（全文）</summary>
+<div class="transcript"># さるビール氏インタビュー</div>
+</details>
+<footer>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-10 17:07</p>
+</footer>
+</div>
+</body>
+</html>
