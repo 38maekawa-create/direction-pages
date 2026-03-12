@@ -187,6 +187,166 @@ footer {
 }
 a { color: #1a73e8; text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
 </style>
 </head>
 <body>
@@ -455,15 +615,17 @@ a:hover { text-decoration: underline; }
 <details>
 <summary>LLMによる追加演出提案</summary>
 <div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
-以下、追加の演出ディレクション提案を4つ生成いたします：
+以下、追加の演出ディレクション提案です：
 
-**[08:00] テロップ（強調）**: 「1500万円」の数字部分を金色のグラデーション効果で装飾し、「元A社マネージャー時代」という補足テロップを数字の下に小さく追加。画面右上に「大手コンサル実績」のアイコン表示。
+**[08:00] テロップ演出**: 「1500万円」の数字部分を金色エフェクトで強調し、「元アクセンチュア マネージャー」のテキストを併記。背景に薄く金色のパーティクルエフェクトを追加
 
-**[10:00] 画角・テロップ（最重要数字）**: 「3000万円」発言時にゲストのアップショットに切り替え、数字を画面中央に大きく表示し周囲に光るエフェクトを追加。背景を一瞬ゴールドに変更し、「現在の年収」「層a認定」の補足テロップを併記。
+**[10:00] 画角/テロップ**: 「3000万円」発言時にズームアップ＋画面全体を一瞬ゴールドに色変え。大きく「年収3000万円達成！」のテロップを画面中央に表示（赤文字・白縁取り）
 
-**[22:00] テロップ・色変え（業界洞察）**: 「生成AI」「コンサルティング業界の変化」をキーワード強調し、背景を近未来的なブルー系に変更。「業界のプロが語る未来予測」という上級者感を演出する補足テロップを追加。
+**[15:00] テロップ演出**: 「月単価200-250万円」部分で計算式テロップを表示「月単価250万円 × 12ヶ月 = 年収3000万円！」数字部分は金色で強調
 
-**[35:00] テロップ（副業実績）**: 「月利60万円」を赤色で強調表示し、「副業のみで」という前置きテロップを追加。画面端に「本業3000万 + 副業720万/年」という年収合算の補足情報を小さく表示し、圧倒的な収入力をアピール。
+**[22:00] 色変え/テロップ**: 「生成AIの脅威」発言時に画面を一瞬青暗く変色させ、「元大手コンサルが語る業界の未来」の重厚なテロップを表示
+
+**[35:00] テロップ/画角**: 「月利60万円」でプルアップ＋「副業だけで月60万円！」のインパクトテロップ。さらに「本業3000万円＋副業60万円」の収入構造を図解で表示
 </div>
 </details>
 </section>
@@ -544,6 +706,142 @@ a:hover { text-decoration: underline; }
 <strong>[53:00]</strong> 両層向け — 焦燥感+共感
 <div style="font-size:0.85em;">他に柱があればよりその本業の方に強気に攻められるというか。これしかないとちょっと守りに入っちゃう部分はありますけど、もう1本柱があるとよりこう攻められるっていう...</div>
 </div>
+</section>
+<section id="thumbnail-design" class="section">
+<h2>🖼️ Z型サムネイル指示書</h2>
+<div class="thumbnail-concept">💡 元アクセンチュア1500万円→独立3000万円の成功ストーリーによる転職・独立への憧れ訴求</div>
+<div class="thumbnail-meta">フォント: 太めのゴシック体、左上は特大サイズ（インパクト重視）、数字部分は赤色で強調、その他は白文字で可読性確保 | 背景: 高級感のあるダークネイビー×ゴールドのグラデーション背景（成功・お金をイメージさせる色調）</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-zone zone-top-left">
+<span class="zone-label">左上: フック</span>
+<div class="zone-role">フック（最初に目に入る）</div>
+<div class="zone-content">年収3000万円
+元アクセンチュア</div>
+<div class="zone-color">🎨 「3000万円」は鮮やかな赤色、「元アクセンチュア」は白文字</div>
+<div class="zone-notes">0.2秒で目を引く最強フック。数字を最上段に大きく配置し、ブランド名で信頼性を付加</div>
+</div>
+<div class="thumbnail-zone zone-top-right">
+<span class="zone-label">右上: 人物</span>
+<div class="zone-role">人物シルエット＋属性</div>
+<div class="zone-content">Izuさんのモザイク処理されたシルエット + 「30代中盤
+ITコンサル」のテキスト</div>
+<div class="zone-color">🎨 シルエットは暗めのグレー、属性テキストは明るいゴールド</div>
+<div class="zone-notes">成功者のオーラを演出するライティング効果を加え、ターゲット層が共感しやすい年代・職種を明記</div>
+</div>
+<div class="thumbnail-zone zone-diagonal">
+<span class="zone-label">斜め: コンテンツ</span>
+<div class="zone-role">コンテンツ要素（斜めに視線誘導）</div>
+<div class="zone-content">アクセンチュアのロゴマーク + 矢印 + 独立成功を表すグラフィック（上昇矢印）</div>
+<div class="zone-color">🎨 ロゴは実際の色、矢印はゴールド、グラフは緑色（成長イメージ）</div>
+<div class="zone-notes">非言語要素でストーリーを表現。転職→独立の流れを視覚的に演出し、Z字の動線を作る</div>
+</div>
+<div class="thumbnail-zone zone-bottom-right">
+<span class="zone-label">右下: ベネフィット</span>
+<div class="zone-role">ベネフィット（最後の着地）</div>
+<div class="zone-content">「副業で安心
+本業も強気に」</div>
+<div class="zone-color">🎨 白文字、「安心」「強気」部分のみ黄色でハイライト</div>
+<div class="zone-notes">視聴者が得られる具体的な心理的メリットを提示。現在の仕事に不安を持つ層の課題解決を示唆</div>
+</div>
+</div>
+</section>
+<section id="title-proposals" class="section">
+<h2>📝 タイトル案</h2>
+<div class="title-card recommended">
+<div class="title-badge">⭐ 推奨</div>
+<div class="title-text">年収1500万→利益3000万円のアクセンチュア元マネージャーが副業で月利60万円</div>
+<div class="title-meta">
+<span>🎯 大手コンサル勤務者・高年収サラリーマン・独立志向のビジネスパーソン</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">アクセンチュアの権威性と具体的な収入推移（1500万→3000万→+60万）を一文に集約。検索されやすいキーワード「アクセンチュア」「年収」を冒頭に配置し、副業実績も明示</div>
+</div><div class="title-card">
+
+<div class="title-text">元アクセンチュアが語るAI時代のリスクヘッジ｜本業3000万+副業60万の働き方</div>
+<div class="title-meta">
+<span>🎯 AI脅威を感じるコンサル・ITエンジニア・知識労働者</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">Z理論の「知っている人だけが得をする」構造的情報を意識。AI脅威という時代性のあるフックで関心を引き、具体的な対処法（副業）を示唆</div>
+</div><div class="title-card">
+
+<div class="title-text">激務コンサルが1日3時間副業で月利60万円｜アクセンチュア卒業後の戦略</div>
+<div class="title-meta">
+<span>🎯 激務に悩む高年収サラリーマン・時間効率を重視するビジネスパーソン</span>
+<span>📢 問いかけ系</span>
+</div>
+<div class="title-rationale">「激務なのに副業で結果を出せるのか？」という疑問に対する解答を提示。時間効率（1日3時間）を強調し、同じ境遇の人の関心を引く</div>
+</div><div class="title-card">
+
+<div class="title-text">年収1500万円でも不安だった理由｜アクセンチュア→独立→副業の選択</div>
+<div class="title-meta">
+<span>🎯 </span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「高年収なのになぜ不安？」という意外性でクリックを誘発。マーケティング原則の「心で分ける」セグメント設計を意識し、収入レベルではなく心理状態でターゲティング</div>
+</div>
+</section>
+<section id="video-description" class="section">
+<h2>📋 YouTube概要欄</h2>
+<p style="font-size:0.85em;color:#888;">そのままコピーしてYouTubeの概要欄に貼り付けてください。</p>
+<div class="description-preview" id="description-text">元アクセンチュアマネージャーが独立後、年間利益3000万円を実現。それでもなぜ副業を始めたのか？
+
+AIの台頭によるコンサル業界の将来不安から、収入の柱を複数持つことを決断。本業で月200〜250万円の案件をこなしながら、1日3〜4時間の副業でわずか2〜3ヶ月で月利60万円を達成した実践者の生の声をお届けします。
+
+【今回の主なトピック】
+・元アクセンチュアマネージャーの独立ストーリー（年収1500万円→年間利益3000万円）
+・ITコンサル業界の現状とAI台頭による将来への危機感
+・多忙な本業と並行した効率的な副業実践方法
+・TEKOの海外物販で2〜3ヶ月で月利60万円達成の具体的プロセス
+・副業が本業にもたらす意外な好循環効果
+
+【タイムスタンプ】
+02:30 元アクセンチュアでのキャリア（9年間のITコンサル経験）
+08:00 独立前の年収実績（マネージャー時代：1500万円）
+10:00 独立後の現在の収益（年間利益3000万円）
+15:00 現在の契約形態と単価（月額200〜250万円案件）
+20:00 副業を始めた最大の理由
+22:00 生成AIがコンサル業界に与える影響への危機感
+27:00 TEKOを選んだ決め手（透明性の高い実績公開）
+30:00 本業と副業の両立方法（9時〜18時 + 朝夜の時間活用）
+35:00 海外物販での最高実績（月利60万円達成）
+36:00 TEKOの価値（動画コンテンツと個別サポートの質）
+
+【TEKOで収入の柱を増やしませんか？】
+▼海外物販の詳細はこちら▼
+https://teko-lp.com/
+
+【運営者：プロパー八重洲とLINEで繋がりませんか？】
+▼パラレルキャリア戦略やTEKOについてはLINEから▼
+[LINEリンク]
+
+チャンネル登録はこちらから▼
+@TEKO-公式
+
+【TEKO公式メディア】
+ハイキャリアパーソンの裏側とキャリア、資産形成について発信
+
+【プロパー八重洲公式チャンネルはこちらから】
+@プロパー八重洲キャリア戦略室
+
+【SNS】
+Instagram: [Instagramリンク]
+X（Twitter）: [Xリンク]
+TikTok: [TikTokリンク]
+
+#TEKO #海外物販 #副業 #ハイキャリア #アクセンチュア #ITコンサル #パラレルキャリア #資産形成</div>
+<button class="copy-btn" id="copy-btn" onclick="copyDescription()">📋 概要欄テキストをコピー</button>
+
+<script>
+function copyDescription() {
+    const text = document.getElementById('description-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ コピーしました！';
+        setTimeout(() => { btn.textContent = '📋 概要欄テキストをコピー'; }, 2000);
+    });
+}
+</script>
 </section>
 <section id="highlights" class="section">
 <h2>ハイライトシーン</h2>
@@ -809,7 +1107,7 @@ a:hover { text-decoration: underline; }
 **Izu:** ありがとうございました。</div>
 </details>
 <footer>
-<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-10 17:06</p>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-13 00:18</p>
 </footer>
 </div>
 </body>
