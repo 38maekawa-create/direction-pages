@@ -187,6 +187,166 @@ footer {
 }
 a { color: #1a73e8; text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
 </style>
 </head>
 <body>
@@ -412,17 +572,17 @@ a:hover { text-decoration: underline; }
 <details>
 <summary>LLMによる追加演出提案</summary>
 <div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
-以下、追加演出ディレクション提案です：
+以下、追加の演出ディレクション提案です：
 
-[06:00] テロップ（年収強調）: 「年収900万円」を大きく画面中央に表示、ゴールドのエフェクトで強調演出
+[03:00] テロップ: 「転職で2倍ぐらいになりました」の発言に合わせて、画面右上に「年収2倍UP！」のエフェクトテロップを表示。金色のグラデーションと上昇矢印アニメーション付き
 
-[03:00] テロップ（実績強調）: 「転職で年収2倍UP！」のテロップを赤文字で強調、「2倍」部分を拡大アニメーション
+[06:00] 画角/テロップ: 「今は900万ちょっとです」発言時にクローズアップし、画面下部に「化学メーカー勤務×年収900万円」の強調テロップを3秒間表示。背景に薄く金色のオーバーレイ
 
-[00:00] テロップ（企業ブランド）: 「大手化学メーカー勤務」「輸出業務のプロ」を副題として表示し企業力をアピール
+[15:00] 色変え/テロップ: 「辞めなければ続けていれば負けないと思っています」のパンチライン時に画面全体を一瞬暖色系に変更し、「継続こそが勝利の鍵」のサブテロップを表示
 
-[25:00] 画角（重要発言）: 「無料情報には上限がある」発言時にクローズアップ、背景を暗めにして発言者を強調
+[25:00] テロップ: 「お金を払わなければ本質の情報は入ってこない」発言に対して、画面左下に「40代からの情報投資論」のカテゴリーテロップを挿入
 
-[37:00] テロップ（共感訴求）: 「39歳スタート」「40代でも遅くない！」を大きく表示し、同世代への励ましメッセージを強調
+[37:00] 画角/テロップ: 「40代のおじさん達でもできる」発言時に画角をやや引きにして、「39歳スタート→年収900万達成」の実績テロップを画面右側に配置。信頼感を演出する深めの青色背景
 </div>
 </details>
 </section>
@@ -491,6 +651,150 @@ a:hover { text-decoration: underline; }
 <strong>[38:00]</strong> 2層向け — 共感・安心感
 <div style="font-size:0.85em;">やり続ければ負けることはないので、コツコツと積み上げる大切さというのはあるかなと思います。</div>
 </div>
+</section>
+<section id="thumbnail-design" class="section">
+<h2>🖼️ Z型サムネイル指示書</h2>
+<div class="thumbnail-concept">💡 「40代からでも遅くない」という同世代サラリーマンへの希望と共感を軸とした親近感サムネ</div>
+<div class="thumbnail-meta">フォント: ゴシック系・太字で視認性重視、フックは大きめ（28px相当）、属性情報は中サイズ（18px相当）でバランス調整 | 背景: 落ち着いたネイビー系グラデーション背景で信頼感演出、ビジネス系動画としての品格を保持</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-zone zone-top-left">
+<span class="zone-label">左上: フック</span>
+<div class="zone-role">フック（最初に目に入る）</div>
+<div class="zone-content">40代からでも
+遅くない！</div>
+<div class="zone-color">🎨 白文字＋黄色のアウトライン（突破力重視）</div>
+<div class="zone-notes">0.2秒で視線を掴む最重要エリア。改行で視認性向上、感嘆符で緊急性演出</div>
+</div>
+<div class="thumbnail-zone zone-top-right">
+<span class="zone-label">右上: 人物</span>
+<div class="zone-role">人物シルエット＋属性</div>
+<div class="zone-content">アンディさんシルエット＋「化学メーカー勤務17年
+年収900万→1100万へ」</div>
+<div class="zone-color">🎨 シルエットは濃紺、属性テキストは白文字＋薄い背景板</div>
+<div class="zone-notes">モザイク顔なので体格・服装で40代サラリーマン感を演出。年収アップの矢印で成長を視覚化</div>
+</div>
+<div class="thumbnail-zone zone-diagonal">
+<span class="zone-label">斜め: コンテンツ</span>
+<div class="zone-role">コンテンツ要素（斜めに視線誘導）</div>
+<div class="zone-content">「海外輸出」「不動産投資」のアイコン＋「TEKO最古参」バッジ</div>
+<div class="zone-color">🎨 アイコンはゴールド系、バッジは赤系で権威性演出</div>
+<div class="zone-notes">文字を使わず視覚的要素で副業内容を瞬時に伝達。最古参の権威性で信頼度向上</div>
+</div>
+<div class="thumbnail-zone zone-bottom-right">
+<span class="zone-label">右下: ベネフィット</span>
+<div class="zone-role">ベネフィット（最後の着地）</div>
+<div class="zone-content">2年半継続の
+秘訣とは？</div>
+<div class="zone-color">🎨 白文字＋オレンジ背景の吹き出し形状</div>
+<div class="zone-notes">具体的な継続期間で信憑性確保。疑問形でクリック誘導を強化、吹き出しで親しみやすさ演出</div>
+</div>
+</div>
+</section>
+<section id="title-proposals" class="section">
+<h2>📝 タイトル案</h2>
+<div class="title-card recommended">
+<div class="title-badge">⭐ 推奨</div>
+<div class="title-text">転職で年収2倍→900万40代が副業月利20万達成するまで</div>
+<div class="title-meta">
+<span>🎯 30代後半〜40代の年収アップと副業を両立したいサラリーマン</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">「転職2倍」「900万」「副業月利20万」と具体的な数字を前面に出し、40代からでも遅くないというメッセージを込めた。転職と副業の両立という現実的な成功パターンが刺さる</div>
+</div><div class="title-card">
+
+<div class="title-text">40代化学メーカー勤務が語る「先行者利益」の掴み方</div>
+<div class="title-meta">
+<span>🎯 新しいことを始めるタイミングを見極めたい30-40代ビジネスパーソン</span>
+<span>📢 問いかけ系</span>
+</div>
+<div class="title-rationale">アンディさんのパンチライン「先行者利益」をキーワードに、TEKOコミュニティ参加の動機と成果を訴求。40代という年齢も含めて遅くないメッセージ</div>
+</div><div class="title-card">
+
+<div class="title-text">年収900万でも副業する理由｜海外輸出×不動産投資の実績公開</div>
+<div class="title-meta">
+<span>🎯 ある程度の年収があっても将来不安を感じている高年収サラリーマン</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「なぜ900万でも副業するのか」という疑問を投げかけ、海外輸出と不動産投資の具体的な実績で解決策を提示。地元回帰や子供教育の動機が共感を呼ぶ</div>
+</div><div class="title-card">
+
+<div class="title-text">40代から始めた副業が月利20万｜TEKOコミュニティ最古参の軌跡</div>
+<div class="title-meta">
+<span>🎯 40代で副業を始めることに躊躇している層、コミュニティ参加を検討している層</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「40代から」という年齢的なハードルを乗り越えた成功事例として訴求。「最古参」という権威性と継続力をアピールし、コミュニティの価値も伝える</div>
+</div><div class="title-card">
+
+<div class="title-text">化学メーカー17年勤務が実践｜無料情報の限界と有料の本質</div>
+<div class="title-meta">
+<span>🎯 無料情報に頼っているが成果が出ていない副業初心者〜中級者</span>
+<span>📢 権威系</span>
+</div>
+<div class="title-rationale">アンディさんのパンチライン「無料の情報は上限がある」を軸に、17年の勤務経験という安定感と有料コミュニティの価値を訴求。本質的な情報の重要性を伝える</div>
+</div>
+</section>
+<section id="video-description" class="section">
+<h2>📋 YouTube概要欄</h2>
+<p style="font-size:0.85em;color:#888;">そのままコピーしてYouTubeの概要欄に貼り付けてください。</p>
+<div class="description-preview" id="description-text">40代前半・年収900万円の化学メーカー勤務が語る、TEKOで実現したパラレルキャリア戦略。コロナ禍で人生を見つめ直し、先行者利益を意識して副業に挑戦した結果とは？
+
+【トークサマリー】
+• 転職で年収2倍達成、現在900万円台で柔軟な働き方を実現
+• コロナ禍での人生の見つめ直しとSNS挫折からの学び
+• TEKOとの出会いと先行者利益を意識した初期参加の決断
+• 海外輸出で月利20万円、不動産投資への挑戦実績
+• 2年半継続できた要因：コミュニティの刺激とルーティン化
+• 地元関西への帰還と子供の教育への思いが原動力
+
+【タイムスタンプ】
+00:00 40代前半化学メーカー勤務の自己紹介
+03:00 転職で年収2倍達成の経緯
+06:00 現在の年収900万円台の詳細
+10:00 先行者利益を意識したTEKO参加理由
+15:00 継続こそが成功の鍵「辞めなければ負けない」
+18:00 海外輸出で月利20万円の実績公開
+22:00 不動産投資から学ぶ「豊かさ」の本質
+25:00 有料情報の価値「お金を払わなければ本質は手に入らない」
+28:00 TEKOコミュニティの向上心とスピード感
+30:00 家庭とのバランスについて本音トーク
+
+チャンネル登録はこちらから▼
+@TEKO-公式
+
+【TEKO公式メディア】
+ハイキャリアパーソンの裏側とキャリア、資産形成について発信
+ただ今公開準備中
+
+【TEKOで学ぶパラレルキャリア戦略】
+▼詳細はこちらから▼
+https://teko-lp.com/
+
+【運営者：プロパー八重洲とLINEで繋がりませんか？】
+▼パラレルキャリア戦略やTEKOについてはLINEから▼
+[LINEリンク]
+
+【プロパー八重洲公式チャンネルはこちらから】
+@プロパー八重洲キャリア戦略室
+
+【SNS】
+Instagram: [Instagramリンク]
+X（Twitter）: [Xリンク]
+TikTok: [TikTokリンク]
+
+#TEKO #パラレルキャリア #副業 #化学メーカー #海外輸出 #不動産投資 #40代転職 #年収900万円</div>
+<button class="copy-btn" id="copy-btn" onclick="copyDescription()">📋 概要欄テキストをコピー</button>
+
+<script>
+function copyDescription() {
+    const text = document.getElementById('description-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ コピーしました！';
+        setTimeout(() => { btn.textContent = '📋 概要欄テキストをコピー'; }, 2000);
+    });
+}
+</script>
 </section>
 <section id="highlights" class="section">
 <h2>ハイライトシーン</h2>
@@ -569,7 +873,7 @@ a:hover { text-decoration: underline; }
 <div class="transcript"># 動画文字起こし - 整形版</div>
 </details>
 <footer>
-<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-10 17:08</p>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-13 00:31</p>
 </footer>
 </div>
 </body>
