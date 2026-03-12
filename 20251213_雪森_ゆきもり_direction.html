@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ディレクションレポート: 雪森（ゆきもり）</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    background: #fafbfc;
+    line-height: 1.7;
+}
+h1 {
+    font-size: 1.6em;
+    border-bottom: 3px solid #1a73e8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 1.3em;
+    color: #1a73e8;
+    border-left: 4px solid #1a73e8;
+    padding-left: 12px;
+    margin-top: 30px;
+}
+h3 {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+}
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+}
+.meta-item {
+    font-size: 0.9em;
+}
+.meta-label {
+    color: #888;
+    font-size: 0.8em;
+}
+.meta-value {
+    font-weight: 600;
+}
+.section {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+}
+.tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+.tier-a { background: #ffd700; color: #333; }
+.tier-b { background: #e8f0fe; color: #1a73e8; }
+.tier-c { background: #e8f5e9; color: #2e7d32; }
+.emphasis-on {
+    color: #d32f2f;
+    font-weight: 700;
+}
+.emphasis-off {
+    color: #888;
+}
+.timeline-entry {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.timeline-ts {
+    font-family: 'SF Mono', 'Consolas', monospace;
+    color: #1a73e8;
+    font-weight: 600;
+    min-width: 50px;
+    white-space: nowrap;
+}
+.timeline-type {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+}
+.type-telop { background: #fce4ec; color: #c62828; }
+.type-camera { background: #e3f2fd; color: #1565c0; }
+.type-color { background: #fff3e0; color: #e65100; }
+.type-composite { background: #f3e5f5; color: #7b1fa2; }
+.timeline-instruction {
+    flex: 1;
+}
+.priority-high { border-left: 3px solid #d32f2f; padding-left: 8px; }
+.priority-medium { border-left: 3px solid #ff9800; padding-left: 8px; }
+.priority-low { border-left: 3px solid #4caf50; padding-left: 8px; }
+.noun-entry {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+}
+.noun-show { background: #e8f5e9; }
+.noun-hide { background: #fce4ec; }
+.target-scene {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+.target-tier1 { border-color: #1a73e8; background: #e8f0fe; }
+.target-tier2 { border-color: #2e7d32; background: #e8f5e9; }
+.target-both { border-color: #ff9800; background: #fff3e0; }
+.balance-meter {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+.balance-tier1 { background: #1a73e8; }
+.balance-tier2 { background: #2e7d32; }
+.balance-both { background: #ff9800; }
+.strength-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+}
+.highlight-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+}
+.highlight-table th, .highlight-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+.highlight-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+}
+details {
+    margin: 16px 0;
+}
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1a73e8;
+    padding: 8px;
+}
+summary:hover { text-decoration: underline; }
+.transcript {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    max-height: 600px;
+    overflow-y: auto;
+}
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 0.8em;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+a { color: #1a73e8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>ディレクションレポート: 雪森（ゆきもり）</h1>
+<div class="meta-grid">
+<div class="meta-item"><div class="meta-label">年齢</div><div class="meta-value">31歳</div></div>
+<div class="meta-item"><div class="meta-label">本業</div><div class="meta-value">外資系製薬会社MR（リジェネロン社、2社目）</div></div>
+<div class="meta-item"><div class="meta-label">年収</div><div class="meta-value">年収1000万円（前職700万円から転職で300万円アップ）</div></div>
+<div class="meta-item"><div class="meta-label">動画時間</div><div class="meta-value">33分52秒</div></div>
+<div class="meta-item"><div class="meta-label">種別</div><div class="meta-value">メンバー撮影素材</div></div>
+<div class="meta-item"><div class="meta-label">ゲスト層</div><div class="meta-value"><span class="tier-badge tier-a">層a（圧倒的に強い）</span></div></div>
+<div class="meta-item"><div class="meta-label">年収演出</div><div class="meta-value"><span class="emphasis-on">強調ON</span></div></div>
+</div>
+</header>
+<section id="guest-classification" class="section">
+<h2>ゲスト層分類 (A-1)</h2>
+<p><span class="tier-badge tier-a">層a（圧倒的に強い）</span>
+（信頼度: high）</p>
+<p><strong>判定理由:</strong> 年収1000万円（1000万以上）</p>
+<p><strong>見せ方テンプレート:</strong> 強さ・ハイキャリアさを前面に押し出す。その人のキャリアの中で最も強い部分にフォーカスした演出。</p>
+</section>
+<section id="income-direction" class="section">
+<h2>年収演出判断 (A-2)</h2>
+<p><strong>判定:</strong> <span class="emphasis-on">
+強調ON</span></p>
+<p><strong>理由:</strong> 年収1000万円（700万以上で無条件強調）</p>
+<p><strong>テロップ提案:</strong> テロップ: 「年収1000万円」を強調表示</p>
+</section>
+<section id="proper-nouns" class="section">
+<h2>固有名詞規制 (A-4)</h2>
+<p>検出された固有名詞はありません。</p>
+</section>
+<section id="direction-timeline" class="section">
+<h2>演出ディレクション (NEW-1)</h2>
+
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[08:30]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[11:20]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「700万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（700万, 1000万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[11:20]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[17:45]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「これは2つあって、ひとつやっぱり業界がやっぱりこう不安定なところってやっぱりあるのかな」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[17:45]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[17:45]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[20:15]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「そういう時に例えば、今後未来見据えた時になんか自分が望まないところに住んでくださいとかってなっ...」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[20:15]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[20:15]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[22:30]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「本当に会社が言われるまま、その自分が別に住みたくないとか単身赴任したりとか、ああいうのを受け入...」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[22:30]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[22:30]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[26:40]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「28万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（28万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[26:40]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[36:20]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「やめなければ失敗はないっていうところはあると思うので、もうそれで。」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[36:20]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[36:20]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[43:50]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[46:10]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「やっぱ自分でこう事業してる方って本当にすごいと思うんですよ、私」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[46:10]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[46:10]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[47:25]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「どっちがいい悪いじゃなくてどっちが優劣じゃなくて、どっちも知ってるってことが重要なんですよね。」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[47:25]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[47:25]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層a（圧倒的に強い）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層a（圧倒的に強い）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[49:45]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[53:15]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[56:30]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: 寄り（アップ）で視聴者への直接メッセージ感</div>
+<div style="font-size:0.8em;color:#888;">視聴者への直接メッセージ</div>
+</div>
+</div>
+
+<details>
+<summary>LLMによる追加演出提案</summary>
+<div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
+以下、追加の演出ディレクション提案です：
+
+**[11:20] テロップ（年収強調）**: 「700万円→1000万円」を大きなフォントで画面中央に配置。背景にゴールドのエフェクト追加。「転職で年収300万UP！」のサブテロップも併記。
+
+**[22:30] 画角（パンチライン強調）**: インタビュアーの「全員奴隷だと思います」発言時に画角をアップに切り替え。背景を暗転させ、発言者にスポットライト効果。テロップで「辛辣すぎる本音」を追加。
+
+**[26:40] テロップ（実績数字強調）**: 「副業利益28万円/月」を画面右上に配置。「本業1000万+副業336万（年換算）= 年収1336万円相当」の計算テロップを数秒後に表示。
+
+**[43:50] 色変え（TEKO価値訴求）**: 「世間が広いな」「サラリーマンだけしてると見えなかった世界」発言時に画面全体を温かみのあるオレンジ系に色調変更。背景にTEKOロゴの透かしを薄く配置。
+
+**[53:15] テロップ（層a強調）**: 「外資系製薬MR」「年収1000万」のステータステロップを画面左下に常時表示開始。「TEKO会員の圧倒的レベル」のキャッチコピーも併記し、他の高年収会員との差別化を図る。
+</div>
+</details>
+</section>
+<section id="target-checklist" class="section">
+<h2>ターゲット別チェックリスト (A-5)</h2>
+<div class="balance-meter">
+<div class="balance-tier1" style="width:57%"></div>
+<div class="balance-tier2" style="width:43%"></div>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:0.8em;color:#666;">
+<span>1層 3件</span>
+<span>両層 9件</span>
+<span>2層 1件</span>
+</div>
+<p><strong>バランス:</strong> 良好 — 1層・2層のバランスが取れています。</p>
+
+<div class="target-scene target-tier1">
+<strong>[08:30]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">やっぱり自分で顧客を回るスケジュール組んだりとか、かなり裁量も自分で色々決められるので。副業もその日の中に組み込みやすい職種なのかなと常々感じますね。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[11:20]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">前職の時、700万くらいだったんですけど、そこから（転職で1000万円に）。本当にありがたいんですけど、業界だったりに恵まれてるのもあると思うんですけど。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[17:45]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">これは2つあって、ひとつやっぱり業界がやっぱりこう不安定なところってやっぱりあるのかな。会社に行ってるので、自分がもしそうなった時のなんか心理的な安全性とかに繋...</div>
+</div>
+<div class="target-scene target-both">
+<strong>[20:15]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">そういう時に例えば、今後未来見据えた時になんか自分が望まないところに住んでくださいとかってなった時に、じゃあ年収下げてでもやめよっかなみたいな選択肢とかもしかし...</div>
+</div>
+<div class="target-scene target-both">
+<strong>[22:30]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">本当に会社が言われるまま、その自分が別に住みたくないとか単身赴任したりとか、ああいうのを受け入れてる人は僕は正直全員奴隷だと思います。全員ダサいと思ってます。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[26:40]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">海外物販、物販の方は先月はトータルで利益28万くらい。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[36:20]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">やめなければ失敗はないっていうところはあると思うので、もうそれで。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[43:50]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">やっぱりなんか世間本当に広いなと思ったんですよ。まず世界が本当に世間が広いなと思って。なんかサラリーマンだけしてると絶対なんか見えなかった世界。いろんななんか選...</div>
+</div>
+<div class="target-scene target-both">
+<strong>[46:10]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">やっぱ自分でこう事業してる方って本当にすごいと思うんですよ、私。だって、サラリーマンって、ちょっと失敗とかしても別になんか一定のお給料もらえるじゃないですか。で...</div>
+</div>
+<div class="target-scene target-both">
+<strong>[47:25]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">どっちがいい悪いじゃなくてどっちが優劣じゃなくて、どっちも知ってるってことが重要なんですよね。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[49:45]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">おそらくその会社の仕事だけにフォーカスしてこうなんかその見えてる世界の会社の中でどうしていくかみたいな、視野がすごく狭く来てたのかなっていうのはありますし、なる...</div>
+</div>
+<div class="target-scene target-both">
+<strong>[53:15]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">やっぱり本当にそのすごいろんな方がいらっしゃって、しかもその会社員としても本当になんか素晴らしいというか、年収も高いですし、本当になかなか、そんな企業で働いてる...</div>
+</div>
+<div class="target-scene target-tier2">
+<strong>[56:30]</strong> 2層向け — 共感・安心感
+<div style="font-size:0.85em;">製薬会社と勤めてると、人によるかもしれないですけれども、時間にちょっと余裕があったりとかってする方もやっぱ多いと思うんで、そういう方は一回副業っていう選択肢もち...</div>
+</div>
+</section>
+<section id="thumbnail-design" class="section">
+<h2>🖼️ Z型サムネイル指示書</h2>
+<div class="thumbnail-concept">💡 31歳製薬MRの現実的な副業成功ストーリーで会社員の行動喚起を促す</div>
+<div class="thumbnail-meta">フォント: 太めのゴシック体、左上フックは大きめ（48px相当）、属性情報は中サイズ（24px相当）で視認性重視 | 背景: 深めのネイビーブルー基調で信頼感演出、グラデーションで高級感をプラス</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-zone zone-top-left">
+<span class="zone-label">左上: フック</span>
+<div class="zone-role">フック（最初に目に入る）</div>
+<div class="zone-content">会社員でも
+月28万円！？</div>
+<div class="zone-color">🎨 鮮やかな黄色またはオレンジで強烈なインパクト</div>
+<div class="zone-notes">0.2秒で目を引く最重要エリア。改行で読みやすさ確保、「！？」で驚きと疑問を同時喚起</div>
+</div>
+<div class="thumbnail-zone zone-top-right">
+<span class="zone-label">右上: 人物</span>
+<div class="zone-role">人物シルエット＋属性</div>
+<div class="zone-content">モザイク処理されたスーツ姿のシルエット + 「31歳・外資系製薬MR・年収1000万」のテキスト</div>
+<div class="zone-color">🎨 シルエットは白抜き、属性テキストは白または薄いブルー</div>
+<div class="zone-notes">信頼できるビジネスパーソンの印象を与えるスーツシルエット、年収は強調表示</div>
+</div>
+<div class="thumbnail-zone zone-diagonal">
+<span class="zone-label">斜め: コンテンツ</span>
+<div class="zone-role">コンテンツ要素（斜めに視線誘導）</div>
+<div class="zone-content">トレーディングカードのアイコン + 矢印 + 「副業9ヶ月で」のテキスト</div>
+<div class="zone-color">🎨 薄いグリーンまたはホワイトで上品に</div>
+<div class="zone-notes">トレカ物販を視覚的に表現し、期間の短さで実現可能性をアピール</div>
+</div>
+<div class="thumbnail-zone zone-bottom-right">
+<span class="zone-label">右下: ベネフィット</span>
+<div class="zone-role">ベネフィット（最後の着地）</div>
+<div class="zone-content">「会社に依存しない
+生き方とは？」</div>
+<div class="zone-color">🎨 明るいブルーまたはグリーンで希望を表現</div>
+<div class="zone-notes">視聴者の根本的な悩み（会社依存）に対するソリューション提示で強いクリック動機を創出</div>
+</div>
+</div>
+</section>
+<section id="title-proposals" class="section">
+<h2>📝 タイトル案</h2>
+<div class="title-card recommended">
+<div class="title-badge">⭐ 推奨</div>
+<div class="title-text">31歳外資製薬MR「地方配属が嫌で副業開始→月28万円達成」</div>
+<div class="title-meta">
+<span>🎯 地方配属・転勤リスクに不安を感じるサラリーマン層、特に製薬・MR業界関係者</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「地方配属が嫌」という具体的な動機から副業成功までのストーリーが明確。MRという職種を明記することで業界関係者にも刺さりやすい。転勤族全般にも共感を呼ぶ内容。</div>
+</div><div class="title-card">
+
+<div class="title-text">年収1000万円MRが副業で月28万円「会社依存はダサい」</div>
+<div class="title-meta">
+<span>🎯 高年収だが会社依存状態に危機感を持つサラリーマン層</span>
+<span>📢 問いかけ系</span>
+</div>
+<div class="title-rationale">「会社依存はダサい」という強めのメッセージで、現状に満足している高年収層にも刺激を与える。年収1000万円という数字でクリック率向上を狙える。</div>
+</div><div class="title-card">
+
+<div class="title-text">外資系MR転職で年収300万円UP→さらに副業月28万円の戦略</div>
+<div class="title-meta">
+<span>🎯 転職による年収アップと副業を並行検討している層</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">転職での年収アップ幅（300万円）と副業実績（月28万円）のダブル数字でインパクト大。転職と副業の両軸戦略に関心のある層に刺さる。</div>
+</div><div class="title-card">
+
+<div class="title-text">製薬業界の不安定さに危機感「心理的安全性のため副業開始」</div>
+<div class="title-meta">
+<span>🎯 業界の将来性に不安を感じる製薬・医療系サラリーマン</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">製薬業界特有の不安（早期退職リスク等）に焦点を当て、同業界の人に強く刺さる内容。「心理的安全性」というワードで現代的な働き方観にも訴求。</div>
+</div><div class="title-card">
+
+<div class="title-text">31歳で居住地を選べる人生へ「地方転勤が嫌で脱サラ準備」</div>
+<div class="title-meta">
+<span>🎯 居住地の自由を求める転勤族・地方配属経験者</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「居住地を選べる人生」という価値観に共感する層が多い。転勤や地方配属に悩む多くのサラリーマンの潜在ニーズに直接的に訴求できる。</div>
+</div>
+</section>
+<section id="video-description" class="section">
+<h2>📋 YouTube概要欄</h2>
+<p style="font-size:0.85em;color:#888;">そのままコピーしてYouTubeの概要欄に貼り付けてください。</p>
+<div class="description-preview" id="description-text">31歳外資系製薬MR年収1000万円の方が、地方配属の現実と向き合いながら「居住地を選べる人生」を目指し、副業で月28万円の利益を達成するまでの軌跡をお話しいただきました。
+
+【今回のトーク内容】
+・外資系製薬MRのリアル：転職で年収300万円アップの背景
+・地方配属という「会社依存の現実」への危機感
+・TEKO入会後9ヶ月でトレカ物販月28万円利益達成までの道のり
+・副業を通じた視野の拡大と心理的安全性の獲得
+・「やめなければ失敗はない」投資回収マインドの重要性
+
+【タイムスタンプ】
+08:30 MRの裁量と副業の両立について
+17:45 副業を始めた2つの理由：業界の不安定性
+20:15 「居住地を選べる人生」への渇望
+22:30 会社依存の現実と「奴隷」からの脱却
+26:40 副業実績：月利28万円達成の報告
+36:20 継続の重要性「やめなければ失敗はない」
+43:50 副業を通じて知った「世間の広さ」
+46:10 サラリーマンと起業家、両方知ることの価値
+
+チャンネル登録はこちらから▼
+@TEKO-公式
+
+【TEKO公式メディア】
+ハイキャリアパーソンの裏側とキャリア、資産形成について発信
+ただ今公開準備中
+
+【運営者：プロパー八重洲とLINEで繋がりませんか？】
+▼パラレルキャリア戦略やTEKOについてはLINEから▼
+https://leverage.daive-teko.com/p/lp_youtube_tekoofficial?openExternalBrowser=1
+
+【プロパー八重洲公式チャンネルはこちらから】
+@プロパー八重洲キャリア戦略室
+
+【TEKO詳細はこちら】
+https://teko-lp.com/
+
+【公式SNS】
+Instagram: [Instagram URL]
+X（Twitter）: [Twitter URL]
+TikTok: [TikTok URL]
+
+#外資系製薬 #MR #年収1000万 #副業 #物販 #TEKO #パラレルキャリア #ハイキャリア</div>
+<button class="copy-btn" id="copy-btn" onclick="copyDescription()">📋 概要欄テキストをコピー</button>
+
+<script>
+function copyDescription() {
+    const text = document.getElementById('description-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ コピーしました！';
+        setTimeout(() => { btn.textContent = '📋 概要欄テキストをコピー'; }, 2000);
+    });
+}
+</script>
+</section>
+<section id="highlights" class="section">
+<h2>ハイライトシーン</h2>
+<table class="highlight-table">
+<tr><th>時間</th><th>話者</th><th>発言</th><th>分類</th></tr>
+<tr>
+<td>08:30</td>
+<td>雪森</td>
+<td>やっぱり自分で顧客を回るスケジュール組んだりとか、かなり裁量も自分で色々決められるので。副業もその日の中に組み込みやすい職種なのかなと常々感じますね。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>11:20</td>
+<td>雪森</td>
+<td>前職の時、700万くらいだったんですけど、そこから（転職で1000万円に）。本当にありがたいんですけど、業界だったりに恵まれてるのもあると思うんですけど。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>17:45</td>
+<td>雪森</td>
+<td>これは2つあって、ひとつやっぱり業界がやっぱりこう不安定なところってやっぱりあるのかな。会社に行ってるので、自分がもしそうなった時のなんか心理的な安全性とかに繋がるのかなっていうところが、ありましたね...</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>20:15</td>
+<td>雪森</td>
+<td>そういう時に例えば、今後未来見据えた時になんか自分が望まないところに住んでくださいとかってなった時に、じゃあ年収下げてでもやめよっかなみたいな選択肢とかもしかしたら副業である程度稼げてればそういうとこ...</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>22:30</td>
+<td>インタビュアー</td>
+<td>本当に会社が言われるまま、その自分が別に住みたくないとか単身赴任したりとか、ああいうのを受け入れてる人は僕は正直全員奴隷だと思います。全員ダサいと思ってます。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>26:40</td>
+<td>雪森</td>
+<td>海外物販、物販の方は先月はトータルで利益28万くらい。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>36:20</td>
+<td>雪森</td>
+<td>やめなければ失敗はないっていうところはあると思うので、もうそれで。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>43:50</td>
+<td>雪森</td>
+<td>やっぱりなんか世間本当に広いなと思ったんですよ。まず世界が本当に世間が広いなと思って。なんかサラリーマンだけしてると絶対なんか見えなかった世界。いろんななんか選択肢があって、生き方もたくさんあるんだな...</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>46:10</td>
+<td>雪森</td>
+<td>やっぱ自分でこう事業してる方って本当にすごいと思うんですよ、私。だって、サラリーマンって、ちょっと失敗とかしても別になんか一定のお給料もらえるじゃないですか。でもそんか事業とかってちょっとミスしたらそ...</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>47:25</td>
+<td>インタビュアー</td>
+<td>どっちがいい悪いじゃなくてどっちが優劣じゃなくて、どっちも知ってるってことが重要なんですよね。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>49:45</td>
+<td>雪森</td>
+<td>おそらくその会社の仕事だけにフォーカスしてこうなんかその見えてる世界の会社の中でどうしていくかみたいな、視野がすごく狭く来てたのかなっていうのはありますし、なるべくこう会社で嫌われないようになんか無難...</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>53:15</td>
+<td>雪森</td>
+<td>やっぱり本当にそのすごいろんな方がいらっしゃって、しかもその会社員としても本当になんか素晴らしいというか、年収も高いですし、本当になかなか、そんな企業で働いてる方会えないというか、話せないというか、あ...</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>56:30</td>
+<td>雪森</td>
+<td>製薬会社と勤めてると、人によるかもしれないですけれども、時間にちょっと余裕があったりとかってする方もやっぱ多いと思うんで、そういう方は一回副業っていう選択肢もちょっと頭に入れて、で、興味があればプロパ...</td>
+<td>メッセージ</td>
+</tr>
+</table>
+</section>
+<details>
+<summary>整形済みトランスクリプト（全文）</summary>
+<div class="transcript"># TEKO 1期生・雪森さんインタビュー
+
+### オープニング・自己紹介 [00:00-05:00]
+
+**インタビュアー:** マイクの電源見えますか。では、お願いします。軽くお話をお願いします。まず最初に自己紹介してもらう感じでやるんで。
+
+**雪森:** 分かりました。年齢とか言います？
+
+**インタビュアー:** まあまあ職業とそんな感じで。
+
+**雪森:** 外資系製薬に勤めています。
+
+**インタビュアー:** リジェネロンってどこの会社でしたっけ？
+
+**雪森:** アメリカです。
+
+**インタビュアー:** もう入ってるんですね。
+
+**雪森:** もう入ってます。
+
+**インタビュアー:** はい。じゃあ今日はTEKOのメンバー、1期生ですね。雪森さんとちょっとお酒飲みながら、ああでもない、こうでもないと言いながらやっていきたいと思います。よろしくお願いします。
+
+**雪森:** よろしくお願いします。
+
+（乾杯・雑談）
+
+**インタビュアー:** 飲み会って多いですか？
+
+**雪森:** 月1ぐらいですかね。
+
+**インタビュアー:** めっちゃ少ないですね。その辺もちょっと聞いていきたいなと思うんで、今日はよろしくお願いします。
+
+### 詳細な自己紹介・製薬業界への就職理由 [05:00-10:00]
+
+**インタビュアー:** 雪森さん、改めて自己紹介していただきたいんですけど。あだ名と年代と年齢と、今どういった業界職種でお勤めなのかを教えていただきたいなと思うんですけど。
+
+**雪森:** どうも、雪森と申します。年齢は今年31になります。本業は製薬会社で、外資系の製薬会社で営業職をしている形になります。
+
+**インタビュアー:** いわゆるMRですか。
+
+**雪森:** そうですね。もうプロパさんと同じです。
+
+**インタビュアー:** めちゃくちゃいい仕事ですよね。
+
+**雪森:** もう本当に恵まれてるなと思います。
+
+**インタビュアー:** どういったところが恵まれてるなと思います？
+
+&gt; **雪森:** やっぱり自分で顧客を回るスケジュール組んだりとか、かなり裁量も自分で色々決められるので。副業もその日の中に組み込みやすい職種なのかなと常々感じますね。
+
+**インタビュアー:** 今って何社目とか聞いても大丈夫ですか？
+
+**雪森:** 今2社目ですね。
+
+**インタビュアー:** 転職されてって感じですね。1社目は外資系ではなかったんですか？
+
+**雪森:** 1社目も外資でした。
+
+**インタビュアー:** そもそもなんで製薬選んだのかなってのを聞きたいんですけど、僕の場合だったら金だったんですよ。シンプルに年収高いじゃないですか。で、福利厚生も良さそうみたいな。で、業界的に潰れなさそうみたいな。学生が知りうる範囲で調べて選んだんですけど、雪森さんってなんで選んだんですか？
+
+**雪森:** 僕ももう本当にそうで。お金もやっぱりもらえるし、先輩方に聞いても結構休みとかも取りやすいみたいな話聞いて、ちょっとホワイトそうなところがあって。色々他の業界向けてたんですけど、一番対遇がいいのは製薬会社なのかな、あとは世間体とかも良さそうだなと思って。
+
+**インタビュアー:** 世間体大事ですよ。他の業界どういったとこを受けられたんですか？
+
+**雪森:** 銀行とかちょっと受けてましたね。
+
+**インタビュアー:** メガバンクとか？内定もらったりしてたんですか？
+
+**雪森:** 内定も銀行からもらったりしてましたね。
+
+**インタビュアー:** すごいじゃないですか。そっち行った方が良かったんじゃないですか？もしかしたら年収で言ったら変わらないかもしれないですけどね。
+
+### 転職の経緯と年収 [10:00-15:00]
+
+**インタビュアー:** 実際どうですか？入ってみて、もう31歳だったら8年とか9年目とかだと思うんですけど、年収ってどのぐらいもらってるんですか？
+
+**雪森:** 今1000万くらいまで上がりましたね。
+
+**インタビュアー:** 上がったんですね。転職して上がりました。どのぐらいからどのぐらい？
+
+**雪森:** 前職の時、700万くらいだったんですけど、そこから。その時の経験が評価してもらって。本当にありがたいんですけど、業界だったりに恵まれてるのもあると思うんですけど。
+
+**インタビュアー:** 多分あれじゃないですか、前職でも相当いい成績残されたとかなんかそういうのがあったんじゃないですか。
+
+**雪森:** まあ、転職先が求める経験と結構ドンピシャだったのかなっていう今は思ってるんですけど。
+
+**インタビュアー:** 守護的なんですか？
+
+**雪森:** いやいや、もう本当に運なんです。
+
+**インタビュアー:** 守護できる人みんなそう言いますよ。なんでこう転職されたんですか？そんだけ前の会社でうまく行ってたんだったらそこでもっとやってくっていう選択肢もあったと思うんですけど。
+
+**雪森:** ひとつはちょっと勤務地で、前はちょっと地方にいたんですけど、ちょっと首都圏の方に行きたいなと思ったんで。っていうのがひとつと、あとシンプルにその年収も他の中途で入ってきた方と比べるとやっぱちょっと自分の方が低いなっていうのがあったんで、これ多分転職していったらどんどん上げてけるんじゃないかなと思って。
+
+**インタビュアー:** なんでこう都内の方に行きたいんですか？出世欲みたいな感じですか？
+
+**雪森:** やっぱり会社が重要だと設定してる先生方ってこう、東京だったりとか、多い傾向としてはあるのと、出身もこっちの方なんで、ちょっと戻りたいなと思って。
+
+**インタビュアー:** お結婚されてますよね。
+
+**雪森:** してます。
+
+**インタビュアー:** 家族をみんなでこう、東京の方行きたいなみたいな感じですね。
+
+**雪森:** そうです。
+
+**インタビュアー:** 確かにね。製薬会社のデメリットではないですけど、唯一挙げるとすれば全国転勤って。一回配属されちゃうとなかなかね。
+
+**雪森:** そうなんですよ。
+
+### 地方配属の経験と副業を始めた理由 [15:00-25:00]
+
+**インタビュアー:** じゃあたまたま東京の転職案件の募集があってそこに行ったって感じですか？
+
+**雪森:** いや、もう受ける時に、全国どこに配属されるかは分からない。ただ、希望は出せるみたいな感じではあったんで、東京の方がいいですみたいな形でやって、その希望を叶えてもらったっていう。
+
+**インタビュアー:** 良かったですね。
+
+**雪森:** 良かったんです。本当に運が良かったんです。
+
+**インタビュアー:** それも含めて多分評価してくれたんでしょうね、色々ね。なんかそんだけ前職でも評価され、転職先でも評価され、順風満帆じゃんて思うんですよ。なんでこうわざわざTEKOに来てもらって、海外物販とか不動産とか実際やられてるじゃないですか。言うたら多角化、収入高角化しようとしてるじゃないですか。これなんでなんですか？1000万もらって、なんかその辺聞かせてほしいですね。
+
+&gt; **雪森:** これは2つあって、ひとつやっぱり業界がやっぱりこう不安定なところってやっぱりあるのかな。会社に行ってるので、自分がもしそうなった時のなんか心理的な安全性とかに繋がるのかなっていうところが、ありましたね。
+
+**インタビュアー:** 早期退職って実際身近にありました？
+
+**雪森:** ありましたね。
+
+**インタビュアー:** 前職とかね。
+
+**雪森:** もう本当にたくさんやってるんで。私が聞いた、よく飲んでた同僚とかの会社でも全然あったんで。
+
+**インタビュアー:** そうなんですね。本当に身近に起こってましたし。
+
+**雪森:** そうですね。
+
+**インタビュアー:** 2つ目の理由は何ですか？
+
+**雪森:** 僕、最初、地方だったんですけど、それがもう本当にもうしんどかったんですよ。
+
+**インタビュアー:** よっぽど地方なんじゃないですか、それ？
+
+**雪森:** いや、もうよっぽど地方だったんですよ。本当にそれしんどくて。ただやっぱりこう、その新人の時ってすぐ転職ってしようとしてもやっぱなかなか経験とかもないんでそんなにすぐ転職とかできないんですよね。で、自分の住みたいところとか働く場所ってなかなか選べないじゃないですか。
+
+&gt; **雪森:** で、そういう時に例えば、今後未来見据えた時になんか自分が望まないところに住んでくださいとかってなった時に、じゃあ年収下げてでもやめよっかなみたいな選択肢とかもしかしたら副業である程度稼げてればそういうとこも取れるなっと思って、トータルの人生の幸福ってことを考えた時にやっぱりそういうリスクヘッジみたいなとこにもなるのかなと思ったんで。
+
+**インタビュアー:** 確かに製薬の人TEKOにも多いから早期退職はよく聞くんですけど、雪森さんのように割と地方がちょっときついなっていう人があったりして。やっぱり自分の住み慣れた都会ではないけど、そういうところに足場をなんか築きたいというか、そういう思いが先行してるっていうことですよね。
+
+**雪森:** そうですね。やっぱいろんな選択肢を取れるようにするためにはやっぱお金って1つの重要なファクターなのかなと思ってて。
+
+**インタビュアー:** 間違いないですね。ちょっと雪森さんの地方は何が嫌でした？
+
+**雪森:** もう本当にそうですね。なんか遊びに行くところとかあんまないんですよ。で、出身も首都圏の方だったので、やっぱりギャップがもう凄まじくて。あと、ちょっと場所も結構寒かったんですよ。
+
+**インタビュアー:** 寒いところ。
+
+**雪森:** そうなんですよ。で、もうちょっとこれは大変やなと。
+
+**インタビュアー:** 地方で何してるんですか？
+
+**雪森:** いや、本当にやることがあんまりなくて。休日はもう英語の勉強したりとか、筋トレしたりとか。自己研鑽に。
+
+**インタビュアー:** それはそれでいい気はするけどね。
+
+**雪森:** 逆にあれがあったからなんかそう、その地方に配属されたからそういうことができて、なんかそれが今なんかいい感じに繋がってるのかなっていうのは、ちょっとあるのかなと。
+
+**インタビュアー:** 多少は若干繋がったんですね。確かにね、副収入があって、その今のMR、今の製薬に縛られない生き方ができればね。居住地の安定かな。それは叶えられるでしょうね。僕もやっぱ大阪に帰りたいとかそういうのを、僕は大阪と東京でしか仕事したことないからわからないんだけど、そういうの強かったから副業頑張ってきたってのあったんで、気持ちはめっちゃわかる。
+
+&gt; **インタビュアー:** 本当に会社が言われるまま、その自分が別に住みたくないとか単身赴任したりとか、ああいうのを受け入れてる人は僕は正直全員奴隷だと思います。全員ダサいと思ってます。
+
+**雪森:** まあ、楽しい人は楽しいんかもしれないですけどね。
+
+**インタビュアー:** でも、そういうのを譲れない部分が僕ら共通の部分があるかもしれない。
+
+### TEKOでの活動内容 [25:00-35:00]
+
+**インタビュアー:** 実際のTEKOに入ってもらって活動して今どんぐらい？
+
+**雪森:** 今3月に入ったんで、もう9ヶ月ぐらいですかね。
+
+**インタビュアー:** 結構経ちますね。実際何やられてるんですか？今活動としては。
+
+**雪森:** 活動はトレカをメインでやってますね。
+
+**インタビュアー:** トレカの鑑定して。
+
+**雪森:** そうですね。鑑定して、販売して。
+
+**インタビュアー:** メインの売り先はどこになるんですか？
+
+**雪森:** まあ、海外と、もう国内にもじゃんじゃん出して、両方でやって。
+
+**インタビュアー:** 不動産もやられてますよね。
+
+**雪森:** 不動産も一応コースに入らせていただいて、色々な物件見たりとか現地調査とかは行ってるんですけど、ちょっとまだ買えてなくて。買いたいなと思ってます。
+
+**インタビュアー:** 忙しいと思うんですけど、どういった感じでその1日の中でMRやって、で、海外とか物販やって、で、不動産も見に行ってみたいな。どんな感じでやりくりしてるんですか？1日モデルケース的な感じで言うと。
+
+**雪森:** 仕事から帰ってきた夜に、相場を調べたりとか、メルカリ見て仕入れしたりとか、あとは鑑定に出すための手続きとか、結構もう夜、夜やってますね。大体2時間3時間ぐらい使ってっていうところですかね。
+
+**インタビュアー:** 不動産の物件とかはいつ見てるんですか？
+
+**雪森:** 不動産はそうですね、なんか隙間時間。昼ご飯食べながら携帯見てて感じですね。
+
+**インタビュアー:** なんでこの海外物販と不動産両方やってるんですか？
+
+**雪森:** いや、もう本当にそれは講師の遠藤さんであったりプロパーさんがBSとPLっていうところをおっしゃってるんで、そうなんだろうなと思って。正直、成功者の方がたくさんいらっしゃるんで、ある程度うまくいってるっていうのも分かってるので、正直そこを信頼してる部分はあります。
+
+**インタビュアー:** なるほど。なるほど。実際どうですか？やってみて、どのぐらいこう海外物販としては利益が残ったとか残ってるとかっていうところと、不動産もまあまだ買えてはないと思うんですけどなんかこういうことはできるようになったとかこういう考え方ができるようになったなみたいなことがあったらなんか教えてほしいですけど。
+
+**雪森:** 海外物販、物販の方は先月はトータルで利益28万くらい。
+
+**インタビュアー:** 28万。
+
+**雪森:** はい。
+
+**インタビュアー:** 初任給レベルですね。サイバーエージェントの。
+
+**雪森:** そうですね。最初はもうなんか数万稼げればいいかなと思ったんですけど。
+
+**インタビュアー:** そんな気持ち入ってきたんですか？
+
+**雪森:** なんかやっぱ超えてくるとやっぱりもうちょっとってなって。で、やっぱもうTEKOの皆さん本当にすごい方ばっかりなので私なんかも全然なんですけど、もう本当になんか100万とかやってる方見てはもう自分まだまだなと思って。なんか自分なりにコツコツやって、やっとそれくらいまではいきましたね。
+
+**インタビュアー:** 9ヶ月やってきて、まあ、28万円利益が残るようになってきた。アベレージでは、まあ、15から20ぐらいの感じって感じですか？
+
+**雪森:** そうですね。まあ、10万くらいは安定、トレカもこうサイクルを作れれば作れてきてるんで、10万くらいは大丈夫かなっていうの。
+
+**インタビュアー:** 10万でもね、多分想像してたよりいいって感じですよね、多分。
+
+**雪森:** 最初の入りの想像したものよりは全然今の方がもっと稼げるなと思って。
+
+### 継続できた理由と挫折の経験 [35:00-42:00]
+
+**インタビュアー:** 最初入る時はどういう気持ちで入ったんかな感じ聞きたいんですけど。
+
+**雪森:** 本当に、まあ、5万とか、まあ、5万、10万ぐらいを安定的に稼げてればいいのかなと思ってて。で、やってたんですけど、それはちょっとそうですね。先月がその28万行けたんで、なんかもうちょっといけるな。
+
+**インタビュアー:** ちょっと欲が出てきました。
+
+**雪森:** そうですね。
+
+**インタビュアー:** やっぱみんなあれなんですかね。見えないし、分からないところからは、なんて言うんですかね。先が見えないというか、割と低めに目標設定する人が多い印象ですね。
+
+**雪森:** はい。
+
+**インタビュアー:** なんでこう継続できたんですか？でもなんか結構挫折する人も言った一定割りはいるじゃないですか。雪森さんなんか僕が最初見てる時はこの人挫折するんじゃないかなって思ってたんですけど。
+
+**雪森:** いや、僕最初もう挫折してて、3月に入ったんですけど、なんか最初の初期設定でなんか銀行との、あのペイオニアとのなんかその接続がなんかできなくって。で、なんか1ヶ月何もできなかったんですよ。で、でもそれでなんかちょっとテンション落ちちゃって。
+
+**インタビュアー:** あるあるだね。
+
+**雪森:** で、eBayって結構そのなんかメルカリとかと違って直感的に操作ってできないじゃないですか。
+
+**インタビュアー:** 難しい。
+
+**雪森:** やっぱこうマニュアルというかなんかいろんな動画とか見て、あ、こうやって操作するんだみたいな。それももうなんかそれも最初辛かったんですよ。もうなんか始めるのが辛いみたいな。で、3月4月全然稼働できなくて。でもやっぱあのお支払いしてるのでやっぱそこは回収しなかったらダサいと思って。
+
+**インタビュアー:** なるほど。
+
+&gt; **雪森:** で、まあ、月5万でも稼げてれば、長期的に見たら大丈夫だしとか、やめなければ失敗はないっていうところはあると思うので、もうそれで。
+
+**インタビュアー:** 古い立たせて。
+
+**雪森:** 古い立たす。
+
+**インタビュアー:** そっか、そっか。そう。回収っていうね、観点で言ったらもう多分ほぼ終わってるか、目処立ってる。
+
+**雪森:** 目処はそうですね。立ってると思うんですけど。
+
+### 不動産の学びと視野の広がり [42:00-48:00]
+
+**インタビュアー:** 不動産の方はどうですか？こうなんか学びあったりとかします？
+
+**雪森:** ありますね。やっぱり、数字だけ良くても現地に行って分かることとか。あと、その現地の不動産会社さんとかとコミュニケーション取って、あ、これはいい物件なのかもしれないとか、全然違う反応が帰ってきたりとかするので、だから思ってたものと、机上のものとやっぱ実際見てみることはやっぱ違ったりとかっていうのはすごい発見したし、やっぱやらなきゃいけないことってすごい、金融機関の開拓とかしかりですが、そういったところはすごく勉強になりましたし。
+
+&gt; **雪森:** やっぱ買うまではすごい大変だな、大変だなっていうのは実感してて、でもそれでもやっぱTEKOの皆さんのサポートとかがあるので、そういったところはもっと勉強させてもらいます。
+
+**インタビュアー:** ちょっと安易にワンルームマンションとか買ってないですか？MRですけど大丈夫ですか？
+
+**雪森:** いや、僕買ってないです。
+
+**インタビュアー:** よかった。じゃあ本当に不動産に触れるのがもう初めてみたいなね。
+
+**雪森:** そうですね。
+
+**インタビュアー:** これが多分僕らがやってる方が王道っちゃ王道なんで。よく騙されてるというか、こう言葉に乗っちゃう人はもう口ポカンって開けてそこにガッてワンルームマンションはめ込まれてるような感じなんで。そうじゃない力を身につけてるんじゃないかなと思いますけどね。不動産の勉強になってるんですね。よかった、よかった。
+
+**インタビュアー:** なんか他にもこう僕らのTEKOで一応事業をやってるじゃないですか。物販事業とか、こういったやっていく雪森さんのこう考え方自体、何か変わったとこがサラリーマンだけやってた時と変わったことであったりしますか？
+
+&gt; **雪森:** やっぱりなんか世間本当に広いなと思ったんですよ。まず世界が本当に世間が広いなと思って。なんかサラリーマンだけしてると絶対なんか見えなかった世界。いろんななんか選択肢があって、生き方もたくさんあるんだなっていうのが本当に思う発見できたところ。
+
+**インタビュアー:** 例えばどんな感じですか？例えばどういうところに選択肢があるって思いました？
+
+**雪森:** 例えばその、私はもうトレカなんで全然副業レベルですけど、それでなんか生計立てれちゃう方とかもやっぱいるわけで。別にサラリーマンだけがなんか人生のなんか正解じゃないというか、なんかもういろんな生き方があっていいなて思って。やっぱりそこのなんか、もしかしたらこの道極めたらなんかもっと違う生き方ができるかもしれないとかなんかそういう風になんかこう会社に依存するみたいなところが少しちょっと思考が外れてきたのかな。
+
+**インタビュアー:** ちょっと楽になりますよね。
+
+**雪森:** 確かに僕もその感覚はありましたよ。こやればやるほどこれ別にサラリーマンだけやってなくてよくねみたいな。めっちゃ思う。
+
+**インタビュアー:** 別に別にやめろって言いたいわけじゃないし、僕らはむしろ会社利用しろっていうことを言ってるんで、それは大きな気づきかもしれないですね。なんか他にもありますか？それ1個めっちゃ大きい気づきますけど。
+
+&gt; **雪森:** やっぱ自分でこう事業してる方って本当にすごいと思うんですよ、私。だって、サラリーマンって、ちょっと失敗とかしても別になんか一定のお給料もらえるじゃないですか。でもそんか事業とかってちょっとミスしたらその売上なんかもう一気になくなっちゃったりとか倍の赤字になっちゃったりとかするので。だからそのやっぱそういった環境で、やっぱ事業を継続してることってやっぱすごい難しいことだし、だから世の中の経営者の方本当にリスペクトする。
+
+**インタビュアー:** いや本当にね。めっちゃいいこと言ってますよ。サラリーマンだけしか知らないとサラリーマンの中で偉い、偉くないって偉い気あるじゃないですか。製薬でも、で、はたまた僕らが知らないようなGAFAMとか商社とかそこを入れるとサラリーマンの中で本当に偉い気があったりするじゃないですか。でもこれ本当サラリーマンだけなんですよ。事業者が入ってくるともうもうわけわかんなくなってきて。
+
+&gt; **インタビュアー:** それぞれ大変さがあるっていうことが学べるっていう。どっちがいい悪いじゃなくてどっちが優劣じゃなくて、どっちも知ってるってことが重要なんですよね。
+
+**雪森:** 本当に来てますね。
+
+**インタビュアー:** 僕もいろんな事業者さん知り合いますけど、やっぱ去年と今年で成績がガンって上がってる人もいればガンって下がる人、本当に安定とは程遠いとは思うんですけど、一方で多分サラリーマンだけしてると味わえない何かがあるんだろうなって思って。僕も楽しんでやってるんですけど、どっちも知れるっていう今の状況が多分1番バランスは取れてるのかなって思いますけどね。
+
+**雪森:** よりやっぱりサラリーマンって恵まれてるなってなんかそう実感するというか、なんかそう本当に当たり前のこの環境がこれはすごいことなんだなっていう、思って。
+
+**インタビュアー:** 特に製薬ね。
+
+**雪森:** そう。より会社に今感謝してます、本当に。
+
+&gt; **インタビュアー:** 副業やると基本的に本業に好循環があるはずなんですよ。会社に対してリスペクトが増したりとか、なんかもっと会社で攻めた動きができたりとか。俺別に副業あるしみたいな、独立した人間だしみたいな感覚になるから、多分そのサイクルに入ってると思いますよ。絶対両輪回り始めるんで。良かったです。
+
+### TEKOに入らなかった場合の未来 [48:00-52:00]
+
+**インタビュアー:** じゃあその9ヶ月前にもし雪森さんが僕らのところに来てくれてなかったらどうなってましたか？この9ヶ月で、入ってない時の雪森と入ってる雪森の、どうなってましたか？成長してると思うんですよ。少なからずと僕。
+
+&gt; **雪森:** おそらくその会社の仕事だけにフォーカスしてこうなんかその見えてる世界の会社の中でどうしていくかみたいな、視野がすごく狭く来てたのかなっていうのはありますし、あとやっぱり今さっき攻めたその仕事ができるというか、キャリア設計とかもできるって話もありましたけど、それは本当そうだなと思ってて。やっぱりなんかいろんなこうチャレンジして、もしかしたら会社でこう失敗しちゃったりとかってするかもしれないじゃないですか。その時にじゃあもしこう、会社にいれなくなるということまではないかもしれないですけど、なんかじゃあの、身を引かなきゃいけないみたいな時とかもしなったとしても、いいや、でもまあまだちょっと副業もあるし、転職もなんとかでなるかなみたいななんかそういうマインドとかもで今得られてるので。
+
+**インタビュアー:** なるほど。
+
+**雪森:** なんかそこがちょっともしTEKOに入ってなかったらそういったとこはなかったのかなと思って。なるべくこう会社で嫌われないようになんか無難にみたいな、なんかそういう生き方だったのかもしれないっていうのは、もしかしたらあるかもしれないですね。
+
+**インタビュアー:** まだ僕ら言うても30代前半だから、まだ若いじゃないですか。そういう意味ではまだ気づけるのかもしれないですけど、多分その傾向ってどんどん増してきますからね。多分40代とかなってくれては本当に会社しか知らないわけなんで、会社員としての生き方しか知らないわけなんで。そういうの早めに知れてるのは大事かもしれないですよね。
+
+**雪森:** あれですね、サラリーマンとして極めながら時間があれば、筋トレと英語を磨くみたいなね。
+
+**インタビュアー:** そういう感じになったかもしれないですね。全然いいと思うんですけどね。それは間違いではないと思うんですけど。なんか選択肢としてもっとあった方がいいなっていうのは思いますけどね。個人的には。
+
+### TEKOの価値とメンバーへのリスペクト [52:00-55:00]
+
+**インタビュアー:** 9ヶ月ぐらい僕らとやってみてなんかここが良かったなとかなんかここに価値を感じたなみたいなTEKOのバリューってどこに感じました？
+
+&gt; **雪森:** やっぱり本当にそのすごいろんな方がいらっしゃって、しかもその会社員としても本当になんか素晴らしいというか、年収も高いですし、本当になかなか、そんな企業で働いてる方会えないというか、話せないというか、あるじゃないですか。だからそういう人たちがたくさんいるのを目の当たりにして、いや、もう本当すごいなっていうところもありますし、なんかもう、世の中にすごい人がいるんだな。ここにいるともうなんか自分まだまだだなっていうのをもうずっと感じられる。
+
+**インタビュアー:** それはいいかもしれないですね。確かにね。しんどい部分はあるけどね。
+
+**雪森:** はい。
+
+**インタビュアー:** 僕も経営者の方々とお付き合いすることが増えてから、より一層自分って未熟だなとか、まだまだだなって思うことが毎日なんで、TEKOがあるちょっといいすよ。そういう場所って思ってもらえるんだったら成長ができると思いますね。今後もね。
+
+**雪森:** ありがとうございます。
+
+**インタビュアー:** メンバーがいいっていうのはみんな口を揃えて言いますね。じゃ、ちょっと切り口を変えたんですけど、今回ちゃんとお話するの初めてですけど、僕はどういう人に感じてますか？雪森さんから見て。
+
+**雪森:** プロパーさんは最初ちょっと怖かったんですよ。
+
+**インタビュアー:** よく言われます。
+
+**雪森:** でも、今日もちょっと話してみて、そこがなんかちょっと違うかも。
+
+**インタビュアー:** これが普通すよ。僕の通常スタイルはこれですね。
+
+**雪森:** そうですね。で、あとやっぱりすごいですね。同年代ですけど本当に、早くからそういうのもちょっとされてて、今すごいなんですかね。サラリーマンじゃ見えなかった世界に多分すごいいらっしゃると思うんで、やっぱ本当そこは刺激になるというか、私も頑張らなきゃなっていうのは本当に思いますね。
+
+**インタビュアー:** 別にサラリーもやめてほしいとはみんなに思ってはないんですけど。なんかね、やれるぞっていう選択肢がまず増えてる状況が幸せだと思うし、そん中でもしね、自分の中で磨いていきたいものがあるんだったら、是非本業突き詰めるでもいいですし、副業突き詰めるでもいいし、不動産突き詰めるでもいいし、なんか選んでいただきたい。見えて欲しいし、選んでいただきたいなって思ってますね。
+
+### 視聴者へのメッセージ [55:00-58:00]
+
+**インタビュアー:** じゃ、この最後ね、動画って同じようなこう製薬クラスターの人たちとかサラリーマンたち結構見てるんですよ。想像以上に見られますから気をつけてください。なんかそういう人たちに向けてメッセージとかこの9ヶ月で感じたことがあれば率直に伝えていただきたいなと思うんですけど。
+
+&gt; **雪森:** 私もそうなんですけど、やっぱ製薬会社と勤めてると、人によるかもしれないですけれども、時間にちょっと余裕があったりとかってする方もやっぱ多いと思うんで、そういう方は一回副業っていう選択肢もちょっと頭に入れて、で、興味があればプロパさんと一回話してみると、一回ちょっと入ってみるとまた違う選択肢ももしかしたら今後の人生にあるのかなと思うので、本当に挑戦してみるのはすごくいいんじゃないかなって思います。
+
+**インタビュアー:** 地方に飛ばされてしまって。
+
+**雪森:** いやいやいや、全然、もうすごい楽しかったですよ。本当に楽しかったけど、なんて言うんですかね。自分のその譲れないものとかがあるんであればやっぱそれをなんとか守るために、副業って1つの選択肢になると思うので、挑戦してみるのは全然になってるというか。やるべきかなって思います。
+
+**インタビュアー:** ちなみに雪森さんが譲れなかったものに東京に住みたかったのは何ですか？
+
+**雪森:** やっぱりなんて言うですかね。実家というか、長く過ごしたのがこっちの方だったんで、そこに帰りたかったっていう、もう本当にそこだったのかなと。別になんか例えば大阪とか名古屋とかそういう地方都市に行ったってたとしても別に多分、もう1回東京の方戻りたいなって思ってたと思うので。なんかすごい地方をなんか嫌だったとかそういうことではなくて、ちょっともう戻りたかったっていうそこの住む場所に対してのこだわりが私の場合は少し強かったのかなっていう形ですかね。
+
+**インタビュアー:** シティボーイとしてのプライドがあるんでしょうね。
+
+**雪森:** 好みがそうです。
+
+**インタビュアー:** 僕も愛媛出身ですけど、愛媛ではシティボーイだったんで。松山市出身。松山市駅の近くなんで。
+
+**雪森:** で、戻りたいとこないんですか？
+
+**インタビュアー:** 全くないですね。僕はある程度栄えてたらどこでもいいんで。大阪の枚方ってとこ住んでますけど、それでも全然満足です。居住地を選べるっていうのは多分1番幸福かもしれないですね。そういう勤め人にしながらっていうね。て僕は思います。
+
+### エンディング [58:00-59:00]
+
+**インタビュアー:** じゃあ大丈夫ですかね。行きます。ありがとうございました。
+
+**雪森:** ありがとうございました。
+
+**インタビュアー:** お疲れ様でした。
+
+**雪森:** お疲れ様でした。</div>
+</details>
+<footer>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-13 00:27</p>
+</footer>
+</div>
+</body>
+</html>
