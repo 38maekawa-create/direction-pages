@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ディレクションレポート: クマキ（くますけ）</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    background: #fafbfc;
+    line-height: 1.7;
+}
+h1 {
+    font-size: 1.6em;
+    border-bottom: 3px solid #1a73e8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 1.3em;
+    color: #1a73e8;
+    border-left: 4px solid #1a73e8;
+    padding-left: 12px;
+    margin-top: 30px;
+}
+h3 {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+}
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+}
+.meta-item {
+    font-size: 0.9em;
+}
+.meta-label {
+    color: #888;
+    font-size: 0.8em;
+}
+.meta-value {
+    font-weight: 600;
+}
+.section {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+}
+.tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+.tier-a { background: #ffd700; color: #333; }
+.tier-b { background: #e8f0fe; color: #1a73e8; }
+.tier-c { background: #e8f5e9; color: #2e7d32; }
+.emphasis-on {
+    color: #d32f2f;
+    font-weight: 700;
+}
+.emphasis-off {
+    color: #888;
+}
+.timeline-entry {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.timeline-ts {
+    font-family: 'SF Mono', 'Consolas', monospace;
+    color: #1a73e8;
+    font-weight: 600;
+    min-width: 50px;
+    white-space: nowrap;
+}
+.timeline-type {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+}
+.type-telop { background: #fce4ec; color: #c62828; }
+.type-camera { background: #e3f2fd; color: #1565c0; }
+.type-color { background: #fff3e0; color: #e65100; }
+.type-composite { background: #f3e5f5; color: #7b1fa2; }
+.timeline-instruction {
+    flex: 1;
+}
+.priority-high { border-left: 3px solid #d32f2f; padding-left: 8px; }
+.priority-medium { border-left: 3px solid #ff9800; padding-left: 8px; }
+.priority-low { border-left: 3px solid #4caf50; padding-left: 8px; }
+.noun-entry {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+}
+.noun-show { background: #e8f5e9; }
+.noun-hide { background: #fce4ec; }
+.target-scene {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+.target-tier1 { border-color: #1a73e8; background: #e8f0fe; }
+.target-tier2 { border-color: #2e7d32; background: #e8f5e9; }
+.target-both { border-color: #ff9800; background: #fff3e0; }
+.balance-meter {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+.balance-tier1 { background: #1a73e8; }
+.balance-tier2 { background: #2e7d32; }
+.balance-both { background: #ff9800; }
+.strength-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+}
+.highlight-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+}
+.highlight-table th, .highlight-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+.highlight-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+}
+details {
+    margin: 16px 0;
+}
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1a73e8;
+    padding: 8px;
+}
+summary:hover { text-decoration: underline; }
+.transcript {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    max-height: 600px;
+    overflow-y: auto;
+}
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 0.8em;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+a { color: #1a73e8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>ディレクションレポート: クマキ（くますけ）</h1>
+<div class="meta-grid">
+<div class="meta-item"><div class="meta-label">年齢</div><div class="meta-value">30代前半</div></div>
+<div class="meta-item"><div class="meta-label">本業</div><div class="meta-value">人材業界 企画職（デジタルPRを活用した求職者向け集客企画）</div></div>
+<div class="meta-item"><div class="meta-label">年収</div><div class="meta-value">約870万円</div></div>
+<div class="meta-item"><div class="meta-label">動画時間</div><div class="meta-value">33分34秒</div></div>
+<div class="meta-item"><div class="meta-label">種別</div><div class="meta-value">メンバー撮影素材</div></div>
+<div class="meta-item"><div class="meta-label">ゲスト層</div><div class="meta-value"><span class="tier-badge tier-b">層b（相対的強さの言語化が必要）</span></div></div>
+<div class="meta-item"><div class="meta-label">年収演出</div><div class="meta-value"><span class="emphasis-on">強調ON</span></div></div>
+</div>
+</header>
+<section id="guest-classification" class="section">
+<h2>ゲスト層分類 (A-1)</h2>
+<p><span class="tier-badge tier-b">層b（相対的強さの言語化が必要）</span>
+（信頼度: medium）</p>
+<p><strong>判定理由:</strong> 年収870万円（1000万未満、相対的強さの言語化が必要）</p>
+<p><strong>見せ方テンプレート:</strong> 年収以外の文脈で強さを言語化する。在籍企業のブランド力、キャリアパスの希少性、勤務形態の自由度、転職先の年収見込み等を活用。</p>
+</section>
+<section id="income-direction" class="section">
+<h2>年収演出判断 (A-2)</h2>
+<p><strong>判定:</strong> <span class="emphasis-on">
+強調ON</span></p>
+<p><strong>理由:</strong> 年収870万円（700万以上で無条件強調）</p>
+<p><strong>テロップ提案:</strong> テロップ: 「年収870万円」を強調表示</p>
+</section>
+<section id="proper-nouns" class="section">
+<h2>固有名詞規制 (A-4)</h2>
+
+<div class="noun-entry noun-hide">
+<strong>キリン</strong> — 🔇 伏せる
+<div style="font-size:0.85em;color:#666;">理由: 要約から推定された情報のため安全側に伏せる</div><div style="font-size:0.85em;color:#c62828;">テロップ提案: 誰もが知る飲料業界の超大手企業 / 飲料トップクラスの飲料メーカー</div></div>
+</section>
+<section id="direction-timeline" class="section">
+<h2>演出ディレクション (NEW-1)</h2>
+
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層b（相対的強さの言語化が必要）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層b（相対的強さの言語化が必要）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「20万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（20万, 25万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「営業突き詰めても上には上がらなって印象がすごく強かったので」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層b（相対的強さの言語化が必要）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層b（相対的強さの言語化が必要）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「年齢を重ねていくにつれて、家族ができたり体力が衰えたりという時に、同じような形で稼げるかという...」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層b（相対的強さの言語化が必要）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層b（相対的強さの言語化が必要）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: 寄り（アップ）で視聴者への直接メッセージ感</div>
+<div style="font-size:0.8em;color:#888;">視聴者への直接メッセージ</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: 寄り（アップ）で視聴者への直接メッセージ感</div>
+<div style="font-size:0.8em;color:#888;">視聴者への直接メッセージ</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[00:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+
+<details>
+<summary>LLMによる追加演出提案</summary>
+<div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
+以下、追加演出ディレクション提案です：
+
+[00:00] テロップ: 「前職はリクルート」発言時に画面上部に「人材業界トップ企業出身」を強調テロップで表示
+
+[00:00] テロップ: 「年収ベースで900いかないぐらい、870ぐらい」発言時に「年収870万円」を大きく中央表示し、背景を金色のエフェクトで装飾
+
+[00:00] 色変え: 「営業突き詰めても上には上がらなって印象が〜」のパンチライン部分で画面全体を暖色系（オレンジ）に色調変更し、重要発言を視覚的に強調
+
+[00:00] テロップ: 「月切りで20万くらい〜25万いくかいかないか」発言時に「副業月収20-25万円」をサイドテロップで表示し、本業+副業の収入構造を可視化
+
+[00:00] 画角: 「逆に言えば1歩踏み出すことによって〜やらない理由がないんじゃないかな」のメッセージ部分でズームインし、発言の説得力を高める演出
+</div>
+</details>
+</section>
+<section id="target-checklist" class="section">
+<h2>ターゲット別チェックリスト (A-5)</h2>
+<div class="balance-meter">
+<div class="balance-tier1" style="width:57%"></div>
+<div class="balance-tier2" style="width:43%"></div>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:0.8em;color:#666;">
+<span>1層 5件</span>
+<span>両層 4件</span>
+<span>2層 3件</span>
+</div>
+<p><strong>バランス:</strong> 良好 — 1層・2層のバランスが取れています。</p>
+
+<div class="target-scene target-tier1">
+<strong>[00:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">クマキと言います。年齢が30前半で、今仕事は人材業界で企画職っていうところをやっております。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[00:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">前職はリクルートなので、人材の中ではトップ。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[00:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">今は年収ベースで900いかないぐらい、870ぐらいですね。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[00:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">実績は、1月で月切りで20万くらい。引き続き今月も順調に進んでいて、25万いくかいかないかぐらい。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[00:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">営業突き詰めても上には上がらなって印象がすごく強かったので。もうちょっと幅広いかなというところで転職活動をしました。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[00:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">年齢を重ねていくにつれて、家族ができたり体力が衰えたりという時に、同じような形で稼げるかというのを考えた時に、中長期的な計画としては微妙だなと考えて。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[00:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">売上げと粗利の考え方というところは、結構TEKOに入ってからすごく身についた。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[00:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">自分の仕事に対するスキルに対して、今ほど自信を持ててなかったと思う。副業の成果が本業の発言や提案への自信につながっている。</div>
+</div>
+<div class="target-scene target-tier2">
+<strong>[00:00]</strong> 2層向け — 共感・安心感
+<div style="font-size:0.85em;">講師の方々の対応やサポートのスピード感、教材のクオリティがすごくレベルが高い。コミュニティに在籍している方々の人がいい。</div>
+</div>
+<div class="target-scene target-tier2">
+<strong>[00:00]</strong> 2層向け — 共感・安心感
+<div style="font-size:0.85em;">逆に言えば1歩踏み出すことによって、多分上位何パーセントかに入れるという状態。やらない理由がないんじゃないかな。</div>
+</div>
+<div class="target-scene target-tier2">
+<strong>[00:00]</strong> 2層向け — 共感・安心感
+<div style="font-size:0.85em;">実際にやってみた時のリスクって、そんなことですよ。リスクはちょっと金失うくらい。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[00:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">高額だからこそ、投資を払うことによって自分自身に対して覚悟を決めるという心理的な部分はあった。</div>
+</div>
+</section>
+<section id="thumbnail-design" class="section">
+<h2>🖼️ Z型サムネイル指示書</h2>
+<div class="thumbnail-concept">💡 30代会社員の等身大成功ストーリーで視聴者の「自分もできる」感を最大化</div>
+<div class="thumbnail-meta">フォント: メインテキストは太ゴシック（インパクト重視）、数字は強調フォント、サブテキストは中ゴシック（可読性確保） | 背景: 深いネイビーブルー基調（信頼感）にゴールドのアクセント（成功感）、グラデーション効果で奥行き演出</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-zone zone-top-left">
+<span class="zone-label">左上: フック</span>
+<div class="zone-role">フック（最初に目に入る）</div>
+<div class="zone-content">リクルート出身が
+副業で月利25万</div>
+<div class="zone-color">🎨 白文字にゴールドの縁取り、「25万」は特大サイズで赤オレンジ強調</div>
+<div class="zone-notes">0.2秒突破のため「リクルート」ブランド力と具体的数字を最上段配置、改行で読みやすさ確保</div>
+</div>
+<div class="thumbnail-zone zone-top-right">
+<span class="zone-label">右上: 人物</span>
+<div class="zone-role">人物シルエット＋属性</div>
+<div class="zone-content">くますけさんのシルエット + 「30代前半/年収870万/人材業界企画職」のテキスト</div>
+<div class="zone-color">🎨 シルエットは濃いグレー、属性テキストは白地に青背景（信頼感）</div>
+<div class="zone-notes">顔モザイクシルエットを清潔感ある雰囲気で演出、属性は箇条書き風に整理して親近感創出</div>
+</div>
+<div class="thumbnail-zone zone-diagonal">
+<span class="zone-label">斜め: コンテンツ</span>
+<div class="zone-role">コンテンツ要素（斜めに視線誘導）</div>
+<div class="zone-content">物販・eBayのアイコン + 上昇矢印グラフィック + 「半年で達成」テキスト</div>
+<div class="zone-color">🎨 eBayロゴの青を活用、矢印はゴールドで上昇感演出</div>
+<div class="zone-notes">非言語要素中心に構成、eBayロゴで物販内容を瞬時に伝達、期間の短さで実現可能性をアピール</div>
+</div>
+<div class="thumbnail-zone zone-bottom-right">
+<span class="zone-label">右下: ベネフィット</span>
+<div class="zone-role">ベネフィット（最後の着地）</div>
+<div class="zone-content">「本業との
+WIN-WIN戦略」</div>
+<div class="zone-color">🎨 白文字に青緑の背景（安心感）、「WIN-WIN」は特に強調</div>
+<div class="zone-notes">副業への不安を払拭する訴求、本業にも好影響というメリットで視聴動機を完成、改行で視認性向上</div>
+</div>
+</div>
+</section>
+<section id="title-proposals" class="section">
+<h2>📝 タイトル案</h2>
+<div class="title-card recommended">
+<div class="title-badge">⭐ 推奨</div>
+<div class="title-text">元リクルート870万円サラリーマンが副業物販で月利25万円達成した理由</div>
+<div class="title-meta">
+<span>🎯 大手企業勤務で副業を検討している30代会社員、特に人材・営業系職種の人</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">「元リクルート」という権威性、「870万円」という具体的年収、「月利25万円」という副業実績の3つの数字でインパクトを作りつつ、「理由」で学びへの期待を演出。検索されやすいキーワードを自然に配置。</div>
+</div><div class="title-card">
+
+<div class="title-text">年収870万円でも副業始めた人材企画職の本音【物販月利25万】</div>
+<div class="title-meta">
+<span>🎯 高年収だが将来に不安を感じている30代サラリーマン、企画職・マーケティング職</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「高年収でも副業する理由」という現代的な課題設定で共感を誘い、【】内で実績を明示。「本音」で内情への興味を喚起し、同じような境遇の人の自分ごと化を狙う。</div>
+</div><div class="title-card">
+
+<div class="title-text">営業に限界感じた元リクルート社員の転職と副業戦略</div>
+<div class="title-meta">
+<span>🎯 営業職で将来性に悩んでいる20代後半〜30代、転職と副業を同時検討している層</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「営業に限界」という多くの営業職が抱える悩みをフックにし、「元リクルート」で権威性を担保。転職と副業の両方を扱うことで幅広い関心層にアプローチできる。</div>
+</div><div class="title-card">
+
+<div class="title-text">人材業界企画職が物販で月利20万円超え【稼働最小限の仕組み】</div>
+<div class="title-meta">
+<span>🎯 効率的な副業を求める企画職・マーケティング職、仕組み化に興味がある層</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">職種の具体性で親近感を演出し、「稼働最小限の仕組み」で効率性をアピール。忙しい会社員が最も求める「時間をかけずに稼ぐ方法」というニーズに直撃する。</div>
+</div>
+</section>
+<section id="video-description" class="section">
+<h2>📋 YouTube概要欄</h2>
+<p style="font-size:0.85em;color:#888;">そのままコピーしてYouTubeの概要欄に貼り付けてください。</p>
+<div class="description-preview" id="description-text">チャンネル登録はこちらから▼
+            @TEKO-公式
+
+人材業界で年収870万円を稼ぐ30代前半の企画職が、TEKO6期生として物販を開始し、わずか半年で月利20〜25万円を達成。副業で培った売上・粗利思考が本業にも好影響をもたらした実体験を語ります。
+
+【トークサマリー】
+✓ リクルート出身、現在人材業界企画職での年収870万円のキャリア変遷
+✓ 副業経験を重ね、TEKOでeBay物販に挑戦した理由と経緯
+✓ TEKO6期生として半年で月利20〜25万円を達成した具体的実績
+✓ 売上・粗利の考え方が身につき、本業での提案力・自信向上に直結
+✓ TEKOのサポート品質とコミュニティの人間関係の良さ
+✓ 「やらない理由はいくらでも作れるが、一歩踏み出せば上位に入れる」というメッセージ
+
+【タイムスタンプ】
+00:00 30代前半・人材業界企画職の属性紹介
+00:00 リクルート出身、現在年収870万円の現状
+00:00 TEKO実績：月利20〜25万円を安定達成
+00:00 営業職から企画職への転職理由と背景
+00:00 中長期的な稼ぎ方への危機感と副業開始の動機
+00:00 TEKOで身についた売上・粗利思考の価値
+00:00 副業成果が本業での自信と発言力向上に直結
+00:00 講師陣のサポート品質とコミュニティの質の高さ
+00:00 視聴者へのメッセージ：一歩踏み出すことの重要性
+
+【TEKO公式メディア】
+ハイキャリアパーソンの裏側とキャリア、資産形成について発信
+ただ今公開準備中
+
+【TEKOについて詳しく知りたい方はこちら】
+▼公式サイトから詳細をご確認いただけます▼
+https://teko-lp.com/
+
+【運営者：プロパー八重洲とLINEで繋がりませんか？】
+▼パラレルキャリア戦略やTEKOについてはLINEから▼
+[LINEリンクをここに挿入]
+
+【プロパー八重洲公式チャンネルはこちらから】
+             @プロパー八重洲キャリア戦略室
+
+【SNS公式アカウント】
+Instagram: [Instagramリンク]
+X（Twitter）: [Xリンク]
+TikTok: [TikTokリンク]
+
+#TEKO #副業 #物販 #eBay #人材業界 #キャリア #年収アップ #パラレルキャリア</div>
+<button class="copy-btn" id="copy-btn" onclick="copyDescription()">📋 概要欄テキストをコピー</button>
+
+<script>
+function copyDescription() {
+    const text = document.getElementById('description-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ コピーしました！';
+        setTimeout(() => { btn.textContent = '📋 概要欄テキストをコピー'; }, 2000);
+    });
+}
+</script>
+</section>
+<section id="highlights" class="section">
+<h2>ハイライトシーン</h2>
+<table class="highlight-table">
+<tr><th>時間</th><th>話者</th><th>発言</th><th>分類</th></tr>
+<tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>クマキと言います。年齢が30前半で、今仕事は人材業界で企画職っていうところをやっております。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>前職はリクルートなので、人材の中ではトップ。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>今は年収ベースで900いかないぐらい、870ぐらいですね。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>実績は、1月で月切りで20万くらい。引き続き今月も順調に進んでいて、25万いくかいかないかぐらい。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>営業突き詰めても上には上がらなって印象がすごく強かったので。もうちょっと幅広いかなというところで転職活動をしました。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>年齢を重ねていくにつれて、家族ができたり体力が衰えたりという時に、同じような形で稼げるかというのを考えた時に、中長期的な計画としては微妙だなと考えて。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>売上げと粗利の考え方というところは、結構TEKOに入ってからすごく身についた。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>自分の仕事に対するスキルに対して、今ほど自信を持ててなかったと思う。副業の成果が本業の発言や提案への自信につながっている。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>講師の方々の対応やサポートのスピード感、教材のクオリティがすごくレベルが高い。コミュニティに在籍している方々の人がいい。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>逆に言えば1歩踏み出すことによって、多分上位何パーセントかに入れるという状態。やらない理由がないんじゃないかな。</td>
+<td>メッセージ</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>実際にやってみた時のリスクって、そんなことですよ。リスクはちょっと金失うくらい。</td>
+<td>メッセージ</td>
+</tr><tr>
+<td>00:00</td>
+<td>くますけ</td>
+<td>高額だからこそ、投資を払うことによって自分自身に対して覚悟を決めるという心理的な部分はあった。</td>
+<td>TEKO価値</td>
+</tr>
+</table>
+</section>
+<details>
+<summary>整形済みトランスクリプト（全文）</summary>
+<div class="transcript"># 動画文字起こし - 整形版</div>
+</details>
+<footer>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-13 00:30</p>
+</footer>
+</div>
+</body>
+</html>
