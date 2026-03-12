@@ -187,6 +187,166 @@ footer {
 }
 a { color: #1a73e8; text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
 </style>
 </head>
 <body>
@@ -468,21 +628,17 @@ a:hover { text-decoration: underline; }
 <details>
 <summary>LLMによる追加演出提案</summary>
 <div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
-TEKO対談インタビュー動画_追加演出ディレクション提案
+以下、追加の演出ディレクション提案を5個生成いたします：
 
-**対象:** 20251213撮影_payさん：30代中盤LINEyahoo年収850万
+[12:00] テロップ: 「今は850ぐらいですかね」の発言に対し、画面下部に大きく「年収850万円」を金色で表示。同時にLINEヤフーのロゴマークを控えめに右上角に配置し企業ブランド力を演出
 
-## 追加演出ディレクション
+[32:00] 画角/テロップ: 「3ヶ月目から30万まで」発言時にズームイン効果を適用。「初月50円→3ヶ月目30万円（600倍！）」のテロップを画面中央に大きく表示し、成長の劇的さを強調
 
-[12:00] テロップ: 「今は850ぐらいですかね」の部分で、画面下部に金色のテロップで「年収850万円」を大きく表示。背景にキラキラエフェクトを追加し、3秒間表示維持。
+[35:00] 色変え/テロップ: 「トランプ関税後に10万切りました」発言部分の背景を一瞬赤色にフラッシュ。「外的要因による変動＝事業の現実」をテロップで補足し、リアリティを演出
 
-[32:00] テロップ: 「3ヶ月目から30万まで」の発言に合わせて、画面右上に「副業収入30万円/月達成！」を強調テロップで表示。同時に成長グラフのアニメーションを画面左下に挿入。
+[52:00] テロップ/画角: 「やってる人とやってない人では天と地ほどの差がある」のパンチライン発言時に画面を一瞬白くフラッシュ。「体感による気づき」を強調テロップで表示し、経験の価値を可視化
 
-[52:00] 画角: 「やってる人とやってない人では天と地ほどの差がある」の発言時に、PAYさんの表情をアップで切り替え、発言の重みを視覚的に強調。背景を暗めにして人物を際立たせる。
-
-[58:00] テロップ: インタビュアーの「経営者マインド」発言時に、画面中央に「経営者マインド = 当事者意識」という図解テロップを挿入。視聴者の理解を深める補足演出として活用。
-
-[70:00] 色変え: 「このコミュニティ自体が伸びそう」の発言部分で、画面全体を温かみのあるオレンジ系に調色し、TEKOコミュニティへの期待感を視覚的に表現。発言終了とともに通常色に戻す。
+[58:00] テロップ: インタビュアーの「当事者意識を持て」発言に対し、「経営者マインド＝当事者意識」を画面左側にシンプルなテロップで表示。PAYさんの頷きのタイミングで「共感」アイコンを右側に配置
 </div>
 </details>
 </section>
@@ -571,6 +727,147 @@ TEKO対談インタビュー動画_追加演出ディレクション提案
 <strong>[81:00]</strong> 2層向け — 共感・安心感
 <div style="font-size:0.85em;">ぜひTEKOに入ってきてほしいなと思います。</div>
 </div>
+</section>
+<section id="thumbnail-design" class="section">
+<h2>🖼️ Z型サムネイル指示書</h2>
+<div class="thumbnail-concept">💡 「30代会社員でも月40万達成」の再現可能性を0.2秒で伝える親近感型サムネ</div>
+<div class="thumbnail-meta">フォント: 左上フックは太いゴシック体・大サイズ、属性情報は中サイズの明朝体で信頼感演出 | 背景: 落ち着いたネイビー基調にゴールドアクセント、ビジネス感と成功感のバランス</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-zone zone-top-left">
+<span class="zone-label">左上: フック</span>
+<div class="zone-role">フック（最初に目に入る）</div>
+<div class="zone-content">30代会社員が</div>
+<div class="zone-color">🎨 白または明るいイエロー（背景から浮き立つ色）</div>
+<div class="zone-notes">最大サイズで配置、ターゲットの「自分ごと化」を0.2秒で実現する属性特定フレーズ</div>
+</div>
+<div class="thumbnail-zone zone-top-right">
+<span class="zone-label">右上: 人物</span>
+<div class="zone-role">人物シルエット＋属性</div>
+<div class="zone-content">PAYさんのシルエット + 「IT業界・年収850万」テキスト</div>
+<div class="zone-color">🎨 シルエットは暗めのグレー、属性テキストはゴールド</div>
+<div class="zone-notes">モザイク顔をシルエットで表現、年収を強調して信頼性アップ</div>
+</div>
+<div class="thumbnail-zone zone-diagonal">
+<span class="zone-label">斜め: コンテンツ</span>
+<div class="zone-role">コンテンツ要素（斜めに視線誘導）</div>
+<div class="zone-content">「50円→40万円」の数字変化を矢印で表現 + 期間「1年3ヶ月」</div>
+<div class="zone-color">🎨 50円は赤、40万円は緑、矢印はオレンジのグラデーション</div>
+<div class="zone-notes">劇的な変化を視覚的に表現、非言語で成長ストーリーを瞬時に伝達</div>
+</div>
+<div class="thumbnail-zone zone-bottom-right">
+<span class="zone-label">右下: ベネフィット</span>
+<div class="zone-role">ベネフィット（最後の着地）</div>
+<div class="zone-content">月40万達成</div>
+<div class="zone-color">🎨 ゴールドまたは明るい緑（成功・達成感を演出）</div>
+<div class="zone-notes">具体的な金額で視聴者のベネフィットを明確化、クリック動機の最終着地点</div>
+</div>
+</div>
+</section>
+<section id="title-proposals" class="section">
+<h2>📝 タイトル案</h2>
+<div class="title-card recommended">
+<div class="title-badge">⭐ 推奨</div>
+<div class="title-text">年収850万IT会社員が副業初月50円→月40万円まで成長した全プロセス</div>
+<div class="title-meta">
+<span>🎯 年収600-1000万の大手企業会社員で副業に興味があるが具体的な成果イメージが湧かない層</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">「初月50円→月40万円」という劇的な成長ストーリーを数字で表現。年収850万という属性で親近感を持たせつつ、具体的な成長プロセスへの関心を引く。検索キーワード「副業 成長 プロセス」を意識</div>
+</div><div class="title-card">
+
+<div class="title-text">LINEヤフー社員が育児休暇中に副業開始→事業者マインドを獲得した話</div>
+<div class="title-meta">
+<span>🎯 大手IT企業勤務で育児や人生の転機を機に新しい挑戦を考えている30代層</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「LINEヤフー」という具体的で権威性のある企業名と「育児休暇中」という共感ポイントを組み合わせ。「事業者マインド獲得」で成長の質的変化を表現し、同じ境遇の人の関心を引く</div>
+</div><div class="title-card">
+
+<div class="title-text">広告業界→IT転職→副業で月40万円稼ぐ30代の思考法</div>
+<div class="title-meta">
+<span>🎯 キャリアチェンジを経験した、または検討している30代で副業による収入確保に興味がある層</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「広告業界→IT転職→副業」というキャリアの流れを簡潔に表現。「思考法」というキーワードで具体的なノウハウへの期待を醸成。転職経験者の共感を狙う</div>
+</div><div class="title-card">
+
+<div class="title-text">「お金を稼ぐことに真剣に向き合う」と決めた会社員の1年3ヶ月</div>
+<div class="title-meta">
+<span>🎯 漠然とした副業願望はあるが本気度が足りないと自覚している会社員層</span>
+<span>📢 問いかけ系</span>
+</div>
+<div class="title-rationale">動画内のパンチライン「お金を稼ぐことに真剣に向き合う」を活用。「真剣に向き合う」という表現で覚悟の重要性を示唆し、同じ心境の人の行動を促す</div>
+</div><div class="title-card">
+
+<div class="title-text">年収850万でも副業に挑戦する理由｜IT企業30代の本音</div>
+<div class="title-meta">
+<span>🎯 一定の年収があるにも関わらず副業への関心がある高年収サラリーマン層</span>
+<span>📢 問いかけ系</span>
+</div>
+<div class="title-rationale">「年収850万でも」という逆説的表現で関心を引く。高年収でも副業をする動機への好奇心を刺激し、同じ年収帯の人の共感と関心を狙う</div>
+</div>
+</section>
+<section id="video-description" class="section">
+<h2>📋 YouTube概要欄</h2>
+<p style="font-size:0.85em;color:#888;">そのままコピーしてYouTubeの概要欄に貼り付けてください。</p>
+<div class="description-preview" id="description-text">チャンネル登録はこちらから▼
+@TEKO-公式
+
+30代半ば、年収850万円のIT業界勤務者が語る副業への真剣な挑戦
+初月50円から月30〜40万円まで成長した1年3ヶ月の軌跡
+
+【TEKO公式メディア】
+ハイキャリアパーソンの裏側とキャリア、資産形成について発信
+ただ今公開準備中
+
+【今回のトークサマリー】
+✓ 広告業界からIT業界への転職背景と意思決定プロセス
+✓ 育児休暇をきっかけに「お金を稼ぐことに真剣に向き合う」決意
+✓ TEKO参加から1年3ヶ月：初月50円→月30〜40万円への成長記録
+✓ 事業者マインドの獲得が本業に与えるポジティブな影響
+✓ 優秀なメンバーに囲まれるTEKOの環境価値
+
+【主要シーン】
+05:00 広告業界での経験と転職への思い
+12:00 現在の年収と属性について
+18:00 副業を始めた2つの動機
+25:00 「お金を稼ぐことに真剣に向き合う」決意
+30:00 初月の実績：50円からのスタート
+32:00 3ヶ月目の転機：大谷翔平バブルで30万円突破
+35:00 安定期の実績：月30〜40万円で推移
+45:00 TEKO参加のタイミング：「今行かないといつ行くのか」
+50:00 事業者マインドが与えた意識変化
+52:00 実践者と非実践者の圧倒的な差を体感
+
+【TEKOについて詳しく知りたい方】
+▼公式LPはこちら▼
+https://teko-lp.com/
+
+【運営者：プロパー八重洲とLINEで繋がりませんか？】
+▼パラレルキャリア戦略やTEKOについてはLINEから▼
+https://leverage.daive-teko.com/p/lp_youtube_tekoofficial?openExternalBrowser=1
+
+【プロパー八重洲公式チャンネルはこちらから】
+@プロパー八重洲キャリア戦略室
+
+【SNSでも発信中】
+Instagram: @teko_official
+X (Twitter): @TEKO_official
+TikTok: @teko_official
+
+#TEKO #副業 #パラレルキャリア #IT業界 #年収アップ #事業者マインド #ハイキャリア #資産形成</div>
+<button class="copy-btn" id="copy-btn" onclick="copyDescription()">📋 概要欄テキストをコピー</button>
+
+<script>
+function copyDescription() {
+    const text = document.getElementById('description-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ コピーしました！';
+        setTimeout(() => { btn.textContent = '📋 概要欄テキストをコピー'; }, 2000);
+    });
+}
+</script>
 </section>
 <section id="highlights" class="section">
 <h2>ハイライトシーン</h2>
@@ -674,7 +971,7 @@ TEKO対談インタビュー動画_追加演出ディレクション提案
 <div class="transcript"># TEKO 2期生メンバー・PAYさんインタビュー</div>
 </details>
 <footer>
-<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-10 17:04</p>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-13 00:11</p>
 </footer>
 </div>
 </body>
