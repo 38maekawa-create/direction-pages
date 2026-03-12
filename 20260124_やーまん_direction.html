@@ -187,6 +187,166 @@ footer {
 }
 a { color: #1a73e8; text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
 </style>
 </head>
 <body>
@@ -416,22 +576,38 @@ a:hover { text-decoration: underline; }
 <details>
 <summary>LLMによる追加演出提案</summary>
 <div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
-TEKO対談インタビュー - やーまんさん 演出ディレクション提案
+以下、やーまんさんのTEKO対談インタビュー動画の追加演出ディレクション提案です：
 
-**1. [15:00] テロップ演出: 圧倒的な家族責任感の強調**
-「5人の子ども＋現場仕事」のテロップに加え、画面左に子どもの年齢を階段状に表示（小4→小2→年長→3歳→0歳）。背景を暖色系に切り替えて責任の重さを視覚化。
+**[15:00] テロップ演出:**
+- メインテロップ：「5人の子供を支える責任感」
+- サブテロップ：「小4・小2・年長・3歳・0歳」
+- 背景色：温かみのあるオレンジ系グラデーション
+- フォント：やや太めで安定感のある書体
 
-**2. [32:00] 数字強調＋推移グラフ演出**
-利益推移をリアルタイムグラフで表示：「最初半年：数万円」→「半年後：10-20万円」→「1年後：30万円超」の成長カーブをアニメーション表示。画面を分割して左側に現在の映像、右側にグラフを配置。
+**[35:00] 画角+テロップ演出:**
+- やーまんさんのアップ（真剣な表情をキャッチ）
+- メインテロップ：「育休もない現実と向き合う」
+- サブテロップ：「妻と子供たちを支えるため現場仕事を離れる決断」
+- 背景：深いブルー系で決意の強さを表現
 
-**3. [35:00] パンチライン強化演出**
-「育休もないので、もう嫁のサポートと子供たちのフォロー」部分で画角をクローズアップに切り替え。「育休ナシでも家族最優先」テロップを力強いフォントで表示し、背景色を一瞬ブルーに変更。
+**[42:00] テロップ+色変え演出:**
+- メインテロップ：「『2期生の補欠』という謙虚なマインド」
+- サブテロップ：「今もその気持ちを持ち続ける」
+- 背景色：グレー系から徐々に明るい色調に変化
+- 謙虚さから成長への意志を色彩で表現
 
-**4. [42:00] ユーモア演出**
-「2期生の補欠だなってずっと思ってやってました。今も。」でわざと間を取り、「今も」の部分で画面を一瞬フリーズさせる演出。軽快なBGMを一瞬止めてコミカルさを演出。
+**[62:00] テロップ演出:**
+- メインテロップ：「疑似安定からの脱却」
+- サブテロップ：「切れるカードを増やす重要性」
+- 背景：グラデーション（不安定な色から安定した色へ）
+- 強調ワード「疑似安定」「切れるカード」を別色でハイライト
 
-**5. [62:00] 核心メッセージ演出**
-「疑似安定」vs「真の安定」の対比を画面分割で表現。左側に「会社員（疑似安定）」、右側に「自分で稼ぐ力（真の安定）」のビジュアル対比。文字色を左は薄く、右は濃く表示して説得力を強化。
+**[68:00] 画角+テロップ演出:**
+- 温かい表情のやーまんさん（中アップ）
+- メインテロップ：「仲間の存在が継続の力に」
+- サブテロップ：「みんな頑張ってる → 自分も頑張らなきゃ」
+- 背景：温かみのある黄色〜オレンジ系グラデーション
+- コミュニティの温かさを視覚的に表現
 </div>
 </details>
 </section>
@@ -508,6 +684,137 @@ TEKO対談インタビュー - やーまんさん 演出ディレクション提
 <strong>[69:00]</strong> 両層向け — 焦燥感+共感
 <div style="font-size:0.85em;">自分のお金ベットしますけども、それ以上のものがあるなっていうのは感じられましたね。</div>
 </div>
+</section>
+<section id="thumbnail-design" class="section">
+<h2>🖼️ Z型サムネイル指示書</h2>
+<div class="thumbnail-concept">💡 41歳・5人の子持ち現場職人が月利30万円達成の親近感ストーリー</div>
+<div class="thumbnail-meta">フォント: 太字ゴシック体、左上フックは最大サイズ、数字は視認性重視で黄色アウトライン | 背景: 濃紺〜黒のグラデーション背景で信頼感を演出、現場感のあるテクスチャを薄く重ねる</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-zone zone-top-left">
+<span class="zone-label">左上: フック</span>
+<div class="zone-role">フック（最初に目に入る）</div>
+<div class="zone-content">41歳・5人の子持ち職人が</div>
+<div class="zone-color">🎨 白文字、「41歳」「5人の子持ち」部分は黄色で強調</div>
+<div class="zone-notes">最大サイズで配置、0.2秒で「自分と近い属性」を認識させる突破力重視</div>
+</div>
+<div class="thumbnail-zone zone-top-right">
+<span class="zone-label">右上: 人物</span>
+<div class="zone-role">人物シルエット＋属性</div>
+<div class="zone-content">やーまんのシルエット + 「現場職人10年」「年収500-600万」のテキスト</div>
+<div class="zone-color">🎨 シルエットは濃いグレー、属性テキストは白文字</div>
+<div class="zone-notes">親しみやすい職人らしいポーズ、作業着のシルエットで現場感を演出</div>
+</div>
+<div class="thumbnail-zone zone-diagonal">
+<span class="zone-label">斜め: コンテンツ</span>
+<div class="zone-role">コンテンツ要素（斜めに視線誘導）</div>
+<div class="zone-content">「eBay」ロゴ + 工具のアイコン + 矢印で成長を表現</div>
+<div class="zone-color">🎨 eBayロゴは公式カラー、工具は金属質感のシルバー</div>
+<div class="zone-notes">現場仕事からeBayへの転換を視覚的に表現、非言語で内容を瞬時に伝達</div>
+</div>
+<div class="thumbnail-zone zone-bottom-right">
+<span class="zone-label">右下: ベネフィット</span>
+<div class="zone-role">ベネフィット（最後の着地）</div>
+<div class="zone-content">月利30万円突破！</div>
+<div class="zone-color">🎨 金色の大きな文字、背景に円形の光彩効果</div>
+<div class="zone-notes">具体的な数字でインパクト重視、視聴者の「自分も可能性がある」感情を喚起</div>
+</div>
+</div>
+</section>
+<section id="title-proposals" class="section">
+<h2>📝 タイトル案</h2>
+<div class="title-card recommended">
+<div class="title-badge">⭐ 推奨</div>
+<div class="title-text">41歳空調職人が5人の子育てしながらeBayで月利30万</div>
+<div class="title-meta">
+<span>🎯 30-40代の職人・技術系会社員で副業を検討している層、特に子育て世代</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">年齢・職業・家族構成・実績数字を詰め込み、同世代の職人層が「自分でもできるかも」と感じやすい構成。月利30万という具体的数字でインパクトを出しつつ、5人の子育てという困難な状況での成功談として共感を呼ぶ</div>
+</div><div class="title-card">
+
+<div class="title-text">現場仕事の限界を感じた41歳が選んだ次の一手</div>
+<div class="title-meta">
+<span>🎯 現場系・肉体労働系の30-40代で将来への不安を抱えている層</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「現場仕事の限界」というフレーズで同じ悩みを持つ層の関心を引き、「次の一手」で解決策への期待を持たせる。年齢を明記することで中年層の共感を狙う</div>
+</div><div class="title-card">
+
+<div class="title-text">5人の父親がフリーランス×副業で年収960万の内訳</div>
+<div class="title-meta">
+<span>🎯 子育て世代のサラリーマンで複数収入源に興味がある層</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">本業500-600万＋副業360万の合計を960万として提示し、具体的な年収数字でクリック誘発。「5人の父親」で責任の重さを表現し、複数収入源の必要性を感じる層に刺さる</div>
+</div><div class="title-card">
+
+<div class="title-text">職人が語る「安定という名の疑似安定」から抜け出す方法</div>
+<div class="title-meta">
+<span>🎯 安定職についているが将来不安を感じている30-40代</span>
+<span>📢 問いかけ系</span>
+</div>
+<div class="title-rationale">動画内の印象的なフレーズ「疑似安定」を使用し、多くのサラリーマンが薄々感じている不安を言語化。解決策への期待でクリック率向上を狙う</div>
+</div>
+</section>
+<section id="video-description" class="section">
+<h2>📋 YouTube概要欄</h2>
+<p style="font-size:0.85em;color:#888;">そのままコピーしてYouTubeの概要欄に貼り付けてください。</p>
+<div class="description-preview" id="description-text">41歳、5児の父である空調設備職人が、現場仕事のリスクを見据えてTEKOに入会。1年半でeBay事業月利30万円を達成し、5人目の出産を機に新たなキャリアステップへ。
+
+【今回のトークサマリー】
+• 空調設備フリーランス10年の経験と年収500-600万円の働き方
+• 5人の子育てと教育費への現実的な考え方
+• 40歳を前にした新しい環境への挑戦動機
+• eBay事業：半年で基盤構築→月利30万円超の成長過程
+• オフ会コミュニティの価値と継続の重要性
+
+【タイムスタンプ】
+02:30 TEKO 2期生、41歳職人の自己紹介
+08:00 空調設備フリーランスの収入構造
+15:00 5人の子供を育てる家族構成
+22:00 現場仕事のリスクとTEKO入会の動機
+30:00 eBay事業：月売上2-3万ドルの実績
+32:00 最初の半年間と成長のターニングポイント
+35:00 5人目出産と現場仕事からの転換
+40:00 オフ会がもたらすコミュニティ価値
+42:00 「2期生は何期生ですか？」の名シーン
+50:00 新しい環境に身を置く意義
+
+チャンネル登録はこちらから▼
+@TEKO-公式
+
+【TEKO公式メディア】
+ハイキャリアパーソンの裏側とキャリア、資産形成について発信
+ただ今公開準備中
+
+【運営者：プロパー八重洲とLINEで繋がりませんか？】
+▼パラレルキャリア戦略やTEKOについてはLINEから▼
+https://leverage.daive-teko.com/p/lp_youtube_tekoofficial?openExternalBrowser=1
+
+【TEKO公式LP】
+https://teko-lp.com/
+
+【プロパー八重洲公式チャンネルはこちらから】
+@プロパー八重洲キャリア戦略室
+
+【SNS】
+Instagram: [Instagram URL]
+X (Twitter): [Twitter URL]
+TikTok: [TikTok URL]
+
+#TEKO #パラレルキャリア #eBay #副業 #フリーランス #空調設備 #子育て #キャリアチェンジ</div>
+<button class="copy-btn" id="copy-btn" onclick="copyDescription()">📋 概要欄テキストをコピー</button>
+
+<script>
+function copyDescription() {
+    const text = document.getElementById('description-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ コピーしました！';
+        setTimeout(() => { btn.textContent = '📋 概要欄テキストをコピー'; }, 2000);
+    });
+}
+</script>
 </section>
 <section id="highlights" class="section">
 <h2>ハイライトシーン</h2>
@@ -596,7 +903,7 @@ TEKO対談インタビュー - やーまんさん 演出ディレクション提
 <div class="transcript"># TEKO メンバーインタビュー: やーまんさん</div>
 </details>
 <footer>
-<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-10 17:05</p>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-13 00:13</p>
 </footer>
 </div>
 </body>
