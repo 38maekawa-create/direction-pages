@@ -187,6 +187,166 @@ footer {
 }
 a { color: #1a73e8; text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
 </style>
 </head>
 <body>
@@ -428,17 +588,17 @@ a:hover { text-decoration: underline; }
 <details>
 <summary>LLMによる追加演出提案</summary>
 <div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
-以下、動画編集者向けの追加演出ディレクション提案です：
+以下、追加の演出ディレクション提案です：
 
-**[05:00] テロップ演出**: 「1050万円」の数字部分を金色のグラデーション効果で強調し、「700万以上の高年収達成！」のサブテロップを画面右上に2秒間表示
+**[05:00] テロップ: 「年収1050万円」を画面中央に大きく表示（金色エフェクト付き）+ 「化学メーカー勤務」のサブテロップを右下に配置**
 
-**[12:00] 画角演出**: 「会社の看板を外しても」の発言時にゲストをセンター寄りにズームイン（1.2倍程度）し、背景を軽くぼかして発言の重要性を視覚的に強調
+**[12:00] 画角: 「会社の看板を外しても」発言時にズームイン + テロップ: 「会社に依存しない個人の力を」（白文字、シンプル強調）**
 
-**[22:00] テロップ演出**: 副業収益「40-50万円（平均）」「最高80万円」を画面下部に大きく表示し、本業年収1050万円との併記で「本業＋副業で圧倒的収入！」のキャッチを追加
+**[22:00] テロップ: 「副業月収40-50万円」を左上に表示 + 「本業超え達成」のキャッチを右下に金色で強調表示**
 
-**[25:30] 色変え演出**: 「給料感の2倍入ってきている」発言部分の背景色を暖色系（オレンジ系）にグラデーション変化させ、成功の実感を視覚的に表現
+**[25:30] 色変え: 背景を暖色系にトーン調整 + テロップ: 「給料の2倍を副業で稼ぐ」を画面下部に大きく表示（インパクトフォント使用）**
 
-**[41:30] テロップ演出**: 「トランプ関税」などの時事ネタ言及時に「最新情報への対応力」「プロのサポート体制」のテロップを左上に表示し、TEKOの価値を具体化
+**[44:00] テロップ: 「業界No.1コミュニティ」を中央配置 + 画角: 発言中に軽くズームアウトして威厳のある構図に調整**
 </div>
 </details>
 </section>
@@ -507,6 +667,148 @@ a:hover { text-decoration: underline; }
 <strong>[46:00]</strong> 2層向け — 共感・安心感
 <div style="font-size:0.85em;">悩んでるなら一回やってみたほうがいいっていう風に思います。多分そうするとまた壁にぶつかって、どうやって乗り越えていこうかみたいな考えてみると思うので。まずはやっ...</div>
 </div>
+</section>
+<section id="thumbnail-design" class="section">
+<h2>🖼️ Z型サムネイル指示書</h2>
+<div class="thumbnail-concept">💡 30代化学メーカー営業1050万円の安定サラリーマンが副業で月商50万円突破の現実味</div>
+<div class="thumbnail-meta">フォント: メインフック：太字ゴシック体・大サイズ、属性情報：中太・読みやすいサイズ、ベネフィット：インパクトのある太字 | 背景: ビジネス系の信頼感を演出する濃紺または濃いグレーベース、成功を示すゴールドのアクセント</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-zone zone-top-left">
+<span class="zone-label">左上: フック</span>
+<div class="zone-role">フック（最初に目に入る）</div>
+<div class="zone-content">年収1050万でも
+副業やる理由</div>
+<div class="zone-color">🎨 白または明るい黄色で強いコントラスト</div>
+<div class="zone-notes">0.2秒で「高年収なのになぜ？」という疑問を喚起。2行構成で視認性重視</div>
+</div>
+<div class="thumbnail-zone zone-top-right">
+<span class="zone-label">右上: 人物</span>
+<div class="zone-role">人物シルエット＋属性</div>
+<div class="zone-content">松本さんシルエット + 「化学メーカー営業/30代前半/年収1050万円」</div>
+<div class="zone-color">🎨 シルエットは白抜き、属性テキストは鮮やかな青または緑</div>
+<div class="zone-notes">スーツ姿のシルエットで信頼感演出。年収数字は大きめに強調</div>
+</div>
+<div class="thumbnail-zone zone-diagonal">
+<span class="zone-label">斜め: コンテンツ</span>
+<div class="zone-role">コンテンツ要素（斜めに視線誘導）</div>
+<div class="zone-content">eBayロゴ + 矢印グラフィック（上昇トレンド）+ 「2年で月商40-50万円」</div>
+<div class="zone-color">🎨 eBayの企業カラー + 成長を示すグリーン系</div>
+<div class="zone-notes">非言語要素でeBay輸出と成長実績を瞬時に伝達。視線をZ字に導く配置</div>
+</div>
+<div class="thumbnail-zone zone-bottom-right">
+<span class="zone-label">右下: ベネフィット</span>
+<div class="zone-role">ベネフィット（最後の着地）</div>
+<div class="zone-content">「安定収入×副業」
+パラレルキャリア</div>
+<div class="zone-color">🎨 ゴールドまたは明るいオレンジで成功感演出</div>
+<div class="zone-notes">視聴者の理想形を2行で提示。同世代サラリーマンの共感を誘う</div>
+</div>
+</div>
+</section>
+<section id="title-proposals" class="section">
+<h2>📝 タイトル案</h2>
+<div class="title-card recommended">
+<div class="title-badge">⭐ 推奨</div>
+<div class="title-text">【年収1050万化学メーカー営業】副業eBayで月商50万円を2年で実現した方法</div>
+<div class="title-meta">
+<span>🎯 年収800万円以上の大企業サラリーマンで副業に関心がある30-40代</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">具体的な年収・実績数字でインパクトを与えつつ、化学メーカーという安定業界から副業成功という親和性の高いストーリー。検索される「副業 eBay」「年収1000万 副業」などのキーワードを網羅</div>
+</div><div class="title-card">
+
+<div class="title-text">会社の看板を外しても稼げる人になりたい【30代化学メーカー営業の挑戦】</div>
+<div class="title-meta">
+<span>🎯 会社依存に不安を感じる30-40代の大企業正社員</span>
+<span>📢 問いかけ系</span>
+</div>
+<div class="title-rationale">ゲストの核心的な動機である「会社の看板を外しても通用するスキル」というパンチラインを活用。多くのサラリーマンが抱える不安に直接刺さる</div>
+</div><div class="title-card">
+
+<div class="title-text">【月商40-50万円】化学メーカー営業がeBay輸出で奥様と築いた副業帝国</div>
+<div class="title-meta">
+<span>🎯 夫婦で副業を検討している30-40代、eBay輸出に関心がある層</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「奥様との共同事業」という差別化要素と「副業帝国」という少し大げさだが品のある表現で興味を惹く。夫婦での副業という検索ニーズにも対応</div>
+</div><div class="title-card">
+
+<div class="title-text">年収1050万でも副業する理由【化学メーカー営業のリアル告白】</div>
+<div class="title-meta">
+<span>🎯 高年収だが将来に不安を感じるサラリーマン、副業の必要性を感じている層</span>
+<span>📢 問いかけ系</span>
+</div>
+<div class="title-rationale">「高年収なのになぜ副業？」という一見矛盾する疑問でクリックを誘発。日本の未来への不安、会社依存からの脱却という深いテーマに興味がある層に刺さる</div>
+</div><div class="title-card">
+
+<div class="title-text">TEKO生が語る！2年でeBay月商50万円までの全軌跡【サスペンド乗り越え】</div>
+<div class="title-meta">
+<span>🎯 TEKO検討者、eBay輸出でサスペンド経験がある層、副業スクール検討者</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">TEKOブランドを前面に出し、「サスペンド乗り越え」という困難克服ストーリーで差別化。TEKO関連の検索流入とeBay実践者の共感を狙う</div>
+</div>
+</section>
+<section id="video-description" class="section">
+<h2>📋 YouTube概要欄</h2>
+<p style="font-size:0.85em;color:#888;">そのままコピーしてYouTubeの概要欄に貼り付けてください。</p>
+<div class="description-preview" id="description-text">化学メーカー営業・30代前半・年収1050万円の方が、TEKO一期生として2年弱でeBay輸出月商40-50万円を実現した成功事例をお聞きしました。
+
+【トークサマリー】
+✓ 日本の未来への不安から副業挑戦を決意
+✓ TEKO選択の4つの理由と情報投資の価値判断
+✓ 2度のサスペンドを乗り越え月商10-20万円→40-50万円へ
+✓ 奥様との共同事業化と外注雇用による責任感の醸成
+✓ 会社の看板を外しても通用するスキル構築への自信獲得
+✓ 本業と副業のパラレルキャリアによる精神的安定
+
+【タイムスタンプ】
+05:00 年収1050万円の内訳（福利厚生含む）
+12:00 会社の看板を外しても通用するスキルを作りたい理由
+13:30 TEKO選択の4つの理由
+17:30 知ってる人に聞くのが最速という先行投資の考え方
+22:00 1年目の実績：月商10-20万円平均、最高80万円
+25:30 本業給料分が2倍入ってくる感覚について
+31:00 奥様の先輩を参画させた外注雇用の経験
+32:30 お金をもらうだけから生み出す側への意識変化
+34:00 化学メーカーの看板が剥がされても頑張れる自信
+41:30 TEKOコミュニティの価値：講師陣の高速レスポンスと情報鮮度
+
+チャンネル登録はこちらから▼
+@TEKO-公式
+
+【TEKO公式メディア】
+ハイキャリアパーソンの裏側とキャリア、資産形成について発信
+ただ今公開準備中
+
+【運営者：プロパー八重洲とLINEで繋がりませんか？】
+▼パラレルキャリア戦略やTEKOについてはLINEから▼
+https://leverage.daive-teko.com/p/lp_youtube_tekoofficial?openExternalBrowser=1
+
+【プロパー八重洲公式チャンネルはこちらから】
+@プロパー八重洲キャリア戦略室
+
+【TEKO詳細はこちら】
+https://teko-lp.com/
+
+【SNS】
+Instagram: [Instagram URL]
+X（Twitter）: [Twitter URL]
+TikTok: [TikTok URL]
+
+#TEKO #副業 #輸出ビジネス #パラレルキャリア #ハイキャリア #化学メーカー #eBay #年収1000万円</div>
+<button class="copy-btn" id="copy-btn" onclick="copyDescription()">📋 概要欄テキストをコピー</button>
+
+<script>
+function copyDescription() {
+    const text = document.getElementById('description-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ コピーしました！';
+        setTimeout(() => { btn.textContent = '📋 概要欄テキストをコピー'; }, 2000);
+    });
+}
+</script>
 </section>
 <section id="highlights" class="section">
 <h2>ハイライトシーン</h2>
@@ -591,7 +893,7 @@ a:hover { text-decoration: underline; }
 ---</div>
 </details>
 <footer>
-<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-10 17:05</p>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-13 00:17</p>
 </footer>
 </div>
 </body>
