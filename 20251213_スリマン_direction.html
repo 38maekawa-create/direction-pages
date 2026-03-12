@@ -187,6 +187,166 @@ footer {
 }
 a { color: #1a73e8; text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
 </style>
 </head>
 <body>
@@ -428,17 +588,15 @@ a:hover { text-decoration: underline; }
 <details>
 <summary>LLMによる追加演出提案</summary>
 <div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
-以下、スリマンさんの動画編集演出ディレクション提案です：
+[02:00] テロップ: 「外資IT × ビッグフォー出身」の文字を金色のグラデーションで大きく表示、背景に高級感のある光のエフェクトを追加
 
-**[00:00] テロップ演出**: 「外資IT×コンサル」部分を金色フォントで強調し、画面右上に「年収1900万」バッジを常時表示
+[05:00] 画角+色変え: 「赤坂で毎日泣いてました」の発言時に画面を一瞬モノクロにして、その後カラーに戻すことで感情の転換点を演出
 
-**[05:00] 画角演出**: 「赤坂で毎日泣いてました」発言時にズームイン→「トイレで」でさらにクローズアップ。背景を暗転させてスポットライト効果で感情的な演出
+[08:00] テロップ: 「同期の倍以上」の部分で画面に「年収1900万円」を大きく表示し、上矢印のアニメーションと共に「同期との圧倒的格差」のサブテキストを追加
 
-**[08:00] テロップ演出**: 「倍以上」の部分を赤字で拡大表示し、画面下部に「同期との年収格差」というサブタイトルをスライドイン
+[14:00] テロップ+画角: 「パワーカップルの持続性」発言時に画面を2分割し、左右で対比を表現する演出を追加、重要なキーワードを赤文字で強調
 
-**[10:00] 色変え演出**: 「2000万でも足りない」発言時に画面全体を金色のオーバーレイで包み、高年収層特有の悩みを視覚的に表現
-
-**[32:00] テロップ演出**: 「労働市場ゲーム vs 資本主義ゲーム」を画面分割で対比表示し、インタビュアーの核心的な発言として強調演出
+[32:00] テロップ: インタビュアーの「労働市場vs資本主義」発言時に、2つのゲームボードが対峙するようなグラフィックアニメーションを背景に追加、「ゲームチェンジ」の文字を強調表示
 </div>
 </details>
 </section>
@@ -515,6 +673,147 @@ a:hover { text-decoration: underline; }
 <strong>[50:00]</strong> 2層向け — 共感・安心感
 <div style="font-size:0.85em;">本当にサラリーマンの中で、延長線上で考えている選択肢じゃないっていうのがメッセージとして伝えたい。</div>
 </div>
+</section>
+<section id="thumbnail-design" class="section">
+<h2>🖼️ Z型サムネイル指示書</h2>
+<div class="thumbnail-concept">💡 30代前半で年収1900万円という現実的な成功事例から視聴者が「自分も到達可能」と感じるサムネ</div>
+<div class="thumbnail-meta">フォント: 太字ゴシック体、フック部分は24-28px、属性は18-20px、数字は強調で32px以上 | 背景: 深いネイビーブルーをベースに、IT企業らしい洗練感と信頼性を演出。グラデーションで奥行き感を表現</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-zone zone-top-left">
+<span class="zone-label">左上: フック</span>
+<div class="zone-role">フック（最初に目に入る）</div>
+<div class="zone-content">30代で年収1900万</div>
+<div class="zone-color">🎨 鮮やかなゴールド（#FFD700）で数字部分を強調、文字は白</div>
+<div class="zone-notes">「30代で」を先頭配置で親近感、「1900万」を最大サイズで配置。0.2秒で突破力を発揮</div>
+</div>
+<div class="thumbnail-zone zone-top-right">
+<span class="zone-label">右上: 人物</span>
+<div class="zone-role">人物シルエット＋属性</div>
+<div class="zone-content">スーツ姿のシルエット＋「外資IT」「元製薬MR」のテキスト</div>
+<div class="zone-color">🎨 シルエットは白で抜き、属性テキストは薄いブルー（#87CEEB）</div>
+<div class="zone-notes">知的で信頼感のあるスーツシルエット、モザイク不要のシンプルな人型で配置</div>
+</div>
+<div class="thumbnail-zone zone-diagonal">
+<span class="zone-label">斜め: コンテンツ</span>
+<div class="zone-role">コンテンツ要素（斜めに視線誘導）</div>
+<div class="zone-content">上昇する矢印グラフィック＋「製薬→コンサル→IT」のキャリア遷移アイコン</div>
+<div class="zone-color">🎨 オレンジ系（#FF6B35）で成長・上昇を表現</div>
+<div class="zone-notes">左上から右下への視線誘導を矢印で物理的に表現、キャリア変遷を非言語的に示す</div>
+</div>
+<div class="thumbnail-zone zone-bottom-right">
+<span class="zone-label">右下: ベネフィット</span>
+<div class="zone-role">ベネフィット（最後の着地）</div>
+<div class="zone-content">「転職戦略」「TEKO副業も公開」</div>
+<div class="zone-color">🎨 明るいグリーン（#32CD32）で行動を促す色味</div>
+<div class="zone-notes">視聴者が得られる具体的価値を明示、クリック動機の最終着地点として機能</div>
+</div>
+</div>
+</section>
+<section id="title-proposals" class="section">
+<h2>📝 タイトル案</h2>
+<div class="title-card recommended">
+<div class="title-badge">⭐ 推奨</div>
+<div class="title-text">年収1900万外資ITが語る「パワーカップルの持続性問題」</div>
+<div class="title-meta">
+<span>🎯 高年収共働き世帯・パワーカップル当事者</span>
+<span>📢 問いかけ系</span>
+</div>
+<div class="title-rationale">パワーカップルという検索ボリュームの高いキーワードと、実際の当事者しか語れない「持続性問題」という切り口で差別化。1900万という具体的数字で権威性も担保</div>
+</div><div class="title-card">
+
+<div class="title-text">製薬MR→ビッグフォー→外資IT 年収1900万の転職術</div>
+<div class="title-meta">
+<span>🎯 キャリア転職を考えているビジネスパーソン</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">3段階のキャリア遷移を矢印で表現し、ストーリー性を演出。転職系コンテンツは安定してニーズが高く、1900万という到達点が説得力を持つ</div>
+</div><div class="title-card">
+
+<div class="title-text">年収2000万目前「でも足りない」外資IT社員の本音</div>
+<div class="title-meta">
+<span>🎯 高年収層・年収アップを目指すビジネスパーソン</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">2000万という大台直前での「足りない」発言のギャップが強いフック。高年収層の実態への好奇心を刺激し、クリック率向上を狙う</div>
+</div><div class="title-card">
+
+<div class="title-text">TEKO入会半年で副業月商30万 外資IT×eBay輸出の実録</div>
+<div class="title-meta">
+<span>🎯 副業・物販に興味があるサラリーマン</span>
+<span>📢 実績数字系</span>
+</div>
+<div class="title-rationale">TEKOブランドを前面に出し、具体的な期間（半年）と実績（月商30万）で信憑性を担保。外資IT×副業の組み合わせで差別化</div>
+</div><div class="title-card">
+
+<div class="title-text">「サラリーマンの延長線上にない選択肢」年収1900万の思考法</div>
+<div class="title-meta">
+<span>🎯 現状打破を求めるサラリーマン・経営者志向層</span>
+<span>📢 権威系</span>
+</div>
+<div class="title-rationale">印象的なパンチラインを引用符で強調し、年収1900万という実績で思考法の価値を裏付け。サラリーマン脱却願望層に刺さる</div>
+</div>
+</section>
+<section id="video-description" class="section">
+<h2>📋 YouTube概要欄</h2>
+<p style="font-size:0.85em;color:#888;">そのままコピーしてYouTubeの概要欄に貼り付けてください。</p>
+<div class="description-preview" id="description-text">年収1900万・30代前半外資IT勤務の方が語る、製薬MRからビッグフォー、外資ITへのキャリア遷移と家庭優先の意思決定。TEKO入会後半年でeBay副業が月商30万円に到達した舞台裏。
+
+【今回のトークサマリー】
+• 製薬MR→ビッグフォーコンサル→外資ITへのキャリア戦略
+• 年収2000万ラインの生活水準と「足りない感覚」の実態
+• パワーカップルの持続性問題とペアローンの落とし穴
+• TEKO入会後半年でeBay月商30万達成の具体的プロセス
+• 外注化・組織化思考への変革体験
+• サラリーマンの延長線上にない選択肢の重要性
+
+【タイムスタンプ】
+00:00 外資ITコンサルの現在のポジション
+02:00 子育てを機にした転職活動の経緯
+05:00 ビッグフォー時代の激務体験談
+08:00 同期との年収差は倍以上の現実
+10:00 年収2000万でも足りない？生活水準の実態
+14:00 パワーカップル×子育ての持続性問題
+17:00 住宅ローン控除の意外な落とし穴
+22:00 eBay副業で月商30万達成までの軌跡
+28:00 外注化思考への転換がもたらした変化
+32:00 労働市場と資本主義、2つのゲームの違い
+
+チャンネル登録はこちらから▼
+@TEKO-公式
+
+【TEKO公式メディア】
+ハイキャリアパーソンの裏側とキャリア、資産形成について発信
+ただ今公開準備中
+
+【TEKO入会を検討中の方はこちら】
+▼パラレルキャリア戦略の詳細はこちら▼
+https://teko-lp.com/
+
+【運営者：プロパー八重洲とLINEで繋がりませんか？】
+▼キャリア戦略やTEKOについてはLINEから▼
+[LINEリンク]
+
+【プロパー八重洲公式チャンネルはこちらから】
+@プロパー八重洲キャリア戦略室
+
+【その他SNS】
+Instagram: [Instagramリンク]
+X（Twitter）: [Twitterリンク]
+TikTok: [TikTokリンク]
+
+#外資IT #年収1900万 #キャリア戦略 #パラレルキャリア #副業 #eBay #外注化 #TEKO</div>
+<button class="copy-btn" id="copy-btn" onclick="copyDescription()">📋 概要欄テキストをコピー</button>
+
+<script>
+function copyDescription() {
+    const text = document.getElementById('description-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ コピーしました！';
+        setTimeout(() => { btn.textContent = '📋 概要欄テキストをコピー'; }, 2000);
+    });
+}
+</script>
 </section>
 <section id="highlights" class="section">
 <h2>ハイライトシーン</h2>
@@ -603,7 +902,7 @@ a:hover { text-decoration: underline; }
 <div class="transcript"># 対談動画文字起こし：インタビュアー × インタビュアー（インタビュアー）</div>
 </details>
 <footer>
-<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-10 17:08</p>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-13 00:28</p>
 </footer>
 </div>
 </body>
