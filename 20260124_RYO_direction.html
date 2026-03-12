@@ -187,6 +187,166 @@ footer {
 }
 a { color: #1a73e8; text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
 </style>
 </head>
 <body>
@@ -476,17 +636,17 @@ a:hover { text-decoration: underline; }
 <details>
 <summary>LLMによる追加演出提案</summary>
 <div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
-以下、TEKO対談インタビュー動画の演出ディレクション提案です：
+以下、追加の演出ディレクション提案です：
 
-**[03:30] テロップ（強調）**: 「年収1100万円」の部分を金色のテロップで強調表示。背景に金色のキラキラエフェクトを追加し、「大手不動産勤務」のサブテロップも併記して属性の強さを演出
+**[03:30] テロップ: 「年収1100万円」を金色フォント＋光るエフェクトで強調表示。背景に薄く札束のイラストを挿入**
 
-**[04:15] テロップ（実績強調）**: 「RC1棟18戸 1.5億円」の部分を大きな白抜きテロップで表示。不動産アイコンと「10年前から投資実績あり」のサブテロップを追加して長期投資家としての信頼性を演出
+**[04:15] テロップ: 「RC 1棟18戸」「1.5億円」を赤文字で強調。「大手不動産会社勤務の実力」をサブテロップで追加**
 
-**[19:30] 画角（クライマックス演出）**: 「粗利100万円突破」発言時にカメラをややズームイン。テロップで「月粗利100万円達成！」を赤文字で大きく表示し、達成感を強調する演出
+**[19:30] 画角: 「粗利100万円突破」の瞬間をスローモーション演出。テロップで「月粗利100万円達成！」を画面中央に大きく表示し、拍手音SEを挿入**
 
-**[21:15] テロップ（パンチライン）**: 「素直に愚直にやっていった結果」の部分を黄色のハイライトテロップで表示。「成功の秘訣」というサブタイトルを追加して視聴者の注目を集める
+**[21:15] テロップ: 「素直に」「愚直に」をマーカー風黄色ハイライト。「成功の秘訣はココ！」をポップアップ表示**
 
-**[30:00] 色変え（感情表現）**: 「自分に甘えちゃって〜突き抜けてやりたい」の発言部分で画面を少し暖色系に調整。テロップで「現状打破への決意」を表示し、成長マインドセットを強調する演出
+**[30:00] 色変え: 「突き抜けてやりたい」発言時に画面を一瞬オレンジ系に変色させ、情熱的な印象を演出。テロップで「熱い想い💪」を追加**
 </div>
 </details>
 </section>
@@ -575,6 +735,151 @@ a:hover { text-decoration: underline; }
 <strong>[50:00]</strong> 両層向け — 焦燥感+共感
 <div style="font-size:0.85em;">本業のモヤモヤはないんですけど、本業の中では。ただ人生という長いスパンで見た時にこれだけでいいのかなっていうそこのモヤモヤがあったので。この1本、大きなミキだと...</div>
 </div>
+</section>
+<section id="thumbnail-design" class="section">
+<h2>🖼️ Z型サムネイル指示書</h2>
+<div class="thumbnail-concept">💡 40代サラリーマンの等身大成功ストーリーで視聴者の自分ごと化を最大化</div>
+<div class="thumbnail-meta">フォント: 太字ゴシック体、左上は特大サイズ（インパクト重視）、その他は中〜大サイズで視認性確保 | 背景: 深いネイビーブルー基調で信頼感演出、グラデーション効果で高級感をプラス</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-zone zone-top-left">
+<span class="zone-label">左上: フック</span>
+<div class="zone-role">フック（最初に目に入る）</div>
+<div class="zone-content">年収1100万でも
+不安だった</div>
+<div class="zone-color">🎨 白文字に黄色のアウトライン、注意喚起の赤いアンダーライン</div>
+<div class="zone-notes">0.2秒で刺さるリアルな悩み。40代サラリーマンの共感を瞬時に獲得する最強フック</div>
+</div>
+<div class="thumbnail-zone zone-top-right">
+<span class="zone-label">右上: 人物</span>
+<div class="zone-role">人物シルエット＋属性</div>
+<div class="zone-content">RYOさん（42歳）のシルエット + 「大手不動産勤務」「年収1100万円」のテキスト</div>
+<div class="zone-color">🎨 シルエットは白抜き、属性テキストは黄色で強調</div>
+<div class="zone-notes">スーツ姿のビジネスマンシルエット。顔モザイクでも権威性を演出し、視聴者との距離感を適切に保つ</div>
+</div>
+<div class="thumbnail-zone zone-diagonal">
+<span class="zone-label">斜め: コンテンツ</span>
+<div class="zone-role">コンテンツ要素（斜めに視線誘導）</div>
+<div class="zone-content">上向き矢印グラフィック + 「月利10万→100万円」の成長カーブ + 輸出のアイコン</div>
+<div class="zone-color">🎨 矢印は緑色、数字は白抜き文字、輸出アイコンは青系</div>
+<div class="zone-notes">Z字の流れで成長ストーリーを視覚的に表現。数字の変化でインパクトを演出</div>
+</div>
+<div class="thumbnail-zone zone-bottom-right">
+<span class="zone-label">右下: ベネフィット</span>
+<div class="zone-role">ベネフィット（最後の着地）</div>
+<div class="zone-content">「1年で人生が
+変わった方法」</div>
+<div class="zone-color">🎨 白文字に金色のアウトライン、背景に薄い光エフェクト</div>
+<div class="zone-notes">具体的期間と変化を明示。クリック動機となる希望的メッセージで着地させる</div>
+</div>
+</div>
+</section>
+<section id="title-proposals" class="section">
+<h2>📝 タイトル案</h2>
+<div class="title-card recommended">
+<div class="title-badge">⭐ 推奨</div>
+<div class="title-text">年収1100万円不動産サラリーマンが副業1年で月利100万円達成した方法</div>
+<div class="title-meta">
+<span>🎯 年収800万円以上の高収入サラリーマンで、不動産投資経験があり更なる収入源を模索している層</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">「年収1100万円」「月利100万円」という具体的な数字でインパクトを与え、不動産投資経験者という属性を明記することで同属性の視聴者の関心を引く。検索キーワード「不動産 サラリーマン 副業」を自然に含む</div>
+</div><div class="title-card">
+
+<div class="title-text">42歳大手不動産勤務が語る「本業に甘えていた自分」からの脱却</div>
+<div class="title-meta">
+<span>🎯 40代前後の大企業勤務で現状に満足しきれずモヤモヤを抱えている層</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「本業に甘えていた」というパンチラインを活用し、同じような状況の視聴者の心理的共感を狙う。年齢と職業属性を明記することで自分ごと化を促進</div>
+</div><div class="title-card">
+
+<div class="title-text">素直に実践し続けた結果→1年で月粗利100万円【大手不動産42歳】</div>
+<div class="title-meta">
+<span>🎯 ノウハウコレクターになりがちで実践力に課題を感じている高収入サラリーマン層</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「素直に実践」という成功要因をタイトルに入れ、実践の重要性を訴求。矢印記号で結果を強調し、視覚的にもインパクトを与える</div>
+</div><div class="title-card">
+
+<div class="title-text">1.5億円不動産投資家が「それだけでは満足できない」理由とは</div>
+<div class="title-meta">
+<span>🎯 </span>
+<span>📢 問いかけ系</span>
+</div>
+<div class="title-rationale">1.5億円という大きな数字でインパクトを与えつつ、「満足できない理由」で続きが気になる構成。既に不動産投資で成果を出している層の心理的課題に刺さる</div>
+</div><div class="title-card">
+
+<div class="title-text">年収1100万円でも転勤に悩む施工管理職の副業戦略</div>
+<div class="title-meta">
+<span>🎯 転勤のある大企業勤務で家族との時間や働き方に課題を感じている技術職・管理職層</span>
+<span>📢 権威系</span>
+</div>
+<div class="title-rationale">具体的な職種「施工管理職」を明記し、転勤という働き方の課題を前面に出すことで、同様の悩みを持つ層にピンポイントで刺さる設計</div>
+</div>
+</section>
+<section id="video-description" class="section">
+<h2>📋 YouTube概要欄</h2>
+<p style="font-size:0.85em;color:#888;">そのままコピーしてYouTubeの概要欄に貼り付けてください。</p>
+<div class="description-preview" id="description-text">チャンネル登録はこちらから▼
+@TEKO-公式
+
+42歳・大手不動産会社勤務・年収1100万円のTEKO 7期生が、1年間で月粗利100万円を達成した海外輸出事業の軌跡を語る。
+本業一本への依存と転勤問題に向き合い、事業化への挑戦で新たな人生の選択肢を獲得した実体験をお届けします。
+
+【今回のトークサマリー】
+・42歳施工管理職・年収1100万円・10年前に1棟RC購入の基本属性
+・転勤問題と本業依存への不安がTEKO入会のきっかけ
+・開始3ヶ月：月利10万円 → 半年：30万円 → 1年：月粗利100万円の成長軌跡
+・合同コンサル毎回参加と素直で愚直な実践が成功の要因
+・事業を作り上げる体験がもたらしたマインドセットの変化
+・チャットワークでの問題解決システムとTEKOの価値
+・法人化への展望と悩む人へのメッセージ
+
+【タイムスタンプ】
+03:30 - 年収1100万円の実績数字
+04:15 - 10年前に購入した1棟RC（1.5億・18戸）について
+12:45 - 転勤問題とTEKO入会の経緯
+18:45 - 最初3ヶ月：純利益10万円前後で推移
+19:30 - 1年経過時点：月粗利100万円達成
+20:30 - 合同コンサル毎回参加の重要性
+21:15 - 素直で愚直な実践が成功の鍵
+23:00 - トラブル対応のロードマップの価値
+27:30 - 不動産投資への甘えと事業化への決意
+29:15 - やるからには覚悟を決めて取り組む姿勢
+
+【TEKO公式メディア】
+ハイキャリアパーソンの裏側とキャリア、資産形成について発信
+ただ今公開準備中
+
+【TEKOについて詳しく知りたい方はこちら】
+▼公式サイト▼
+https://teko-lp.com/
+
+【運営者：プロパー八重洲とLINEで繋がりませんか？】
+▼パラレルキャリア戦略やTEKOについてはLINEから▼
+https://leverage.daive-teko.com/p/lp_youtube_tekoofficial?openExternalBrowser=1
+
+【プロパー八重洲公式チャンネルはこちらから】
+@プロパー八重洲キャリア戦略室
+
+【SNS】
+Instagram: [Instagram URL]
+X（Twitter）: [Twitter URL]
+TikTok: [TikTok URL]
+
+#TEKO #副業 #海外輸出 #パラレルキャリア #ハイキャリア #資産形成 #事業化 #不動産投資</div>
+<button class="copy-btn" id="copy-btn" onclick="copyDescription()">📋 概要欄テキストをコピー</button>
+
+<script>
+function copyDescription() {
+    const text = document.getElementById('description-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ コピーしました！';
+        setTimeout(() => { btn.textContent = '📋 概要欄テキストをコピー'; }, 2000);
+    });
+}
+</script>
 </section>
 <section id="highlights" class="section">
 <h2>ハイライトシーン</h2>
@@ -1042,7 +1347,7 @@ a:hover { text-decoration: underline; }
 **インタビュアー:** 建築会社の方ってことですね。なるほど。</div>
 </details>
 <footer>
-<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-10 17:05</p>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-13 00:12</p>
 </footer>
 </div>
 </body>
