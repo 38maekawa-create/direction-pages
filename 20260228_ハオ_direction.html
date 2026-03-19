@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ディレクションレポート: ハオさん</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    background: #fafbfc;
+    line-height: 1.7;
+}
+h1 {
+    font-size: 1.6em;
+    border-bottom: 3px solid #1a73e8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 1.3em;
+    color: #1a73e8;
+    border-left: 4px solid #1a73e8;
+    padding-left: 12px;
+    margin-top: 30px;
+}
+h3 {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+}
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+}
+.meta-item {
+    font-size: 0.9em;
+}
+.meta-label {
+    color: #888;
+    font-size: 0.8em;
+}
+.meta-value {
+    font-weight: 600;
+}
+.section {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+}
+.tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+.tier-a { background: #ffd700; color: #333; }
+.tier-b { background: #e8f0fe; color: #1a73e8; }
+.tier-c { background: #e8f5e9; color: #2e7d32; }
+.emphasis-on {
+    color: #d32f2f;
+    font-weight: 700;
+}
+.emphasis-off {
+    color: #888;
+}
+.timeline-entry {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.timeline-ts {
+    font-family: 'SF Mono', 'Consolas', monospace;
+    color: #1a73e8;
+    font-weight: 600;
+    min-width: 50px;
+    white-space: nowrap;
+}
+.timeline-type {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+}
+.type-telop { background: #fce4ec; color: #c62828; }
+.type-camera { background: #e3f2fd; color: #1565c0; }
+.type-color { background: #fff3e0; color: #e65100; }
+.type-composite { background: #f3e5f5; color: #7b1fa2; }
+.timeline-instruction {
+    flex: 1;
+}
+.priority-high { border-left: 3px solid #d32f2f; padding-left: 8px; }
+.priority-medium { border-left: 3px solid #ff9800; padding-left: 8px; }
+.priority-low { border-left: 3px solid #4caf50; padding-left: 8px; }
+.noun-entry {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+}
+.noun-show { background: #e8f5e9; }
+.noun-hide { background: #fce4ec; }
+.target-scene {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+.target-tier1 { border-color: #1a73e8; background: #e8f0fe; }
+.target-tier2 { border-color: #2e7d32; background: #e8f5e9; }
+.target-both { border-color: #ff9800; background: #fff3e0; }
+.balance-meter {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+.balance-tier1 { background: #1a73e8; }
+.balance-tier2 { background: #2e7d32; }
+.balance-both { background: #ff9800; }
+.strength-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+}
+.highlight-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+}
+.highlight-table th, .highlight-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+.highlight-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+}
+details {
+    margin: 16px 0;
+}
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1a73e8;
+    padding: 8px;
+}
+summary:hover { text-decoration: underline; }
+.transcript {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    max-height: 600px;
+    overflow-y: auto;
+}
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 0.8em;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+a { color: #1a73e8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>ディレクションレポート: ハオさん</h1>
+<div class="meta-grid">
+<div class="meta-item"><div class="meta-label">年齢</div><div class="meta-value">35</div></div>
+<div class="meta-item"><div class="meta-label">本業</div><div class="meta-value">2025年まで福岡のインフラ企業勤務（管理系：採用・経理等）。2025年にサラリーマン引退</div></div>
+<div class="meta-item"><div class="meta-label">年収</div><div class="meta-value">不明</div></div>
+<div class="meta-item"><div class="meta-label">動画時間</div><div class="meta-value">不明</div></div>
+<div class="meta-item"><div class="meta-label">種別</div><div class="meta-value">不明</div></div>
+<div class="meta-item"><div class="meta-label">ゲスト層</div><div class="meta-value"><span class="tier-badge tier-b">層b（相対的強さの言語化が必要）</span></div></div>
+<div class="meta-item"><div class="meta-label">年収演出</div><div class="meta-value"><span class="emphasis-off">強調OFF</span></div></div>
+</div>
+</header>
+<section id="guest-classification" class="section">
+<h2>ゲスト層分類 (A-1)</h2>
+<p><span class="tier-badge tier-b">層b（相対的強さの言語化が必要）</span>
+（信頼度: low）</p>
+<p><strong>判定理由:</strong> 年収1000万未満かつ層a/cの特徴キーワードなし</p>
+<p><strong>見せ方テンプレート:</strong> 年収以外の文脈で強さを言語化する。在籍企業のブランド力、キャリアパスの希少性、勤務形態の自由度、転職先の年収見込み等を活用。</p>
+</section>
+<section id="income-direction" class="section">
+<h2>年収演出判断 (A-2)</h2>
+<p><strong>判定:</strong> <span class="emphasis-off">
+強調OFF</span></p>
+<p><strong>理由:</strong> 年収情報なし → 年収以外の強さにフォーカス</p>
+</section>
+<section id="proper-nouns" class="section">
+<h2>固有名詞規制 (A-4)</h2>
+<p>検出された固有名詞はありません。</p>
+</section>
+<section id="direction-timeline" class="section">
+<h2>演出ディレクション (NEW-1)</h2>
+
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[09:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[25:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[50:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「年収1000」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（年収1000）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[50:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[02:45:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「年収500」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（年収500）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[02:45:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[03:00:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「10万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（10万, 月利100万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[03:00:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[03:30:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「年収1」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（年収1, 200万, 200万, 100万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[03:30:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[04:15:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「副業を2つやって2発中2発上がってる」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[04:15:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[04:15:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層b（相対的強さの言語化が必要）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層b（相対的強さの言語化が必要）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[05:00:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「父が『お前らはものに溢れすぎてるからハングリー精神がない」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[05:00:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[05:00:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: 層b（相対的強さの言語化が必要）の強さ強調シーン</div>
+<div style="font-size:0.8em;color:#888;">ゲスト層b（相対的強さの言語化が必要）の強さ演出</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[09:00:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[11:30:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+
+<details>
+<summary>LLMによる追加演出提案</summary>
+<div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
+## 追加演出ディレクション提案（ハオさん動画）
+
+---
+
+**適用フィードバックルール**: `[general] もっと綺麗にして` → 全提案においてテロップデザイン・色彩・トランジションの洗練度を優先。粗いカットや素テキストの羅列を避け、映像としての完成度を意識した演出を提案する。
+
+---
+
+**[01] [09:00] テロップ / 色彩: キャラクター刻印テロップ（石橋を叩くタイプの視覚化）**
+
+「石橋を叩いて渡る」発言時に、画面下部へキャラクタータグをスライドインさせる。白背景＋細ゴシック体で `石橋を叩いて渡る男` と表示し、周囲に細いゴールドのラインボーダーを入れてラグジュアリー感を演出。後続の「インフラ安定志向→鉄道→海運→Uターン→投資」という行動パターンに一貫して紐づく&quot;キャラ紹介&quot;として機能させる。色温度はこのシーン全体を寒色寄り（Kelvin 5200K程度）に設定し、「堅実・慎重」の雰囲気を演出する（後半の暖色転換との対比を準備）。
+
+---
+
+**[02] [25:00] テロップ / テンポ: 「MARCH ✕ 資格全取得」の権威性アンカー演出**
+
+「鉄道会社合格・資格評価」の発言時に、取得資格名を1枚ずつテンポよく0.5秒間隔でスタック表示（資格名A → B → C と重ねていくアニメーション）。最後に `学歴では勝てない→資格で差をつけた` というナレーションテロップを画面中央に3秒静止させ、間を取る。視聴者の「自分にも再現できる」という感情を誘発するために、数字より「戦略の論理」を強調する。BGMはこのシーンで一段落させ、静寂を0.5秒挟んでから次のシーンへ。
+
+---
+
+**[03] [50:00]〜[02:45:00] つなぎ演出（115分ギャップ）: チャプタータイトル＋寒色フィルターのBefore区間**
+
+最大ギャップ箇所。「三大海運＝精神と時の部屋」→「Uターン年収半減」の流れを断絶させず、以下の3ステップでブリッジする。
+
+1. `[50:00]` 直後にブラックフェードイン＋チャプタータイトル `── CHAPTER：限界と決断 ──` を白細字でセンター表示（2秒）
+2. チャプタータイトルが消えたら、Uターン以前のシーン全体に寒色フィルター（青みがかったトーン）を統一適用。BGMはピアノ単音のシンプルなミニマル曲に変更
+3. `[02:45:00]` の「Uターンして年収500万に半減」発言直前に、数字 `¥10,000,000 → ¥5,000,000` をフェードで表示。SEは入れず、沈黙で重みを出す
+
+---
+
+**[04] [03:00:00] テロップ / BGM: eBay成長グラフのアニメーション演出**
+
+「0円→10万→100万」の成長速度を視覚化する。画面右下に折れ線グラフのアニメーションを重ねて表示し、数字が跳ね上がるタイミング（`半年で月利100万超え`）でBGMをマイナー調からメジャー調へ切り替え。グラフのラインが上昇する瞬間に軽いSE（上昇音：ピコン系）を1回入れる。色温度をここから暖色（Kelvin 5800K）に変化させ、Before区間（寒色）との対比で「転換点」を視覚的に確定させる。テロップフォントはここだけ太めのサンセリフに変更し、勢いを演出。
+
+---
+
+**[05] [03:30:00] テロップ / 色彩: 不動産実績の&quot;数字パンチライン&quot;演出**
+
+`16棟 157室 家賃年収1億円超` の3つの数字を、画面の35%以上のサイズで1つずつカウントアップアニメーションで表示（各1.5秒）。背景はごく薄いゴールドのグラデーションをオーバーレイし、高級感を付与。各数字が確定するタイミングにSE（重厚な「ドン」系の1音）を入れる。月間CF `200万円` はフォントサイズをさらに大きくし（画面の40%）、静止フレームとして1.5秒保持。このシーンのみ照明感も明るめに補正し、「到達感」を演出する。
+
+---
+
+**[06] [05:00:00] テロップ / BGM / テンポ: 父の言葉「引用カード」演出**
+
+`「お前らはものに溢れすぎてるからハングリー精神がない。俺を超えることができん」` の発言を、画面全体を使った&quot;引用カード&quot;として演出。黒背景に手書き風フォントで父の言葉を2行表示、左端に縦ラインのデザインアクセントを入れ、洗練された引用デザインに仕上げる。BGMはここで完全に無音にし、ハオさんの声だけを際立たせる。引用テロップが消えた直後に2秒の静寂を置き、次の「父を追い抜きたい、認められたい」発言まで画角はゲストのアップで固定。余韻を残す構成にする。
+
+---
+
+**[07] [04:15:00] テロップ / テンポ: 「2発中2発」のパンチライン強調演出**
+
+`副業2つやって2発中2発上がってる` の発言を、数字の対比で視覚化。`2/2` というシンプルなスコア表示を画面中央上部に2秒表示し、直後に `打率10割` をサブテキストで小さく添える（ユーモア＋インパクトの二重構造）。`やることは絶対全部やる` の発言では、画面をゆっくりズームインしながらテロップを画面下部1/3に固定表示。ゲストのアップとテロップを同時に見せ、「この人の言葉の重み」を感じさせる。間を2秒取ってからカット切り替え。
+
+---
+
+**[08] [09:00:00]〜[11:30:00] BGM / 色彩 / テンポ: TEKO価値フィナーレの感動クロージング演出（つなぎ＋締め）**
+
+540分ギャップを経た最終区間。`他人に興味なかった→感謝されて価値観が生まれた` という変容の発言で、暖色フィルターをさらに+500K引き上げ（最も温かい色温度に）。BGMをここだけストリングス系の穏やかな曲に差し替え、感情の着地を誘導する。`[11:30:00]` の「強豪校」発言では、TEKOのロゴまたはビジュアルをオーバーレイしながらテロップ `一期生が基準を作った` を表示。エンドカードへのフェードアウトは3秒かけてゆっくり暗転させ、余韻を残す。BGMのフェードアウトもここで行い、映像としてのクロージングを明確に意識した構成にする。
+</div>
+</details>
+</section>
+<section id="target-checklist" class="section">
+<h2>ターゲット別チェックリスト (A-5)</h2>
+<div class="balance-meter">
+<div class="balance-tier1" style="width:80%"></div>
+<div class="balance-tier2" style="width:20%"></div>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:0.8em;color:#666;">
+<span>1層 6件</span>
+<span>両層 4件</span>
+<span>2層 0件</span>
+</div>
+<p><strong>バランス:</strong> 1層偏重 — 2層（共感・安心感）向けのシーンを追加検討してください。</p>
+
+<div class="target-scene target-tier1">
+<strong>[09:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">僕はインフラで見てまして。僕って石橋を叩いて渡る人なんで、インフラはもう潰れないだろうみたいな。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[25:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">大手の通信も受けてて、一番第一志望だった鉄道会社に受かって技術職として入った。マーチだったんで優位性はなかったけど、資格を学生時代に全部取って、そこが評価された...</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[50:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">三大海運は1年で辞めたけど、綺麗に行くと年収1000万は超えるぐらい。残業代込みで。一番過酷な連結決算部門で、もう精神と時の部屋みたいな形だった。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[02:45:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">Uターンして年収500万に半減。時間ができて、父が経営者で不動産やってたから不動産投資を始めた。自己資金が必要だからeBayで資金力をつける戦略を採った。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[03:00:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">eBay1ヶ月目は利益0円。3ヶ月目で10万、半年で月利100万超えた。そのキャッシュフローを全部不動産にやったら不動産もガーッと上がった。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[03:30:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">不動産は5年で16棟157室、家賃年収1億円超、月間キャッシュフロー200万円。eBayは良い時200万、悪い時100万ぐらい。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[05:00:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">父が『お前らはものに溢れすぎてるからハングリー精神がない。だから俺を超えることができん』と言ってた。それがずっと心の中にある。父を追い抜きたい、認められたいとい...</div>
+</div>
+<div class="target-scene target-both">
+<strong>[04:15:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">副業を2つやって2発中2発上がってる。特別な能力がいるわけじゃない。王道の努力を満点に近いことを全部やってきてる。やることは絶対全部やる。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[09:00:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">TEKOの講師になって、初めは他人に興味なかった。でも皆が慕ってくれて、実績が出て感謝されて、今までになかった価値観が生まれた。やってなかったら孤独だったと思う...</div>
+</div>
+<div class="target-scene target-both">
+<strong>[11:30:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">TEKOっていうブランド、ブランディングがしっかりできている。一期生が結果出てなかったらもう終わってた。一期生、二期生がバトンをちゃんと繋いで基準を上げてきた。...</div>
+</div>
+</section>
+<section id="highlights" class="section">
+<h2>ハイライトシーン</h2>
+<table class="highlight-table">
+<tr><th>時間</th><th>話者</th><th>発言</th><th>分類</th></tr>
+<tr>
+<td>09:00</td>
+<td></td>
+<td>僕はインフラで見てまして。僕って石橋を叩いて渡る人なんで、インフラはもう潰れないだろうみたいな。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>25:00</td>
+<td></td>
+<td>大手の通信も受けてて、一番第一志望だった鉄道会社に受かって技術職として入った。マーチだったんで優位性はなかったけど、資格を学生時代に全部取って、そこが評価された。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>50:00</td>
+<td></td>
+<td>三大海運は1年で辞めたけど、綺麗に行くと年収1000万は超えるぐらい。残業代込みで。一番過酷な連結決算部門で、もう精神と時の部屋みたいな形だった。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>02:45:00</td>
+<td></td>
+<td>Uターンして年収500万に半減。時間ができて、父が経営者で不動産やってたから不動産投資を始めた。自己資金が必要だからeBayで資金力をつける戦略を採った。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>03:00:00</td>
+<td></td>
+<td>eBay1ヶ月目は利益0円。3ヶ月目で10万、半年で月利100万超えた。そのキャッシュフローを全部不動産にやったら不動産もガーッと上がった。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>03:30:00</td>
+<td></td>
+<td>不動産は5年で16棟157室、家賃年収1億円超、月間キャッシュフロー200万円。eBayは良い時200万、悪い時100万ぐらい。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>05:00:00</td>
+<td></td>
+<td>父が『お前らはものに溢れすぎてるからハングリー精神がない。だから俺を超えることができん』と言ってた。それがずっと心の中にある。父を追い抜きたい、認められたいというのが根本。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>04:15:00</td>
+<td></td>
+<td>副業を2つやって2発中2発上がってる。特別な能力がいるわけじゃない。王道の努力を満点に近いことを全部やってきてる。やることは絶対全部やる。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>09:00:00</td>
+<td></td>
+<td>TEKOの講師になって、初めは他人に興味なかった。でも皆が慕ってくれて、実績が出て感謝されて、今までになかった価値観が生まれた。やってなかったら孤独だったと思う。</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>11:30:00</td>
+<td></td>
+<td>TEKOっていうブランド、ブランディングがしっかりできている。一期生が結果出てなかったらもう終わってた。一期生、二期生がバトンをちゃんと繋いで基準を上げてきた。強豪校なんですよという意識。</td>
+<td>TEKO価値</td>
+</tr>
+</table>
+</section>
+
+<footer>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-19 17:24</p>
+</footer>
+</div>
+</body>
+</html>
