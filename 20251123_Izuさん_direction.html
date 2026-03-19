@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ディレクションレポート: Izuさん</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    background: #fafbfc;
+    line-height: 1.7;
+}
+h1 {
+    font-size: 1.6em;
+    border-bottom: 3px solid #1a73e8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 1.3em;
+    color: #1a73e8;
+    border-left: 4px solid #1a73e8;
+    padding-left: 12px;
+    margin-top: 30px;
+}
+h3 {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+}
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+}
+.meta-item {
+    font-size: 0.9em;
+}
+.meta-label {
+    color: #888;
+    font-size: 0.8em;
+}
+.meta-value {
+    font-weight: 600;
+}
+.section {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+}
+.tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+.tier-a { background: #ffd700; color: #333; }
+.tier-b { background: #e8f0fe; color: #1a73e8; }
+.tier-c { background: #e8f5e9; color: #2e7d32; }
+.emphasis-on {
+    color: #d32f2f;
+    font-weight: 700;
+}
+.emphasis-off {
+    color: #888;
+}
+.timeline-entry {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.timeline-ts {
+    font-family: 'SF Mono', 'Consolas', monospace;
+    color: #1a73e8;
+    font-weight: 600;
+    min-width: 50px;
+    white-space: nowrap;
+}
+.timeline-type {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+}
+.type-telop { background: #fce4ec; color: #c62828; }
+.type-camera { background: #e3f2fd; color: #1565c0; }
+.type-color { background: #fff3e0; color: #e65100; }
+.type-composite { background: #f3e5f5; color: #7b1fa2; }
+.timeline-instruction {
+    flex: 1;
+}
+.priority-high { border-left: 3px solid #d32f2f; padding-left: 8px; }
+.priority-medium { border-left: 3px solid #ff9800; padding-left: 8px; }
+.priority-low { border-left: 3px solid #4caf50; padding-left: 8px; }
+.noun-entry {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+}
+.noun-show { background: #e8f5e9; }
+.noun-hide { background: #fce4ec; }
+.target-scene {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+.target-tier1 { border-color: #1a73e8; background: #e8f0fe; }
+.target-tier2 { border-color: #2e7d32; background: #e8f5e9; }
+.target-both { border-color: #ff9800; background: #fff3e0; }
+.balance-meter {
+    display: flex;
+    height: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+.balance-tier1 { background: #1a73e8; }
+.balance-tier2 { background: #2e7d32; }
+.balance-both { background: #ff9800; }
+.strength-card {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+}
+.highlight-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+}
+.highlight-table th, .highlight-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+.highlight-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #555;
+}
+details {
+    margin: 16px 0;
+}
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1a73e8;
+    padding: 8px;
+}
+summary:hover { text-decoration: underline; }
+.transcript {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 0.85em;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    max-height: 600px;
+    overflow-y: auto;
+}
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 0.8em;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+}
+a { color: #1a73e8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* === Z型サムネイル指示書 === */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+}
+.thumbnail-zone {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+}
+.thumbnail-zone .zone-label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.thumbnail-zone .zone-role {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-content {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 6px;
+}
+.thumbnail-zone .zone-color {
+    font-size: 0.8em;
+    color: #666;
+}
+.thumbnail-zone .zone-notes {
+    font-size: 0.8em;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+}
+.zone-top-left { border-color: #d32f2f; }
+.zone-top-left .zone-label { background: #d32f2f; }
+.zone-top-right { border-color: #1565c0; }
+.zone-top-right .zone-label { background: #1565c0; }
+.zone-diagonal { border-color: #ff9800; }
+.zone-diagonal .zone-label { background: #ff9800; }
+.zone-bottom-right { border-color: #2e7d32; }
+.zone-bottom-right .zone-label { background: #2e7d32; }
+.thumbnail-concept {
+    background: #e8f0fe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-weight: 600;
+}
+.thumbnail-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* === タイトル案 === */
+.title-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+    transition: box-shadow 0.2s;
+}
+.title-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.title-card.recommended {
+    border: 2px solid #ffd700;
+    background: #fffef5;
+}
+.title-card .title-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+.title-card .title-text {
+    font-size: 1.15em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+}
+.title-card .title-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8em;
+    color: #888;
+    flex-wrap: wrap;
+}
+.title-card .title-meta span {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+.title-card .title-rationale {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* === 概要欄プレビュー === */
+.description-preview {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', 'Consolas', 'Roboto Mono', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    max-height: 500px;
+    overflow-y: auto;
+}
+.description-preview::before {
+    content: 'YouTube概要欄プレビュー';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #d32f2f;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 0 10px 0 8px;
+    font-family: -apple-system, sans-serif;
+}
+.copy-btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.copy-btn:hover { background: #1558b0; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>ディレクションレポート: Izuさん</h1>
+<div class="meta-grid">
+<div class="meta-item"><div class="meta-label">年齢</div><div class="meta-value">35</div></div>
+<div class="meta-item"><div class="meta-label">本業</div><div class="meta-value">フリーランスITコンサルタント（大規模システム導入支援）。月額200〜250万円の案件を複数受注。平日9時〜18時稼働</div></div>
+<div class="meta-item"><div class="meta-label">年収</div><div class="meta-value">年収1000万円台</div></div>
+<div class="meta-item"><div class="meta-label">動画時間</div><div class="meta-value">不明</div></div>
+<div class="meta-item"><div class="meta-label">種別</div><div class="meta-value">TEKOメンバー対談</div></div>
+<div class="meta-item"><div class="meta-label">ゲスト層</div><div class="meta-value"><span class="tier-badge tier-c">層c</span></div></div>
+<div class="meta-item"><div class="meta-label">年収演出</div><div class="meta-value"><span class="emphasis-on">強調ON</span></div></div>
+</div>
+</header>
+<section id="guest-classification" class="section">
+<h2>ゲスト層分類 (A-1)</h2>
+<p><span class="tier-badge tier-c">層c</span>
+（信頼度: low）</p>
+<p><strong>判定理由:</strong> 自動生成デフォルト分類</p>
+<p><strong>見せ方テンプレート:</strong> 標準テンプレート</p>
+</section>
+<section id="income-direction" class="section">
+<h2>年収演出判断 (A-2)</h2>
+<p><strong>判定:</strong> <span class="emphasis-on">
+強調ON</span></p>
+<p><strong>理由:</strong> 年収情報あり</p>
+</section>
+<section id="proper-nouns" class="section">
+<h2>固有名詞規制 (A-4)</h2>
+
+<div class="noun-entry noun-show">
+<strong>アクセンチュア</strong> — ✅ 出す
+<div style="font-size:0.85em;color:#666;">理由: 本人が動画内で言及（02:30）</div></div>
+</section>
+<section id="direction-timeline" class="section">
+<h2>演出ディレクション (NEW-1)</h2>
+
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[02:30]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>属性テロップ: ゲストの肩書き・属性情報を表示</div>
+<div style="font-size:0.8em;color:#888;">ゲスト属性の視覚的提示</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[02:30]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] テンポ速め — データ根拠→分析→結論の高速サイクル、4名パネルで話者切替頻繁</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_2、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[02:30]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] 中速 — エミン・ユルマズの語り+MC質問のシンプルな掛け合い</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_31、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[02:30]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] 中速テンポ — プレゼン→質疑→深掘りの3段構成、説明パートはやや長め</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_12、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[02:30]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] ゆったり — 学術テーマゆえに丁寧な説明、一人の発言が長め</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_19、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[08:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「1500万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（1500万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[08:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[08:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] 暖色系 — 楽待標準の情報番組ルック、テロップ強調</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_37、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[08:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] PIVOT標準 — スタジオのクール照明</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_25、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[10:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「3000万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（3000万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[10:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[10:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] 暖色系 — 楽待標準の情報番組ルック、テロップ強調</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_37、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[10:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] PIVOT標準 — スタジオのクール照明</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_25、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[15:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「200万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（200万, 250万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[15:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[15:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] 暖色系 — 楽待標準の情報番組ルック、テロップ強調</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_37、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[15:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] PIVOT標準 — スタジオのクール照明</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_25、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[20:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「一番のきっかけはちょっとこのコンサル業自体を、いつまで自分自身ができるかっていうところの不安が...」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[20:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[20:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] テンポ速め — データ根拠→分析→結論の高速サイクル、4名パネルで話者切替頻繁</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_2、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[20:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] 中速 — エミン・ユルマズの語り+MC質問のシンプルな掛け合い</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_31、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[20:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] 暖色系 — 楽待標準の情報番組ルック、テロップ強調</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_37、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[20:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] 中速テンポ — プレゼン→質疑→深掘りの3段構成、説明パートはやや長め</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_12、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[20:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] ゆったり — 学術テーマゆえに丁寧な説明、一人の発言が長め</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_19、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[20:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] PIVOT標準 — スタジオのクール照明</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_25、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[22:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「最近で言うとちょっと生成AIとかがすごい発達してるんで、ちょっと今後コンサルティング業が多分今...」（パンチライン）</div>
+<div style="font-size:0.8em;color:#888;">キー発言の強調</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[22:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角変更: ワイド → 寄り（アップ）でキー発言を際立たせる</div>
+<div style="font-size:0.8em;color:#888;">パンチライン発言時の寄り</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[22:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] テンポ速め — データ根拠→分析→結論の高速サイクル、4名パネルで話者切替頻繁</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_2、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[22:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] 中速 — エミン・ユルマズの語り+MC質問のシンプルな掛け合い</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_31、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[22:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] 暖色系 — 楽待標準の情報番組ルック、テロップ強調</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_37、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[22:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] 中速テンポ — プレゼン→質疑→深掘りの3段構成、説明パートはやや長め</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_12、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[22:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] ゆったり — 学術テーマゆえに丁寧な説明、一人の発言が長め</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_19、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[22:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] PIVOT標準 — スタジオのクール照明</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_25、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[27:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[30:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] テンポ速め — データ根拠→分析→結論の高速サイクル、4名パネルで話者切替頻繁</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_2、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[30:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] 中速 — エミン・ユルマズの語り+MC質問のシンプルな掛け合い</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_31、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[30:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] 暖色系 — 楽待標準の情報番組ルック、テロップ強調</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_37、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[30:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] 中速テンポ — プレゼン→質疑→深掘りの3段構成、説明パートはやや長め</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_12、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[30:00]</span>
+<span class="timeline-type type-composite">複合</span>
+<div class="timeline-instruction">
+<div>[FB学習] ゆったり — 学術テーマゆえに丁寧な説明、一人の発言が長め</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_19、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[30:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] PIVOT標準 — スタジオのクール照明</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_25、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[35:00]</span>
+<span class="timeline-type type-telop">テロップ</span>
+<div class="timeline-instruction">
+<div>テロップ強調: 「60万」を大きく表示、色変え（赤orゴールド）</div>
+<div style="font-size:0.8em;color:#888;">実績数字の出現（60万）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[35:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>色変え: テロップ出現に合わせて画面演出（フラッシュ or 背景色変更）</div>
+<div style="font-size:0.8em;color:#888;">強調テロップ出現時の色変え</div>
+</div>
+</div>
+<div class="timeline-entry priority-high">
+<span class="timeline-ts">[35:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] 暖色系 — 楽待標準の情報番組ルック、テロップ強調</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_37、優先度: high）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[35:00]</span>
+<span class="timeline-type type-color">色変え</span>
+<div class="timeline-instruction">
+<div>[FB学習] PIVOT標準 — スタジオのクール照明</div>
+<div style="font-size:0.8em;color:#888;">FB学習ルール適用（vr_vpat_20260316054444_25、優先度: medium）</div>
+</div>
+</div>
+<div class="timeline-entry priority-medium">
+<span class="timeline-ts">[36:00]</span>
+<span class="timeline-type type-camera">画角</span>
+<div class="timeline-instruction">
+<div>画角: 2ショット（ワイド）で対話の空気感を見せる</div>
+<div style="font-size:0.8em;color:#888;">TEKO価値の証言は対話の雰囲気が重要</div>
+</div>
+</div>
+
+<details>
+<summary>LLMによる追加演出提案</summary>
+<div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
+## 追加演出ディレクション提案（5〜8個）
+
+---
+
+**[適用ルール明示]**
+- 過去FB「もっと綺麗にして」→ テロップデザイン・画質感・フォント選定に反映
+- 外部トラッキング「暖色系」「データ可視化」「テンポ速め」→ 色彩設計・情報テロップ・テンポ感に反映
+
+---
+
+**[02:30〜08:00] カット割り（つなぎ演出）: ギャップ解消ダイジェストカット**
+5分ギャップを埋めるため、「アクセンチュア9年→マネージャー→独立」の時系列を3〜4秒のダイジェスト映像で圧縮。手書き風タイムライン図（2016年→2025年）をモーションで流すインフォグラフィック挿入。BGMをここだけ少し盛り上げてシーン転換を明示する。外部トラッキングの「データ可視化×専門家の組み合わせ」パターンを応用。
+
+---
+
+**[02:30] テロップ: 「元アクセンチュア」権威テロップ初出し**
+Izuさん初登場のこのシーンで、画面下部に「元アクセンチュア／ITコンサル9年」を企業ロゴ風のサンセリフ太字で表示。背景を黒ベースのシンプルな帯にして権威感を出す。層c演出方針の「企業ブランドは初登場時にキャプション表示」ルールに準拠。「もっと綺麗にして」FBを受け、テロップ帯の角丸・透過グラデーションで視覚品質を高める。
+
+---
+
+**[08:00] テロップ＋SE: 「1500万円」数字パンチライン化**
+「1500万円ぐらいありました」の発言瞬間に、画面の35〜40%サイズで「¥1,500万」を中央配置でドーン表示。出現時にコインSEまたは軽いインパクトSEを入れる。数字テロップは白文字＋黄色縁取りで視認性確保。直前0.5秒は無音・静止カットにして「間」を取り、数字出現でテンポを一気に加速させる。
+
+---
+
+**[08:00→10:00] 色彩＋カット割り: Before/After寒暖対比**
+[08:00]のアクセンチュア在籍時代（過去）のトーク区間を寒色系フィルター（+5〜10の青み）で演出。[10:00]の「今は3000万円」に切り替わる瞬間に色温度を暖色（+オレンジ寄り）に変化させ、過去→現在のコントラストを視覚的に演出。転職・キャリアチェンジ演出パターンの準拠。外部トラッキング「暖色系」インサイトと合わせて現在シーンの温かみを強調。
+
+---
+
+**[10:00] テンポ＋テロップ: 「3000万円」累計インフォグラフィック**
+「利益ベースで3000万円」の発言後、0.5秒の間を取ってから「¥1500万（在職時）→¥3000万（独立後）」の矢印グラフをモーションで表示。数字は画面40%サイズ以上。外部トラッキングの「データ根拠→分析→結論の高速サイクル」パターンを参考に、グラフは1〜1.5秒で完成するスピードアニメーションにする。「もっと綺麗にして」FBを受け、グラフのラインはグラデーション＋シャドウで品質感を出す。
+
+---
+
+**[20:00〜22:00] BGM: トーン転換で「不安→挑戦」の感情アーク演出**
+[20:00]の「いつまでできるかという不安」発言でBGMを一瞬マイナー調にトーンダウン（または音量を下げて余白を作る）。[22:00]の「生成AIで変わる」発言から明るいメジャー調・前向きアップテンポに切り替え。層c演出方針「BGMは明るく前向き、挑戦・一歩踏み出す感」に沿い、不安→行動へのシフトを音楽で補強。
+
+---
+
+**[30:00] テロップ＋カット割り: 「本業+副業」二面性タイムライン演出**
+「9時6時は本業、前後1〜2時間ずつeBay」の発言に合わせ、1日のタイムライン図（横スクロール型）をテロップで表示。「9:00-18:00 コンサル業務」「〜9:00 / 18:00〜 eBay」を色分けして並列表示。副業・複業演出パターン「昼は○○、夜は○○的な対比構成」を適用。カメラはゲストのアップ→引き（全身感）にカットして、活動量の多さを体で表現する。
+
+---
+
+**[35:00〜36:00] テンポ＋BGM: クライマックス盛り上げとエモ着地**
+「月利60万円」でSE+大テロップ（上記と同パターン）を入れた後、[36:00]の「自分だけでは絶対到達できなかった」発言に向けてBGMを感情的なピアノ系に変化。ここは逆にテンポを落として2〜3秒の「間」を作り、発言の重みを演出。最後の「やるだけで順調に」でBGMをフェードアップして終わりの余韻を残す。層c視聴者の「自分もできそう」感をエモーションで着地させるクロージング演出。
+</div>
+</details>
+</section>
+<section id="target-checklist" class="section">
+<h2>ターゲット別チェックリスト (A-5)</h2>
+<div class="balance-meter">
+<div class="balance-tier1" style="width:85%"></div>
+<div class="balance-tier2" style="width:15%"></div>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:0.8em;color:#666;">
+<span>1層 7件</span>
+<span>両層 3件</span>
+<span>2層 0件</span>
+</div>
+<p><strong>バランス:</strong> 1層偏重 — 2層（共感・安心感）向けのシーンを追加検討してください。</p>
+
+<div class="target-scene target-tier1">
+<strong>[02:30]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">元々はアクセンチュアで9年間働いてました。そこでもずっとITコンサル一本でやってた感じです。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[08:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">当時辞めた時の最終的なタイトルはマネージャーだったんですけど、その当時は1500万円ぐらいありました。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[10:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">今は利益ベースで言うと3000万円ぐらいです。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[15:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">契約形態で言うと、1ヶ月とか3ヶ月とかで契約して、単価は大体200万円から250万円とかそれぐらいが多いです。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[20:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">一番のきっかけはちょっとこのコンサル業自体を、いつまで自分自身ができるかっていうところの不安があったから、ちょっと他に収入の柱を立てたいなって思ったのが一つのき...</div>
+</div>
+<div class="target-scene target-both">
+<strong>[22:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">最近で言うとちょっと生成AIとかがすごい発達してるんで、ちょっと今後コンサルティング業が多分今と同じような形にはならないなって思ってて。</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[27:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">特にプロパーさんのXとかはずっと見てたんですけど、結構もう包み隠さず実績公開されてるじゃないですか。いいことばっかり言うんじゃなくて、もちろん成果出てない人もい...</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[30:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">基本的には本業の方は9時6時、平日のほとんどの時間お客さんありです。で、eBayとしてはその始まる前の1〜2時間でしたりとか、あとは仕事終わった後に1〜2時間取...</div>
+</div>
+<div class="target-scene target-tier1">
+<strong>[35:00]</strong> 1層向け — 焦燥感・所属欲求
+<div style="font-size:0.85em;">一番出たのが月利で60万円ぐらいですね。8月9月ぐらいがそれぐらいでした。</div>
+</div>
+<div class="target-scene target-both">
+<strong>[36:00]</strong> 両層向け — 焦燥感+共感
+<div style="font-size:0.85em;">本当に自分だけでは絶対到達できなかったなっていう。本当にTEKOの動画のコンテンツと講師が有益すぎて、あとはチャットもそうですし、個別コンサルとかっていうのが有...</div>
+</div>
+</section>
+<section id="thumbnail-design" class="section">
+<h2>🖼️ Z型サムネイル指示書</h2>
+<div class="thumbnail-concept">💡 35歳元アクセンチュアが月250万フリーランスへ転身——「自分でもできるかも」と思わせる等身大の実証サムネ</div>
+<div class="thumbnail-meta">フォント: 太ゴシック系（Noto Sans JP Bold / UD デジタル教科書体）。左上フックは72pt以上で視認性最優先。数字部分はさらに1.5倍スケールアップ。英数字はDIN Condensedで瞬発力を出す | 背景: 濃紺〜ダークネイビー（#0D1B2A）をベースに、右上から中央へ向けてソフトな光彩（ライトグレー〜ホワイト）を入れ、シルエットを浮かび上がらせる。清潔感と知性を演出しつつ、数字の白・黄テキストが際立つ設計</div>
+<div class="thumbnail-grid">
+<div class="thumbnail-zone zone-top-left">
+<span class="zone-label">左上: フック</span>
+<div class="zone-role">フック（視認0.2秒で勝負を決める突破口）</div>
+<div class="zone-content">【テキスト案A】「会社員を捨てた」（大文字・白）
+【テキスト案B】「月250万、週5だけ」（数字を黄色強調）
+→ tier c（等身大フック）のため「自分も捨てられるかも」という行動トリガーを優先。「アクセンチュア→フリーランス」の転身ストーリーを匂わせる最短ワードで</div>
+<div class="zone-color">🎨 メインテキスト：白（#FFFFFF）。数字・強調語：明るい黄（#FFD700）。影：ダークネイビーのドロップシャドウで視認性確保</div>
+<div class="zone-notes">フォントサイズは画面の1/4を占める大きさ。1行〜2行以内に収める。左端揃えで視線の入り口を明確に固定する</div>
+</div>
+<div class="thumbnail-zone zone-top-right">
+<span class="zone-label">右上: 人物</span>
+<div class="zone-role">人物シルエット＋属性（キャラクター配置）</div>
+<div class="zone-content">シルエット：スーツ姿の男性シルエット（正面〜やや視聴者方向に向いた角度）。顔部分はモザイクではなくシルエット処理（塗りつぶしシルエット）で統一感を出す。
+属性テキスト：
+　・「35歳」（シルエット頭部付近、小〜中サイズ）
+　・「元 Accenture」（肩〜胸元付近。Accentureのロゴフォント風のテキスト、または〉マーク付きで企業イメージを非言語で伝える）</div>
+<div class="zone-color">🎨 シルエット：ライトグレー〜シルバー（#C0C8D0）で「プロフェッショナル感」を演出。属性テキスト：白。「元 Accenture」の「Accenture」部分はオレンジ（#FF6900 ＝ Accentureブランドカラー）で企業ロゴ感を出し、非言語で瞬時に権威性を伝える</div>
+<div class="zone-notes">シルエットの高さはサムネイル縦の70〜80%を占めさせて存在感を出す。顔のモザイク処理は行わずシルエット全体で表現。「元 Accenture」は文字だけでなく〉マーク（アクセンチュアのコーポレートシンボル）を小さく添えると、ロゴを直接使わずに企業連想を喚起できる</div>
+</div>
+<div class="thumbnail-zone zone-diagonal">
+<span class="zone-label">斜め: コンテンツ</span>
+<div class="zone-role">コンテンツ要素（Z字斜め降下ラインで内容を伝える）</div>
+<div class="zone-content">非言語要素（優先）：
+　①「💻 + ネットワーク構成図アイコン」——大規模システム導入支援を瞬時に伝える
+　②「📄 × 3」(契約書アイコン×3枚)——複数案件並行を視覚化
+
+補助テキスト（最小限）：
+　「月200〜250万 × 複数案件」または「週40時間、自由な9〜18時」
+
+→ Z字の斜め動線（右上シルエット→左下）上に配置し、「この人は何で稼いでいるのか」をイメージで補足する</div>
+<div class="zone-color">🎨 アイコン類：ホワイト〜ライトシアン（#A8DAFF）でIT・デジタル感を演出。テキスト補助：グレーホワイト（#E8E8E8）で主役の左上・右下を邪魔しない</div>
+<div class="zone-notes">要素を詰め込みすぎない。アイコン2〜3点＋テキスト1行が上限。Z字の流れを妨げないよう、中央からやや左下に向けてゆるやかに配置する</div>
+</div>
+<div class="thumbnail-zone zone-bottom-right">
+<span class="zone-label">右下: ベネフィット</span>
+<div class="zone-role">ベネフィット（視聴者が最後に受け取る価値・クリック動機）</div>
+<div class="zone-content">【テキスト案A】「年収1000万の設計図」
+【テキスト案B】「ITスキルだけで独立できる条件」
+【テキスト案C】「フリーランスで稼ぐ、現実の話」
+
+→ tier c（〜1000万層）向けに「自分でも再現できる具体的な道筋」を示す着地にする。数字と実現可能感を両立させた1フレーズで締める</div>
+<div class="zone-color">🎨 背景に半透明の帯（ダークネイビー70%）を敷いてテキストを際立たせる。テキスト本体：白。「年収1000万」等の数字部分のみ黄（#FFD700）でアクセント</div>
+<div class="zone-notes">右下は視線の最終着地点かつクリック意欲の最後の後押し。1行〜2行、18〜24pt程度で簡潔に。過剰な装飾は不要。左上フックと呼応するキーワード（「捨てた」→「設計図」のように対になる言葉）を選ぶと回収感が生まれてクリック率が上がる</div>
+</div>
+</div>
+</section>
+<section id="title-proposals" class="section">
+<h2>📝 タイトル案</h2>
+<div class="title-card recommended">
+<div class="title-badge">⭐ 推奨</div>
+<div class="title-text">年収3000万30代元アクセンチュア「生成AIでコンサル業は今と同じ形にはならない」Izuさんが語るキャリアの先手戦略とは【TEKO独占インタビュー】</div>
+<div class="title-meta">
+<span>🎯 コンサル・ITコンサル・高年収専門職で将来のキャリアに不安を持つ30〜40代。AI時代の変化を肌感覚で感じているが、具体的な行動に移せていない層</span>
+<span>📢 時代感×問いかけ系</span>
+</div>
+<div class="title-rationale">「生成AI」「コンサル業の変容」という2026年現在の最重要テーマを本人の肉声で提示。高リテラシー層が最も反応する「自分ごと化できる危機感」を喚起しつつ、煽りではなく知的な問いとして届く。Izuさんが月単価250万のトップフリーランサーであっても抱く危機感、という文脈がフックとして機能する</div>
+</div><div class="title-card">
+
+<div class="title-text">年収3000万30代元アクセンチュア「いつまで自分にできるかわからないという不安があった」Izuさんが語る月単価250万フリーランスの次の一手とは【TEKO独占インタビュー】</div>
+<div class="title-meta">
+<span>🎯 高単価フリーランス・独立コンサル・専門職の30〜40代。現状の収入は高いが将来の持続性に不安を持ち、収入の複線化を考え始めている層</span>
+<span>📢 共感×ストーリー系</span>
+</div>
+<div class="title-rationale">「月単価250万でも不安を感じる」という逆説的なパンチラインが高年収層の「自分もそう思っていた」という共感を引き出す。属性（元アクセンチュア・3000万）の強さで引き込み、「それでも不安だった」という人間的な本音でフックを完成させる</div>
+</div><div class="title-card">
+
+<div class="title-text">年収3000万30代元アクセンチュア マネージャー「月単価250万でも収入の柱を増やしたかった」Izuさんが語る本業フリーランス×副業の実態とは【TEKO独占インタビュー】</div>
+<div class="title-meta">
+<span>🎯 高年収サラリーマン・フリーランスで複業・収入分散に興味を持つ層。具体的な数字（単価・副業収益）に反応しやすいデータ重視タイプ</span>
+<span>📢 数字系</span>
+</div>
+<div class="title-rationale">「月単価250万」という圧倒的な数字をパンチライン内に配置することで、年収3000万という属性の説得力をさらに補強。それでも「収入の柱を増やしたかった」という事実が視聴動機を生む。数字で語るタイプのターゲットに刺さりやすい</div>
+</div><div class="title-card">
+
+<div class="title-text">年収3000万30代元アクセンチュア「辞めた時の年収は1500万だった。それでも独立した」Izuさんが語るフリーランスITコンサルのリアルとは【TEKO独占インタビュー】</div>
+<div class="title-meta">
+<span>🎯 大手コンサル・外資勤務で独立を検討している30代。「安定した高年収を捨てる決断」に共感・葛藤を持つ層</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">「1500万→3000万」という独立前後の数字変化を一文に圧縮したパンチライン。「安定を捨てた勇気と結果」というストーリーラインが、独立検討層の「自分はどうすべきか」という問いに直結する。転職・独立を迷っている層への訴求力が高い</div>
+</div><div class="title-card">
+
+<div class="title-text">「生成AIでコンサル業は今と同じ形にはならない」30代年収3000万元アクセンチュア マネージャーのIzuさんが語るAI時代のキャリア設計とは【TEKO独占インタビュー】</div>
+<div class="title-meta">
+<span>🎯 コンサル・専門職・ITエンジニア系の高リテラシー層。AIの影響をすでに感じており、自分のキャリアをどう再設計するか模索している層</span>
+<span>📢 時代感×権威系（パターンB）</span>
+</div>
+<div class="title-rationale">パターンBのパンチライン先頭型。インパクトのある発言を冒頭に置くことで、タイトル冒頭だけでスクロールを止める力がある。「元アクセンチュア マネージャー」という権威属性がパンチラインの信頼性を強化。候補1と同じパンチラインで配置バリエーションとして比較用</div>
+</div>
+</section>
+
+<section id="highlights" class="section">
+<h2>ハイライトシーン</h2>
+<table class="highlight-table">
+<tr><th>時間</th><th>話者</th><th>発言</th><th>分類</th></tr>
+<tr>
+<td>02:30</td>
+<td></td>
+<td>元々はアクセンチュアで9年間働いてました。そこでもずっとITコンサル一本でやってた感じです。</td>
+<td>属性紹介</td>
+</tr><tr>
+<td>08:00</td>
+<td></td>
+<td>当時辞めた時の最終的なタイトルはマネージャーだったんですけど、その当時は1500万円ぐらいありました。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>10:00</td>
+<td></td>
+<td>今は利益ベースで言うと3000万円ぐらいです。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>15:00</td>
+<td></td>
+<td>契約形態で言うと、1ヶ月とか3ヶ月とかで契約して、単価は大体200万円から250万円とかそれぐらいが多いです。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>20:00</td>
+<td></td>
+<td>一番のきっかけはちょっとこのコンサル業自体を、いつまで自分自身ができるかっていうところの不安があったから、ちょっと他に収入の柱を立てたいなって思ったのが一つのきっかけですね。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>22:00</td>
+<td></td>
+<td>最近で言うとちょっと生成AIとかがすごい発達してるんで、ちょっと今後コンサルティング業が多分今と同じような形にはならないなって思ってて。</td>
+<td>パンチライン</td>
+</tr><tr>
+<td>27:00</td>
+<td></td>
+<td>特にプロパーさんのXとかはずっと見てたんですけど、結構もう包み隠さず実績公開されてるじゃないですか。いいことばっかり言うんじゃなくて、もちろん成果出てない人もいますよっていうことをちゃんと発信されてた</td>
+<td>TEKO価値</td>
+</tr><tr>
+<td>30:00</td>
+<td></td>
+<td>基本的には本業の方は9時6時、平日のほとんどの時間お客さんありです。で、eBayとしてはその始まる前の1〜2時間でしたりとか、あとは仕事終わった後に1〜2時間取ってるみたいな感じなんで、トータルで言う</td>
+<td>実績数字</td>
+</tr><tr>
+<td>35:00</td>
+<td></td>
+<td>一番出たのが月利で60万円ぐらいですね。8月9月ぐらいがそれぐらいでした。</td>
+<td>実績数字</td>
+</tr><tr>
+<td>36:00</td>
+<td></td>
+<td>本当に自分だけでは絶対到達できなかったなっていう。本当にTEKOの動画のコンテンツと講師が有益すぎて、あとはチャットもそうですし、個別コンサルとかっていうのが有益すぎて、本当それ通りにやるだけで順調に</td>
+<td>TEKO価値</td>
+</tr>
+</table>
+</section>
+
+<footer>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-19 18:12</p>
+</footer>
+</div>
+</body>
+</html>
