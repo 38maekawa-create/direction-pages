@@ -356,11 +356,11 @@ a:hover { text-decoration: underline; }
 <div class="meta-grid">
 <div class="meta-item"><div class="meta-label">年齢</div><div class="meta-value">32</div></div>
 <div class="meta-item"><div class="meta-label">本業</div><div class="meta-value">人材業界 企画職（デジタルPRを活用した求職者向け集客企画）</div></div>
-<div class="meta-item"><div class="meta-label">年収</div><div class="meta-value">不明</div></div>
+<div class="meta-item"><div class="meta-label">年収</div><div class="meta-value">年収870万</div></div>
 <div class="meta-item"><div class="meta-label">動画時間</div><div class="meta-value">不明</div></div>
-<div class="meta-item"><div class="meta-label">種別</div><div class="meta-value">不明</div></div>
+<div class="meta-item"><div class="meta-label">種別</div><div class="meta-value">TEKOメンバー対談</div></div>
 <div class="meta-item"><div class="meta-label">ゲスト層</div><div class="meta-value"><span class="tier-badge tier-c">層c</span></div></div>
-<div class="meta-item"><div class="meta-label">年収演出</div><div class="meta-value"><span class="emphasis-off">強調OFF</span></div></div>
+<div class="meta-item"><div class="meta-label">年収演出</div><div class="meta-value"><span class="emphasis-on">強調ON</span></div></div>
 </div>
 </header>
 <section id="guest-classification" class="section">
@@ -372,9 +372,9 @@ a:hover { text-decoration: underline; }
 </section>
 <section id="income-direction" class="section">
 <h2>年収演出判断 (A-2)</h2>
-<p><strong>判定:</strong> <span class="emphasis-off">
-強調OFF</span></p>
-<p><strong>理由:</strong> デフォルト</p>
+<p><strong>判定:</strong> <span class="emphasis-on">
+強調ON</span></p>
+<p><strong>理由:</strong> 年収情報あり</p>
 </section>
 <section id="proper-nouns" class="section">
 <h2>固有名詞規制 (A-4)</h2>
@@ -675,52 +675,67 @@ a:hover { text-decoration: underline; }
 <details>
 <summary>LLMによる追加演出提案</summary>
 <div style="background:#f8f9fa;padding:16px;border-radius:8px;white-space:pre-wrap;font-size:0.9em;">
-## 追加演出ディレクション提案（くますけさん）
+## 追加演出ディレクション提案（くますけさん対談）
 
 ---
 
-**適用済みFBルール**: `[general] もっと綺麗にして` → テロップデザイン・色彩の整理を全体通じて反映
-**適用済みトラッキングパターン**: 暖色系カラーグレーディング、テンポ速め・高速カット切り替えを採用
+**適用ルール明示:**
+- FB学習ルール「もっと綺麗にして」→ テロップデザインの統一・余白・フォント整理に反映
+- 映像トラッキング「暖色系」「データ可視化」→ 数字演出・色温度設計に反映
+- 層c演出方針「等身大感・自分もできそう」→ 全体のトーン設計に反映
 
 ---
 
-**[00:07] テロップ: 「元リクルート」ロゴ風テロップで権威性の視覚化**
-前職リクルートの言及瞬間に、画面下部に「元 RECRUIT」をサンセリフ体・ブランドカラー（赤系）でキャプション表示。2秒間ホールドして視聴者に刷り込む。※ロゴ商標を直接使用せず、フォント・カラーで&quot;ロゴ風&quot;に仕上げる。
+**[1] オープニング：年収数字のパンチライン化**
+`[00:00付近]` テロップ / 色彩 / SE:
+「870万」「900いかないぐらい」の発言タイミングで、**画面30%以上の大型テロップ**「¥870万」を中央配置。フォントはゴシック系太字・白地に黒縁。数字が画面に現れる瞬間に**コイン音またはスタンプ音のSE**を入れる。テロップ出現に合わせ背景の色温度を0.5秒で**暖色（ゴールド寄り）へシフト**させてインパクトを強調。
+→ FB「綺麗にして」反映：テロップ周辺に余白を十分取り、装飾過多にしない
 
 ---
 
-**[00:12] テロップ + BGM: 年収「870万」数字パンチライン化**
-「870ぐらいですね」の発言に合わせて、画面中央〜右に「**870万円**」を画面高さの35%程度の極太フォントでバーンとインサート。数字出現の瞬間に「チーン」または「ドン」系のSEを1発入れる。直後BGMのボリュームを一瞬下げて数字の余韻を残す。（トラッキングパターン「暖色系テロップ強調」を反映）
+**[2] リクルートブランドの権威演出**
+`[00:00 / 属性紹介2つ目]` テロップ / 画角:
+「前職はリクルート」発言直後、画面下部に**キャプションバー**「前職：株式会社リクルート（人材業界トップ）」をロゴ風サンセリフ体で表示（3秒程度）。同時にゲストの**バストアップ→顔寄りのアップ**に切り替えて発言の重みを視覚化する。
+→ 企業ブランドパターン適用
 
 ---
 
-**[00:18] カット割り + テンポ: 副業実績の2段積みテンポ演出**
-「20万」→「25万いくかいかないか」という2つの数字発言を、0.7秒間隔の高速カット切り替えで畳み掛ける。数字テロップも「20万→25万」と連続更新する形でアニメーション。&quot;伸び続けている&quot;という勢いを視覚的に演出。（トラッキングパターン「データ根拠→分析→結論の高速サイクル」を反映）
+**[3] キャリア転換の Before/After 構成**
+`[営業発言〜転職発言の区間]` カット割り / 色彩:
+「営業突き詰めても上には上がらない」→「転職活動をした」の流れを**Before（過去）/After（現在）の二段構成**で演出。Before区間（過去の働き方）は**寒色系フィルター（青みがかった色温度）**でトーンを落とし、Afterへ切り替わる瞬間に**フラッシュ0.2秒**を挟んで暖色系へ転換。カットは「引き→アップ」のリズムで1〜1.5秒テンポよく畳み掛ける。
 
 ---
 
-**[00:22〜00:30] 色彩 + カット割り: 転職判断シーンのBefore/After色温度変化**
-「営業突き詰めても上には上がらない」「中長期的な計画としては微妙」の2パンチライン区間を**寒色系フィルター（青みがかった色温度）**で処理。この区間だけ色温度を5500K→4000K程度に落とし&quot;過去・葛藤&quot;を演出。次のTEKO価値シーンに入る瞬間に暖色（6500K）へ切り替え、Before/Afterのコントラストを作る。
+**[4] 副業実績数字の畳み掛けカット**
+`[20万/25万発言区間]` テロップ / テンポ:
+「1月で20万」「今月25万いくかいかない」の2発言を**0.7秒カット×2**で素早く連続表示。それぞれに大型数字テロップ「月20万」「月25万」を画面中央に**スライドイン**で出現させ、上昇感を演出する。2枚目のテロップには小さく「▲成長中」のサブキャプションを付けて前月比の伸びを視覚化。
+→ 映像トラッキング「データ可視化」パターン適用
 
 ---
 
-**[00:30〜00:40] BGM: TEKO価値3連発シーンの盛り上がり演出**
-「売上と粗利の考え方」「本業への自信」「サポートのスピード感」の3シーンは証言が連続する。BGMをここでメジャーキーの明るいトラックに切り替え（マイナー→メジャー転換）、徐々にボリュームを上げて感情を引っ張る。各証言の頭に0.5秒の静寂を入れ、言葉の重みを際立てる。
+**[5] 中長期キャリア不安の「間」演出**
+`[家族・体力・中長期計画の発言]` テンポ / BGM:
+「年齢を重ねていくにつれて…」の発言前に**1.5〜2秒の間**を意図的に作り、視聴者に考えさせる余白を与える。BGMをここだけ**フェードアウトして無音または微音**にし、ゲストの言葉の重みを際立たせる。発言後に再びBGMを**明るいアップテンポ**で戻すことで「課題→解決」のメリハリを演出する。
 
 ---
 
-**[00:35] テロップ + 画角: 「副業→本業の自信」シーンの二面性演出**
-「副業の成果が本業の発言や提案への自信につながっている」の発言に合わせ、画面を左右に分割するスプリットテロップを使用。左「副業」右「本業」の二面を並列表示し、相乗効果を視覚化。この瞬間だけゲスト単独のタイトアップ（顔アップ）に切り替えて発言に集中させる。（層c演出方針「副業・複業成功の二面性カット切り替え」を反映）
+**[6] 前半密集ハイライトへの「つなぎ演出」（チャプタータイトル挿入）**
+`[属性紹介3連発の直後]` テロップ / カット割り:
+前半に属性紹介・実績数字が集中しているため、3〜4個目のハイライト後に**チャプタータイトルカット**を挿入。黒バックに白テキストで「── なぜTEKOだったのか ──」等のセクション区切りを**1.5秒**表示し、視聴者に「次は何の話か」を予告する。前半の情報過多感を解消しつつ後半への期待を高める。
+→ FB「綺麗にして」反映：情報の流れを整理して視認性向上
 
 ---
 
-**[00:45〜ラスト] テンポ + テロップ: 「やらない理由がない」クロージング演出**
-「1歩踏み出すことによって上位何パーセントかに入れる」「やらない理由がない」を最終メッセージとして強調。この発言の直前に**2秒間の無音・静止カット**を挟んで視聴者の注意を引き絞る。発言後にテロップで「やらない理由がない」を画面全体に大きく表示し3秒ホールド。BGMをここで最大音量まで引き上げてエンディングへ繋ぐ。（層c「挑戦・一歩踏み出す感」BGM演出を反映）
+**[7] TEKO価値発言の「自信の変化」視覚化**
+`[副業成果→本業自信の発言]` 画角 / 色彩:
+「今ほど自信を持ててなかった」→「本業の発言や提案への自信につながっている」の発言を**2ショット（ゲスト+インタビュアー）→ゲスト単独アップ**に切り替えて、自分の言葉として語っている感を強調。単独アップのカットに**軽いビネット（周辺暗化）**を加えてゲストの表情にフォーカスを引き込む。
 
 ---
 
-**[前半→後半つなぎ] チャプタータイトル: ハイライト密集帯のセパレーター挿入**
-前半にハイライトが集中しているため、TEKO価値シーン（[00:30]付近）の冒頭にチャプタータイトルカードを挿入することを推奨。例: **「――そして、TEKOでの変化」** というシンプルなテキストカードを0.8秒インサートし、視聴者に&quot;話の転換点&quot;を明示する。後半の証言が埋もれないようセクション分けする効果を狙う。
+**[8] クロージング：視聴者への背中押しカット**
+`[「やらない理由がないんじゃないか」発言]` テロップ / BGM / テンポ:
+最後の「1歩踏み出すことで上位何パーセントかに入れる」「やらない理由がない」発言を**エンドカードの直前**に配置し、ここで**BGMをワンランク盛り上げ**（ストリングス追加またはビートアップ）。「やらない理由がない」のフレーズを画面いっぱいの**手書き風フォントのテロップ**で表示し、視聴者の行動意欲を刺激して締める。発言後は**1秒のフェードアウト**で余韻を残してエンドカードへ接続。
+→ 層c「挑戦・一歩踏み出す感」演出方針の直接適用
 </div>
 </details>
 </section>
@@ -780,84 +795,130 @@ a:hover { text-decoration: underline; }
 </section>
 <section id="thumbnail-design" class="section">
 <h2>🖼️ Z型サムネイル指示書</h2>
-<div class="thumbnail-concept">💡 元リクルート30代が語るキャリアの転換点 — 『営業の限界』への共感フックで「自分も変われるかも」を引き出す等身大ストーリー型サムネ</div>
-<div class="thumbnail-meta">フォント: ヒラギノ角ゴ W8 または Noto Sans JP Bold。フックテキスト（左上）は60〜72px相当の極太。属性バッジは30px以下の小さめ。全体の文字数は画面内20文字以内に抑える | 背景: ダークネイビー（#0D1B2A）〜チャコールグレー（#1C2333）のグラデーション。ビジネス誠実感・都会感を演出しつつ、テキストと人物シルエットが映える高コントラストを確保</div>
+
+
 <div class="thumbnail-grid">
 <div class="thumbnail-zone zone-top-left">
 <span class="zone-label">左上: フック</span>
-<div class="zone-role">フック（最初に目に入る）</div>
-<div class="zone-content">「営業の限界、感じてない？」</div>
-<div class="zone-color">🎨 白文字に黄色（#FFD700）のアンダーライン強調。背景ネイビーとの最大コントラスト</div>
-<div class="zone-notes">0.2秒制約のため10文字以内が理想。パンチライン『営業突き詰めても上には上がらない』を圧縮。Tier C（30代サラリーマン）の『自分も同じ…』という共感トリガーを最優先。疑問形にすることで目線が止まる</div>
+<div class="zone-role"></div>
+<div class="zone-content"></div>
+<div class="zone-color">🎨 </div>
+<div class="zone-notes"></div>
 </div>
 <div class="thumbnail-zone zone-top-right">
 <span class="zone-label">右上: 人物</span>
-<div class="zone-role">人物シルエット＋属性</div>
-<div class="zone-content">スーツ男性シルエット（斜め45度・顔モザイク処理）＋ バッジテキスト『32歳 / 元リクルート』＋ リクルートロゴを小さく右肩に配置</div>
-<div class="zone-color">🎨 シルエット: ライトグレー（#B0BEC5）。バッジ背景: リクルートカラー赤（#E60012）に白文字。ロゴはオリジナルカラーそのまま使用</div>
-<div class="zone-notes">顔は出さず、リクルートロゴ1枚で『あの有名企業出身』を瞬時に非言語伝達。ロゴが権威性を代替する。シルエットは下半身まで入れずバストアップ気味にすると圧迫感が出ない</div>
+<div class="zone-role"></div>
+<div class="zone-content"></div>
+<div class="zone-color">🎨 </div>
+<div class="zone-notes"></div>
 </div>
 <div class="thumbnail-zone zone-diagonal">
 <span class="zone-label">斜め: コンテンツ</span>
-<div class="zone-role">コンテンツ要素（斜めに視線誘導）</div>
-<div class="zone-content">『営業職』アイコン（電話・ハンドシェイク）→ 矢印 → 『企画職』アイコン（PCとグラフ）の転換フロー。文字ではなくピクトグラムで表現</div>
-<div class="zone-color">🎨 アイコン: ライトブルー（#64B5F6）。矢印: 白（#FFFFFF）。Z字の斜め降下ラインに沿って左→右→下と配置</div>
-<div class="zone-notes">文字ゼロで『営業→企画への転換ストーリー』を視覚表現。Z字の斜め誘導ラインとアイコン配置を一致させることで視線が自然に右下へ流れる。ここに文字を入れると0.2秒の壁を超えられないため非言語一択</div>
+<div class="zone-role"></div>
+<div class="zone-content"></div>
+<div class="zone-color">🎨 </div>
+<div class="zone-notes"></div>
 </div>
 <div class="thumbnail-zone zone-bottom-right">
 <span class="zone-label">右下: ベネフィット</span>
-<div class="zone-role">ベネフィット（最後の着地）</div>
-<div class="zone-content">「転職したら選択肢が3倍になった」</div>
-<div class="zone-color">🎨 グリーン（#66BB6A）またはアンバー（#FFA726）。着地点として前向き・希望感のある色。背景ネイビーから浮き上がるよう彩度高めに</div>
-<div class="zone-notes">年収演出OFFのため収入数字は一切使用しない。『選択肢が広がった』というキャリア価値軸のベネフィットを提示。Tier C視聴者の『自分でも転職してキャリアを変えられるかも』という行動動機に着地させる</div>
+<div class="zone-role"></div>
+<div class="zone-content"></div>
+<div class="zone-color">🎨 </div>
+<div class="zone-notes"></div>
 </div>
 </div>
 </section>
 <section id="title-proposals" class="section">
 <h2>📝 タイトル案</h2>
-<div class="title-card">
-
-<div class="title-text">「営業を突き詰めても上には上がれないと感じた」30代前半元リクルート人材業界企画職くますけさんが語るキャリア再設計の決断とは【TEKO独占インタビュー】</div>
-<div class="title-meta">
-<span>🎯 営業職・管理職キャリアの天井を感じている30代前半の会社員。特に大手・名門企業出身で「ここまでやり切った」感のある人</span>
-<span>📢 ストーリー系</span>
-</div>
-<div class="title-rationale">「営業を突き詰めても上がれない」はキャリアに悩む会社員全般に刺さる普遍的なパンチライン。元リクルートという権威性を添えることで「業界トップを経験した人でも感じる限界」として説得力が増す。年収演出OFFのためパターンBを採用しパンチライン先頭に配置</div>
-</div><div class="title-card recommended">
+<div class="title-card recommended">
 <div class="title-badge">⭐ 推奨</div>
-<div class="title-text">「体力が衰えた時に、同じように稼げるか考え始めた」30代前半元リクルート人材業界企画職くますけさんが語る中長期キャリア設計とは【TEKO独占インタビュー】</div>
+<div class="title-text">年収870万30代前半元リクルート企画職「営業突き詰めても上には上がらない」くますけさんが語るキャリア戦略とは【TEKO独占インタビュー】</div>
 <div class="title-meta">
-<span>🎯 30代に差し掛かり、体力・家族・将来の持続可能性を意識し始めた会社員。特に今の稼ぎ方が10年後も通用するか不安を感じている層</span>
+<span>🎯 営業職・現場職として働く30代で、昇進・年収上限への閉塞感を感じているサラリーマン</span>
 <span>📢 ストーリー系</span>
 </div>
-<div class="title-rationale">「体力が衰えた時」という具体的な将来像が、同世代の会社員の潜在的な不安を言語化している。「今は稼げているけど、このまま続けられるのか」という自分ごと化が強く、TEKOのコアターゲット層に刺さりやすい</div>
+<div class="title-rationale">「元リクルート」という社格の強さで即座に権威性を担保しつつ、「営業突き詰めても上には上がらない」というパンチラインが営業職出身者の共感を直撃する。前半の属性密度が高く、見切れても機能する配置。</div>
 </div><div class="title-card">
 
-<div class="title-text">「リクルートのトップを経験して感じたキャリアの限界」30代前半人材業界企画職くますけさんが語る会社依存からの脱却とは【TEKO独占インタビュー】</div>
+<div class="title-text">年収870万30代前半元リクルート企画職「中長期的な計画として微妙だと気づいた」くますけさんが語るキャリアの再設計とは【TEKO独占インタビュー】</div>
 <div class="title-meta">
-<span>🎯 大手・ブランド企業に勤めながら「このまま会社にいていいのか」と感じている30代。特に業界内での序列や評価軸に疑問を持ち始めた人</span>
-<span>📢 権威系</span>
+<span>🎯 30代に差し掛かり、今の働き方を10年後も続けられるか不安を感じているサラリーマン全般</span>
+<span>📢 問いかけ系</span>
 </div>
-<div class="title-rationale">リクルートという固有名詞の権威性を前面に出したバリエーション。「業界最大手を経験した人でも限界を感じる」という構図が、名の知れた会社に勤めている視聴者への共感フックになる。ただしリクルートの名前はパンチライン引用内になく、説明的になる点が課題</div>
+<div class="title-rationale">「中長期的な計画として微妙」という言語は、特定職種に限らず幅広い30代会社員の漠然とした不安を言語化している。属性×汎用不安の組み合わせで間口が広い。</div>
 </div><div class="title-card">
 
-<div class="title-text">「家族ができた時、中長期的な計画として今のままは微妙だと感じた」30代前半元リクルート人材業界企画職くますけさんが語るキャリアと家族の両立戦略とは【TEKO独占インタビュー】</div>
+<div class="title-text">年収870万30代前半元リクルート企画職「体力が衰えた時に同じように稼げるか、微妙だと思った」くますけさんが語る所得アップ戦略とは【TEKO独占インタビュー】</div>
 <div class="title-meta">
-<span>🎯 子育て世代に突入しつつある30代前半。家族を持って初めて「このキャリアで本当に大丈夫か」を真剣に考え始めた層</span>
+<span>🎯 30〜40代で「今の稼ぎ方が年齢とともに通用しなくなる」という不安を持つ体力勝負・現場系職種のサラリーマン</span>
 <span>📢 ストーリー系</span>
 </div>
-<div class="title-rationale">家族・子育てという属性要素を加えることで、同じ立場の視聴者の自分ごと化を高める。「中長期的な計画として微妙」という本人の発言に近い言い回しがリアリティを生む。ただし若干長いため表示環境での見切れに注意</div>
+<div class="title-rationale">体力・年齢と稼ぎ方の関係は、営業・現場・人材業界の人間が抱えるリアルな不安。「体力が衰えた時」という具体性が視聴者の自分ごと化を促す。パンチラインが長めだが感情移入度が高い。</div>
 </div><div class="title-card">
 
-<div class="title-text">年収870万30代前半元リクルート人材業界企画職「営業を突き詰めても上には上がれないと気づいた」くますけさんが語るキャリア戦略とは【TEKO独占インタビュー】</div>
+<div class="title-text">年収870万30代前半元リクルート企画職「営業突き詰めても上には上がらない」くますけさんが副業月25万を積み上げるまでの戦略とは【TEKO独占インタビュー】</div>
 <div class="title-meta">
-<span>🎯 年収700〜900万台で頭打ち感を感じている30代前半の会社員。特に営業・法人系職種で「これ以上の成長が見えない」と感じている人</span>
+<span>🎯 本業の年収上限を感じており、副業で具体的な数字を出したいと考えているサラリーマン</span>
 <span>📢 数字系</span>
 </div>
-<div class="title-rationale">年収演出OFFを考慮しつつも、一応パターンAフォーマットとして残した比較案。870万という数字自体は突出して高くないが「元リクルート×870万」の組み合わせが、業界経験のある視聴者には「あの会社でもそのくらいか」という共感を生む可能性がある</div>
+<div class="title-rationale">パンチラインで共感を生み、「月25万」という実績数字で視聴動機を補強する二段構え。「どうやって稼いだか」を知りたい層への訴求力が増す。テーマがリアルな実績提示になることでクリック後の期待値も上がる。</div>
+</div><div class="title-card">
+
+<div class="title-text">「営業突き詰めても上には上がらない」30代前半年収870万元リクルート企画職くますけさんが語るキャリアの再設計とは【TEKO独占インタビュー】</div>
+<div class="title-meta">
+<span>🎯 パターンAと同じ層だが、パンチラインを先に見せることで感情的なフックを優先したい場合</span>
+<span>📢 ストーリー系</span>
+</div>
+<div class="title-rationale">パターンB（パンチライン先頭型）の1案として。「元リクルートで営業を極めた人間が限界を感じた」というストーリーが1文で伝わる。パターンAとA/Bテストに使いやすい。</div>
 </div>
 </section>
+<section id="video-description" class="section">
+<h2>📋 YouTube概要欄</h2>
+<p style="font-size:0.85em;color:#888;">そのままコピーしてYouTubeの概要欄に貼り付けてください。</p>
+<div class="description-preview" id="description-text">チャンネル登録はこちらから▼
+    @TEKO-公式 
 
+【TEKO公式メディア】
+ハイキャリアパーソンの裏側とキャリア、資産形成について発信
+https://levaraging.daive-teko.com/
+
+【運営者：プロパー八重洲とLINEで繋がりませんか？】
+▼パラレルキャリア戦略やTEKOについてはLINEから▼
+https://leverage.daive-teko.com/p/JNN...
+
+【プロパー八重洲公式チャンネルはこちらから】
+     @プロパー八重洲キャリア戦略室 
+
+【ハイキャリアの裏側チャンネルはこちらから】
+     @ハイキャリアの裏側-TEKO
+
+▼タイムスタンプ▼
+00:00 自己紹介：32歳・元リクルート・人材業界企画職・年収870万
+XX:XX 転職の理由〜営業を突き詰めても上には上がれないと感じた〜
+XX:XX TEKO入会のきっかけ〜家族・体力・中長期的な稼ぎ方への不安〜
+XX:XX 副業の実績〜初月20万、翌月25万ペースへ〜
+XX:XX TEKOで変わったこと〜売上・粗利の考え方と本業の自信〜
+XX:XX 視聴者へのメッセージ〜1歩踏み出すだけで上位数%に入れる〜
+
+━━━━━━━━━━━
+#人材業界 #リクルート #年収870万 #プロパー八重洲 #TEKO #転職 #副業 #ハイキャリ #企画職 #パラレルキャリア
+━━━━━━━━━━━
+
+【運営者情報・SNSリンク】
+※ description_writer.py で付与</div>
+<button class="copy-btn" id="copy-btn" onclick="copyDescription()">📋 概要欄テキストをコピー</button>
+
+<script>
+function copyDescription() {
+    const text = document.getElementById('description-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '✅ コピーしました！';
+        setTimeout(() => { btn.textContent = '📋 概要欄テキストをコピー'; }, 2000);
+    });
+}
+</script>
+</section>
 <section id="highlights" class="section">
 <h2>ハイライトシーン</h2>
 <table class="highlight-table">
@@ -917,7 +978,7 @@ a:hover { text-decoration: underline; }
 </section>
 
 <footer>
-<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-19 17:50</p>
+<p>AI開発10 映像品質追求・自動ディレクションシステム | 生成日時: 2026-03-19 18:24</p>
 </footer>
 </div>
 </body>
